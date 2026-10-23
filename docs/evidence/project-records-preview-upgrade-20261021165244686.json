@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-21T16:52:44.6119292Z",
+  "before": {
+    "watchCount": 0,
+    "noteCount": 0,
+    "sha256": "CCBB3DB55BFDEE64EB2B425906A2AFA10FDFC4346041B09B62F4CF5E1961BC1B"
+  },
+  "after": {
+    "watchCount": 0,
+    "noteCount": 0,
+    "sha256": "CCBB3DB55BFDEE64EB2B425906A2AFA10FDFC4346041B09B62F4CF5E1961BC1B"
+  },
+  "legacyFieldsEqual": true,
+  "jarSha256": "9867C1A25D0883C3C9066A4DECBFE6D6EFF39A4A996B066351A28E3377C6157D",
+  "coverage": "Managed preview rebuild and V6 startup; existing legacy API fields compared, MySQL kept running. Nonempty V5 migration has separate isolated SQL evidence; not production rollback."
+}

@@ -1,0 +1,38 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 308 Permanent Redirect
+Date: Thu, 22 Oct 2026 04:09:38 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+Location: /terms-and-conditions
+Server-Timing: total;dur=0.0;desc="worker to headers", fetch;dur=0.0;desc="n=0 sum=0 pending=0", iso;desc="warm n=15 age=676s"
+Vary: accept-encoding
+Server: cloudflare
+CF-RAY: a4e5a5d15becd4e4-NRT
+alt-svc: h3=":443"; ma=86400
+
+HTTP/1.1 404 Not Found
+Date: Thu, 22 Oct 2026 04:09:39 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+Link: <https://coinpaprika.com/terms-and-conditions>; rel="alternate"; hreflang="en", <https://coinpaprika.com/es/terms-and-conditions>; rel="alternate"; hreflang="es", <https://coinpaprika.com/de/terms-and-conditions>; rel="alternate"; hreflang="de", <https://coinpaprika.com/fr/terms-and-conditions>; rel="alternate"; hreflang="fr", <https://coinpaprika.com/it/terms-and-conditions>; rel="alternate"; hreflang="it", <https://coinpaprika.com/pl/terms-and-conditions>; rel="alternate"; hreflang="pl", <https://coinpaprika.com/pt/terms-and-conditions>; rel="alternate"; hreflang="pt", <https://coinpaprika.com/ru/terms-and-conditions>; rel="alternate"; hreflang="ru", <https://coinpaprika.com/zh/terms-and-conditions>; rel="alternate"; hreflang="zh", <https://coinpaprika.com/ja/terms-and-conditions>; rel="alternate"; hreflang="ja", <https://coinpaprika.com/ko/terms-and-conditions>; rel="alternate"; hreflang="ko", <https://coinpaprika.com/ar/terms-and-conditions>; rel="alternate"; hreflang="ar", <https://coinpaprika.com/hi/terms-and-conditions>; rel="alternate"; hreflang="hi", <https://coinpaprika.com/tr/terms-and-conditions>; rel="alternate"; hreflang="tr", <https://coinpaprika.com/terms-and-conditions>; rel="alternate"; hreflang="x-default"
+Set-Cookie: NEXT_LOCALE=en; Path=/; SameSite=lax
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Vary: Accept, accept-encoding
+Server-Timing: total;dur=0.0;desc="worker to headers", fetch;dur=0.0;desc="n=0 sum=0 pending=0", iso;desc="warm n=16 age=677s"
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://s.tradingview.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://static.cloudflareinsights.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://api.coinpaprika.com https://api-frontend.coinpaprika.com https://graphsv2.coinpaprika.com https://live.coinpaprika.com https://*.firebaseio.com wss://*.firebaseio.com https://*.googleapis.com https://billing.coinpaprika.com https://pagead2.googlesyndication.com https://cloudflareinsights.com; frame-src 'self' https://s.tradingview.com https://coinpaprika.com https://buy.ramp.network https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://coins-gateway.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+x-continent: AS
+x-country: JP
+x-dns-prefetch-control: on
+x-frame-options: SAMEORIGIN
+x-opennext: 1
+x-powered-by: Next.js
+Server: cloudflare
+CF-RAY: a4e5a5d23cf1d4e4-NRT
+alt-svc: h3=":443"; ma=86400
+

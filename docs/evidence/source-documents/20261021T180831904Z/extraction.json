@@ -1,0 +1,34 @@
+{
+  "extractedAt": "2026-10-21T18:13:34.069Z",
+  "networkRequests": 0,
+  "requests": [
+    {
+      "id": "coinlore-api",
+      "url": "https://www.coinlore.com/cryptocurrency-data-api",
+      "bodySha256": "ba220d8f9e90da3abb758760046bbff73903acab4ca397472aaa2e8fa95fe755",
+      "title": "Free Cryptocurrency API for Real-Time Crypto Market Data | CoinLore",
+      "metaRefresh": null,
+      "links": [
+        "https://www.coinlore.com/terms-of-use"
+      ],
+      "excerpts": [
+        "e public endpoint base. This free crypto API is designed for fast integration and does not require an API key. While there is no strict rate limit, we recommend around one request per second for stable and fair usage. The main API domain is api.coinlore.net. Below you can explore the currently supported API endpoints for real-time prices, historical crypto data, OHLCV candles, market analytics, exchange pairs, and social data. Every endpoint includes example requests, response fields, and code samples in multiple programming languages. If you need help with the API or want to share feedback, contact us at contact@coinlore.com. Crypto API Endpoints API Endpoint Description /api/global/ Get global crypto statistics, includ"
+      ]
+    },
+    {
+      "id": "coinlore-terms",
+      "url": "https://www.coinlore.com/terms-of-use",
+      "bodySha256": "d5063548d96295fc3e60e22fc98046dced118aff59d4a460a1fbe16e0421dd28",
+      "title": "Terms of Use - CoinLore",
+      "metaRefresh": null,
+      "links": [
+        "https://www.coinlore.com/terms-of-use#",
+        "https://www.coinlore.com/terms-of-use"
+      ],
+      "excerpts": [
+        "ng, and code—is protected by intellectual property laws and is the exclusive property of CoinLore or our licensors. We encourage the responsible sharing of knowledge, but copying, redistributing, or commercial use of content is prohibited without our express written consent. 7. Updates to Our Terms We are committed to ongoing improvement. Our Terms may be updated from time to time to reflect advancements in industry standards or changes in the law. We will always notify you of major updates before they take effect. The date of the latest update is shown at the bottom of this page. 8. Your Acknowledgement and Agreement By using CoinLore, you confirm you have read these Terms and agree to comply with them. If you have any ",
+        "tected by intellectual property laws and is the exclusive property of CoinLore or our licensors. We encourage the responsible sharing of knowledge, but copying, redistributing, or commercial use of content is prohibited without our express written consent. 7. Updates to Our Terms We are committed to ongoing improvement. Our Terms may be updated from time to time to reflect advancements in industry standards or changes in the law. We will always notify you of major updates before they take effect. The date of the latest update is shown at the bottom of this page. 8. Your Acknowledgement and Agreement By using CoinLore, you confirm you have read these Terms and agree to comply with them. If you have any concerns or would l"
+      ]
+    }
+  ]
+}

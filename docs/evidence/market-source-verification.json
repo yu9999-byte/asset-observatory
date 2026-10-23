@@ -1,0 +1,866 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-21",
+  "timeZone": "UTC",
+  "purpose": "Public market-data feasibility and release gates; observations are evidence, not application fixtures or a redistribution license.",
+  "transport": {
+    "browser": "Existing Chrome public browser networking via approved local web-access CDP proxy; no login was needed.",
+    "directNode": "Native Node fetch failed: OKX EHOSTUNREACH 169.254.0.2:443; Kraken timed out.",
+    "directCurl": "OKX status 000 connect failure; Kraken timeout status 000, including --ssl-revoke-best-effort.",
+    "systemProxy": "Python urllib discovered existing Windows system proxy http(s)://127.0.0.1:7897; no proxy environment variables present. Kraken Spot and Futures succeeded using this existing route. OKX via urllib returned HTTP 403. No access restrictions were bypassed.",
+    "productionGate": "Java backend must explicitly configure and validate its own transport; browser success is not production transport evidence."
+  },
+  "okx": {
+    "decision": "DISABLED_PENDING_WRITTEN_DATA_LICENSE",
+    "terms": {
+      "url": "https://www.okx.com/zh-hans/help/okx-api-agreement",
+      "retrievedAt": "2026-10-21T08:45:53.119Z",
+      "status": 200,
+      "sha256": "ba648b87d039fd17f342744d61ecab554443c0fd0356ab36d74e4a4d0dc4a05c",
+      "published": "2026-03-26",
+      "sections": [
+        "9.2",
+        "9.3",
+        "9.4"
+      ],
+      "summary": "API agreement limits market data to personal noncommercial trading/account management; third-party redistribution or display and competing aggregators/analytics platforms require permission. Unauthenticated public endpoints are expressly covered. Accessibility does not grant redistribution rights."
+    },
+    "documentation": {
+      "url": "https://www.okx.com/docs-v5/en/",
+      "retrievedAt": "2026-10-21T08:43:00Z",
+      "tickersLimit": "20 requests / 2 seconds / IP",
+      "openInterestLimit": "20 requests / 2 seconds / IP + Instrument ID",
+      "candlesLimit": "40 requests / 2 seconds / IP",
+      "liquidationDocumentation": "Exact GET /api/v5/public/liquidation-orders absent from current full documentation text; successful response does not establish maintained contract."
+    },
+    "coverage": {
+      "spotUsdt": [
+        "BTC",
+        "ETH",
+        "LINK",
+        "UNI",
+        "USDC"
+      ],
+      "swapUsdt": [
+        "BTC",
+        "ETH",
+        "LINK",
+        "UNI",
+        "USDC"
+      ],
+      "missing": [
+        "WBTC"
+      ]
+    },
+    "definitions": {
+      "spotVolume": "vol24h is base asset quantity; volCcy24h is quote asset quantity (USDT for *-USDT), not USD.",
+      "derivativesVolume": "vol24h is contracts; volCcy24h is base currency.",
+      "openInterest": "oi = contracts; oiCcy = coin; oiUsd = USD, per official docs. Only venue/instrument coverage, not all-market OI.",
+      "candles": "[ts,o,h,l,c,vol,volCcy,volCcyQuote,confirm]. ts is candle start in milliseconds. 1D opens UTC+8; 1Dutc opens UTC. confirm 0 incomplete / 1 complete.",
+      "liquidation": "Observed cross-margin BTC-USDT-SWAP only: 100 returned details. Limited sample/window is not total 24h exchange/global liquidation. sz is not safely USD without contract metadata and documented valuation."
+    },
+    "probes": [
+      {
+        "url": "https://www.okx.com/api/v5/market/tickers?instType=SPOT",
+        "fetchedAt": "2026-10-21T08:40:23.357Z",
+        "status": 200,
+        "sha256": "564a33153fce8529c210b5c2efcd4de2695b6434a0a1bc715163e4c5d051e83e",
+        "bodyLength": 371613,
+        "code": "0",
+        "msg": "",
+        "totalRecords": 1185,
+        "selected": [
+          {
+            "instType": "SPOT",
+            "instId": "USDC-USDT",
+            "last": "1.00104",
+            "lastSz": "712.517904",
+            "askPx": "1.00104",
+            "askSz": "418809.028677",
+            "bidPx": "1.00103",
+            "bidSz": "819743.435287",
+            "open24h": "1.00123",
+            "high24h": "1.00127",
+            "low24h": "1.00082",
+            "volCcy24h": "260609814.16882888425",
+            "vol24h": "260333391.256948",
+            "ts": "1792572024573",
+            "sodUtc0": "1.00085",
+            "sodUtc8": "1.00101"
+          },
+          {
+            "instType": "SPOT",
+            "instId": "BTC-USDT",
+            "last": "83180.2",
+            "lastSz": "0.0000102",
+            "askPx": "83178.1",
+            "askSz": "2.1931338",
+            "bidPx": "83178",
+            "bidSz": "0.2825178",
+            "open24h": "81568.4",
+            "high24h": "83439.9",
+            "low24h": "81319.2",
+            "volCcy24h": "526320489.938989443",
+            "vol24h": "6358.94714314",
+            "ts": "1792572024762",
+            "sodUtc0": "83027",
+            "sodUtc8": "82610.4"
+          },
+          {
+            "instType": "SPOT",
+            "instId": "ETH-USDT",
+            "last": "2452.35",
+            "lastSz": "0.000899",
+            "askPx": "2452.36",
+            "askSz": "42.53418",
+            "bidPx": "2452.35",
+            "bidSz": "3.038856",
+            "open24h": "2390.93",
+            "high24h": "2478",
+            "low24h": "2377.6",
+            "volCcy24h": "376642381.78340509",
+            "vol24h": "154203.043003",
+            "ts": "1792572024758",
+            "sodUtc0": "2449.16",
+            "sodUtc8": "2441.41"
+          },
+          {
+            "instType": "SPOT",
+            "instId": "UNI-USDT",
+            "last": "7.55",
+            "lastSz": "0.15",
+            "askPx": "7.55",
+            "askSz": "63.753559",
+            "bidPx": "7.549",
+            "bidSz": "17.74777",
+            "open24h": "7.153",
+            "high24h": "7.79",
+            "low24h": "7.097",
+            "volCcy24h": "17758990.065844338",
+            "vol24h": "2388616.466489",
+            "ts": "1792572024769",
+            "sodUtc0": "7.444",
+            "sodUtc8": "7.277"
+          },
+          {
+            "instType": "SPOT",
+            "instId": "LINK-USDT",
+            "last": "12.371",
+            "lastSz": "0.15",
+            "askPx": "12.371",
+            "askSz": "10",
+            "bidPx": "12.369",
+            "bidSz": "18.937735",
+            "open24h": "11.949",
+            "high24h": "12.473",
+            "low24h": "11.888",
+            "volCcy24h": "3682100.324182521",
+            "vol24h": "301489.658393",
+            "ts": "1792572024465",
+            "sodUtc0": "12.33",
+            "sodUtc8": "12.194"
+          }
+        ]
+      },
+      {
+        "url": "https://www.okx.com/api/v5/public/open-interest?instType=SWAP",
+        "fetchedAt": "2026-10-21T08:40:24.657Z",
+        "status": 200,
+        "sha256": "d96b241d32321eddfe8de985a9e87f18d33499806aef19f21ab81bc1f9194fd9",
+        "bodyLength": 70628,
+        "code": "0",
+        "msg": "",
+        "totalRecords": 514,
+        "selected": [
+          {
+            "instId": "BTC-USD-SWAP",
+            "instType": "SWAP",
+            "oi": "5906495.0999999993",
+            "oiCcy": "7108.679420136359785",
+            "oiUsd": "590649509.99999993",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "ETH-USD-SWAP",
+            "instType": "SWAP",
+            "oi": "22868036",
+            "oiCcy": "93352.6395715288777126",
+            "oiUsd": "228680360",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "LINK-USD-SWAP",
+            "instType": "SWAP",
+            "oi": "305650",
+            "oiCcy": "247409.745831309697264",
+            "oiUsd": "3056500",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "UNI-USD-SWAP",
+            "instType": "SWAP",
+            "oi": "241568",
+            "oiCcy": "320381.9628647214854111",
+            "oiUsd": "2415680",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "3031904.05000001052",
+            "oiCcy": "30319.0405000001052",
+            "oiUsd": "2520922100.9332587470118",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "ETH-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "6043592.5500000158",
+            "oiCcy": "604359.25500000158",
+            "oiUsd": "1481574626.4474038733384",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "LINK-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "1993218.19999999993",
+            "oiCcy": "1993218.19999999993",
+            "oiUsd": "24644149.82479999913452",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "UNI-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "5689178",
+            "oiCcy": "5689178",
+            "oiUsd": "42936226.366",
+            "ts": "1792572025584"
+          },
+          {
+            "instId": "USDC-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "112264",
+            "oiCcy": "1122640",
+            "oiUsd": "1123621.18736",
+            "ts": "1792572025584"
+          }
+        ]
+      },
+      {
+        "url": "https://www.okx.com/api/v5/public/liquidation-orders?instType=SWAP&mgnMode=cross&state=filled&uly=BTC-USDT",
+        "fetchedAt": "2026-10-21T08:40:24.794Z",
+        "status": 200,
+        "sha256": "fd05bfd775a600b701b893b0b6ce2edf8a62f9e9930e86f97702e7cf3b1f4446",
+        "bodyLength": 12705,
+        "code": "0",
+        "msg": "",
+        "totalRecords": 1,
+        "selected": [
+          {
+            "details": [
+              {
+                "bkLoss": "0",
+                "bkPx": "83326.6",
+                "ccy": "",
+                "posSide": "short",
+                "side": "buy",
+                "sz": "0.47",
+                "time": 1792571301348,
+                "ts": "1792571301348"
+              },
+              {
+                "bkLoss": "0",
+                "bkPx": "83326.6",
+                "ccy": "",
+                "posSide": "short",
+                "side": "buy",
+                "sz": "0.01",
+                "time": 1792571301347,
+                "ts": "1792571301347"
+              },
+              {
+                "bkLoss": "0",
+                "bkPx": "83323.1",
+                "ccy": "",
+                "posSide": "short",
+                "side": "buy",
+                "sz": "3.18",
+                "time": 1792571300036,
+                "ts": "1792571300036"
+              }
+            ],
+            "instFamily": "BTC-USDT",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "totalLoss": "0",
+            "uly": "BTC-USDT",
+            "detailCount": 100,
+            "firstEventTime": "1792571301348",
+            "lastEventTime": "1792549375149"
+          }
+        ]
+      },
+      {
+        "url": "https://www.okx.com/api/v5/market/candles?instId=BTC-USDT&bar=1D&limit=2",
+        "fetchedAt": "2026-10-21T08:40:25.003Z",
+        "status": 200,
+        "sha256": "ecb0d70ba7eb3a9d34b26e06cb040771b9c5e958d5f81e64302caa0dc0f36999",
+        "bodyLength": 267,
+        "code": "0",
+        "msg": "",
+        "totalRecords": 2,
+        "selected": []
+      },
+      {
+        "url": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
+        "fetchedAt": "2026-10-21T08:40:25.111Z",
+        "status": 200,
+        "sha256": "71809da87cf2f58e97dce8251c4acd08c6a461114bfbfe50bc6e616ea7ebc653",
+        "bodyLength": 553245,
+        "code": "0",
+        "msg": "",
+        "totalRecords": 515,
+        "selected": [
+          {
+            "instId": "BTC-USDT-SWAP",
+            "ctType": "linear",
+            "ctVal": "0.01",
+            "ctMult": "1",
+            "ctValCcy": "BTC",
+            "settleCcy": "USDT",
+            "state": "live"
+          },
+          {
+            "instId": "ETH-USDT-SWAP",
+            "ctType": "linear",
+            "ctVal": "0.1",
+            "ctMult": "1",
+            "ctValCcy": "ETH",
+            "settleCcy": "USDT",
+            "state": "live"
+          },
+          {
+            "instId": "LINK-USDT-SWAP",
+            "ctType": "linear",
+            "ctVal": "1",
+            "ctMult": "1",
+            "ctValCcy": "LINK",
+            "settleCcy": "USDT",
+            "state": "live"
+          },
+          {
+            "instId": "UNI-USDT-SWAP",
+            "ctType": "linear",
+            "ctVal": "1",
+            "ctMult": "1",
+            "ctValCcy": "UNI",
+            "settleCcy": "USDT",
+            "state": "live"
+          },
+          {
+            "instId": "USDC-USDT-SWAP",
+            "ctType": "linear",
+            "ctVal": "10",
+            "ctMult": "1",
+            "ctValCcy": "USDC",
+            "settleCcy": "USDT",
+            "state": "live"
+          }
+        ]
+      }
+    ]
+  },
+  "kraken": {
+    "decision": "LOCAL_SINGLE_USER_RESEARCH_ONLY_PENDING_SCOPE_AND_LICENSE_REVIEW",
+    "terms": {
+      "url": "https://www.kraken.com/legal/global-terms",
+      "retrievedAt": "2026-10-21T08:48:24.002Z",
+      "status": 200,
+      "sha256": "40c81825be41c0bee02f58721669c6a7d6eeb2d323e46e2a0c358189e1aef7b1",
+      "summary": "Global terms permit service/content use for one's own benefit; intellectual property remains Kraken/licensors'. Prohibited uses include distributing/making content available to third parties and data extraction. Public API docs establish technical endpoints but no affirmative external redistribution grant was verified. Jurisdiction-specific terms may supersede global terms.",
+      "releaseGate": "No public/third-party/commercial release until applicable terms and written data permission resolve display/redistribution scope.",
+      "paragraphLocators": [
+        { "heading": "Content; Feedback", "paragraph": "Our Content", "shortQuote": "but only for your own benefit", "interpretation": "Other uses require prior permission; source explicitly provides marketdata@kraken.com as contact." },
+        { "heading": "Prohibited-use list", "paragraph": "Third-party content provision restriction", "shortQuote": "make available to any third party Our Content", "interpretation": "No affirmative redistribution/display license was verified." }
+      ],
+      "permissionContact": "marketdata@kraken.com"
+    },
+    "spot": {
+      "probe": {
+        "url": "https://api.kraken.com/0/public/Ticker?pair=XBTUSD,ETHUSD,LINKUSD,UNIUSD,USDCUSD,WBTCUSD",
+        "retrievedAt": "2026-10-21T08:46:32.136150+00:00",
+        "status": 200,
+        "sha256": "b14d1da90a943637fb5386211e0afa69e0f789b14950d3fbccdccb573b0e5407",
+        "body": {
+          "error": [],
+          "result": {
+            "XETHZUSD": {
+              "a": [
+                "2455.43000",
+                "11",
+                "11.000"
+              ],
+              "b": [
+                "2455.42000",
+                "4",
+                "4.000"
+              ],
+              "c": [
+                "2455.43000",
+                "0.03875772"
+              ],
+              "v": [
+                "4069.79542044",
+                "22919.29405459"
+              ],
+              "p": [
+                "2447.03611",
+                "2437.37925"
+              ],
+              "t": [
+                13580,
+                51912
+              ],
+              "l": [
+                "2434.51000",
+                "2374.44000"
+              ],
+              "h": [
+                "2462.74000",
+                "2475.00000"
+              ],
+              "o": "2446.55000"
+            },
+            "LINKUSD": {
+              "a": [
+                "12.378340",
+                "14",
+                "14.000"
+              ],
+              "b": [
+                "12.377350",
+                "14",
+                "14.000"
+              ],
+              "c": [
+                "12.380120",
+                "0.56612536"
+              ],
+              "v": [
+                "34323.29284890",
+                "223269.04539182"
+              ],
+              "p": [
+                "12.355618",
+                "12.221126"
+              ],
+              "t": [
+                1175,
+                5289
+              ],
+              "l": [
+                "12.258900",
+                "11.874050"
+              ],
+              "h": [
+                "12.438150",
+                "12.452990"
+              ],
+              "o": "12.318550"
+            },
+            "UNIUSD": {
+              "a": [
+                "7.53950",
+                "7",
+                "7.000"
+              ],
+              "b": [
+                "7.53580",
+                "7",
+                "7.000"
+              ],
+              "c": [
+                "7.54280",
+                "0.00000557"
+              ],
+              "v": [
+                "356140.36361458",
+                "666596.01843157"
+              ],
+              "p": [
+                "7.58633",
+                "7.49393"
+              ],
+              "t": [
+                6245,
+                12246
+              ],
+              "l": [
+                "7.39220",
+                "7.08900"
+              ],
+              "h": [
+                "7.79240",
+                "7.79240"
+              ],
+              "o": "7.43150"
+            },
+            "USDCUSD": {
+              "a": [
+                "0.99990000",
+                "1933666",
+                "1933666.000"
+              ],
+              "b": [
+                "0.99980000",
+                "5887392",
+                "5887392.000"
+              ],
+              "c": [
+                "0.99980000",
+                "183.53670734"
+              ],
+              "v": [
+                "13966042.32761375",
+                "57182432.52450754"
+              ],
+              "p": [
+                "0.99982019",
+                "0.99979231"
+              ],
+              "t": [
+                2665,
+                12264
+              ],
+              "l": [
+                "0.99970000",
+                "0.99970000"
+              ],
+              "h": [
+                "0.99990000",
+                "0.99990000"
+              ],
+              "o": "0.99980000"
+            },
+            "WBTCUSD": {
+              "a": [
+                "83262.60000",
+                "1",
+                "1.000"
+              ],
+              "b": [
+                "82986.40000",
+                "1",
+                "1.000"
+              ],
+              "c": [
+                "82521.10000",
+                "0.00396617"
+              ],
+              "v": [
+                "0.17001756",
+                "0.56836832"
+              ],
+              "p": [
+                "84042.10639",
+                "82858.98834"
+              ],
+              "t": [
+                44,
+                115
+              ],
+              "l": [
+                "82375.60000",
+                "80975.50000"
+              ],
+              "h": [
+                "87756.00000",
+                "87756.00000"
+              ],
+              "o": "82943.40000"
+            },
+            "XXBTZUSD": {
+              "a": [
+                "83238.90000",
+                "1",
+                "1.000"
+              ],
+              "b": [
+                "83238.80000",
+                "1",
+                "1.000"
+              ],
+              "c": [
+                "83238.90000",
+                "0.00008158"
+              ],
+              "v": [
+                "395.26237332",
+                "2143.25668103"
+              ],
+              "p": [
+                "82917.13199",
+                "82506.07504"
+              ],
+              "t": [
+                47885,
+                154544
+              ],
+              "l": [
+                "82542.90000",
+                "81200.00000"
+              ],
+              "h": [
+                "83292.30000",
+                "83339.10000"
+              ],
+              "o": "82936.10000"
+            }
+          }
+        },
+        "transport": "Python urllib default Windows system proxy"
+      },
+      "documentation": "https://docs.kraken.com/api-reference/market-data/get-ticker-information",
+      "mapping": {
+        "BTC": "XXBTZUSD",
+        "ETH": "XETHZUSD",
+        "LINK": "LINKUSD",
+        "UNI": "UNIUSD",
+        "USDC": "USDCUSD",
+        "WBTC": "WBTCUSD"
+      },
+      "sourceTimestamp": "Ticker response has no per-record source timestamp; record fetch time distinctly and do not invent last-trade time.",
+      "metricGate": "Today's prices begin midnight UTC, so o is not rolling 24h open. Do not compute rolling 24h price change using o. Explicit field detail verification for volume units remained incomplete in this run."
+    },
+    "futures": {
+      "probe": {
+        "url": "https://futures.kraken.com/derivatives/api/v3/tickers",
+        "retrievedAt": "2026-10-21T08:47:38.307560+00:00",
+        "status": 200,
+        "sha256": "5b236a302eb1f95feebf63825e235174a97eab4b3f5f7b4a88719e554255c05c",
+        "bodyLength": 136509,
+        "serverTime": "2026-10-21T08:47:40.178Z",
+        "result": "success",
+        "tickerCount": 229,
+        "selected": [
+          {
+            "symbol": "PF_XBTUSD",
+            "last": 83275,
+            "lastTime": "2026-10-21T08:47:38.46883242Z",
+            "tag": "perpetual",
+            "pair": "XBT:USD",
+            "markPrice": 83279.45058755364,
+            "bid": 83280,
+            "bidSize": 0.329,
+            "ask": 83281,
+            "askSize": 0.0491,
+            "vol24h": 5464.7628,
+            "volumeQuote": 451224589.8501,
+            "openInterest": 2468.025,
+            "open24h": 81436,
+            "high24h": 83462,
+            "low24h": 81211,
+            "vwap24h": 82569.83996635681,
+            "lastSize": 0.0002,
+            "fundingRate": 1.6891326955965555,
+            "fundingRatePrediction": 1.3044823729313055,
+            "relativeFundingRate": 0.000020340345833333,
+            "relativeFundingRatePrediction": 0.000015665933333333,
+            "suspended": false,
+            "indexPrice": 83265.65,
+            "postOnly": false,
+            "change24h": 2.26
+          },
+          {
+            "symbol": "PF_LINKUSD",
+            "last": 12.377,
+            "lastTime": "2026-10-21T08:45:58.287789356Z",
+            "tag": "perpetual",
+            "pair": "LINK:USD",
+            "markPrice": 12.38137961445,
+            "bid": 12.38,
+            "bidSize": 56.2,
+            "ask": 12.383,
+            "askSize": 39.3,
+            "vol24h": 710623.8,
+            "volumeQuote": 8683408.7206,
+            "openInterest": 470393.2,
+            "open24h": 11.905,
+            "high24h": 12.456,
+            "low24h": 11.872,
+            "vwap24h": 12.219417250871698,
+            "lastSize": 100,
+            "fundingRate": 0.000150450114249996,
+            "fundingRatePrediction": 0.000095870764454171,
+            "relativeFundingRate": 0.000012128183333333,
+            "relativeFundingRatePrediction": 0.000007744629166667,
+            "suspended": false,
+            "indexPrice": 12.382,
+            "postOnly": false,
+            "change24h": 3.96
+          },
+          {
+            "symbol": "PF_UNIUSD",
+            "last": 7.545,
+            "lastTime": "2026-10-21T08:47:38.45920264Z",
+            "tag": "perpetual",
+            "pair": "UNI:USD",
+            "markPrice": 7.54517922953,
+            "bid": 7.544,
+            "bidSize": 34.5,
+            "ask": 7.547,
+            "askSize": 25.1,
+            "vol24h": 628298.3,
+            "volumeQuote": 4674038.7006,
+            "openInterest": 395911.5,
+            "open24h": 7.126,
+            "high24h": 7.78,
+            "low24h": 7.091,
+            "vwap24h": 7.439203162892531,
+            "lastSize": 0.9,
+            "fundingRate": 0.000346002229358169,
+            "fundingRatePrediction": 0.000099879471644336,
+            "relativeFundingRate": 0.000045847116666667,
+            "relativeFundingRatePrediction": 0.000013236116666667,
+            "suspended": false,
+            "indexPrice": 7.54102,
+            "postOnly": false,
+            "change24h": 5.88
+          },
+          {
+            "symbol": "PF_USDCUSD",
+            "last": 0.9998,
+            "lastTime": "2026-10-21T08:15:54.364617803Z",
+            "tag": "perpetual",
+            "pair": "USDC:USD",
+            "markPrice": 1.00020000001,
+            "bid": 0.9998,
+            "bidSize": 4704,
+            "ask": 1.0006,
+            "askSize": 4704,
+            "vol24h": 3775,
+            "volumeQuote": 3774.5057,
+            "openInterest": 23658,
+            "open24h": 0.9998,
+            "high24h": 1.0006,
+            "low24h": 0.9995,
+            "vwap24h": 0.999869059602649,
+            "lastSize": 36,
+            "fundingRate": 0.0000424166858325,
+            "fundingRatePrediction": 0.00004250004916,
+            "relativeFundingRate": 0.000042422625,
+            "relativeFundingRatePrediction": 0.000042506,
+            "suspended": false,
+            "indexPrice": 0.99986,
+            "postOnly": false,
+            "change24h": 0
+          },
+          {
+            "symbol": "PF_ETHUSD",
+            "last": 2456.2,
+            "lastTime": "2026-10-21T08:47:36.812704363Z",
+            "tag": "perpetual",
+            "pair": "ETH:USD",
+            "markPrice": 2456.32361793549,
+            "bid": 2456.1,
+            "bidSize": 4.464,
+            "ask": 2456.2,
+            "askSize": 0.001,
+            "vol24h": 35848.713,
+            "volumeQuote": 87417817.1002,
+            "openInterest": 26452.253,
+            "open24h": 2384.8,
+            "high24h": 2475.4,
+            "low24h": 2373.7,
+            "vwap24h": 2438.5203758974553,
+            "lastSize": 0.076,
+            "fundingRate": 0.044652437435374184,
+            "fundingRatePrediction": 0.056522926782832515,
+            "relativeFundingRate": 0.000018203120833333,
+            "relativeFundingRatePrediction": 0.000023014595833333,
+            "suspended": false,
+            "indexPrice": 2455.74,
+            "postOnly": false,
+            "change24h": 2.99
+          }
+        ]
+      },
+      "documentation": "https://docs.kraken.com/api-reference/market-data/get-tickers",
+      "coverage": {
+        "present": [
+          "PF_XBTUSD",
+          "PF_ETHUSD",
+          "PF_LINKUSD",
+          "PF_UNIUSD",
+          "PF_USDCUSD"
+        ],
+        "missing": [
+          "PF_WBTCUSD"
+        ]
+      },
+      "definitions": {
+        "vol24h": "Sum of all fill sizes observed in the last 24 hours.",
+        "volumeQuote": "Sum of size multiplied by price for all fills observed in the last 24 hours; quote turnover for validated linear USD instruments.",
+        "openInterest": "Current market open interest. Official ticker description did not itself specify units. Keep native unit/UNVERIFIED_UNIT until instrument/product documentation establishes conversion; do not label raw number USD.",
+        "markPrice": "Price Kraken Futures uses to mark futures for margin purposes; not a last trade.",
+        "open24h": "Price of fill observed 24h ago, unlike Kraken Spot o.",
+        "lastTime": "Time at which last was observed. It can be much older than serverTime for illiquid contracts (USDC sample).",
+        "serverTime": "Response server UTC time, not last trade time."
+      },
+      "instrumentProbeFailure": "Python urllib GET /derivatives/api/v3/instruments failed once with SSL UNEXPECTED_EOF_WHILE_READING. Official instrument schema was retrieved via .md and defines contractSize/type/base/quote but no live instrument sample was saved.",
+      "rateLimitGate": "Exact current Kraken market-data rate limit not independently verified; use low-frequency cache and backoff pending official limit confirmation."
+    },
+    "liquidations": {
+      "documentation": "https://docs.kraken.com/api-reference/market-data/get-trade-history.md",
+      "endpoint": "https://futures.kraken.com/derivatives/api/v3/history?symbol=PF_XBTUSD",
+      "requiredParameters": {
+        "symbol": "Futures symbol"
+      },
+      "optionalParameters": {
+        "lastTime": "Return last 100 trades from timestamp; format and ordering follow current provider contract",
+        "includeMTFData": "boolean default true, applicability per docs"
+      },
+      "retention": "Most recent 100 trades; pagination with lastTime; at most past 7 days or most recent trading engine restart, whichever is sooner.",
+      "types": [
+        "fill",
+        "liquidation",
+        "partial liquidation",
+        "assignment",
+        "unwind",
+        "rfq",
+        "termination",
+        "block"
+      ],
+      "rules": "liquidation includes covered liquidations; partial liquidation distinct. termination maps to unwind in current docs; block is retained only for compatibility. Do not call assignment/unwind liquidation without separate definition.",
+      "gapDetection": "sequence_id is a string uint64 monotonic per-market ID; omitted on older records. Use it for sequencing/gap detection. trade_id should not be assumed globally unique.",
+      "probe": {
+        "retrievedAt": "2026-10-21T08:53:58.735263+00:00",
+        "status": 200,
+        "sha256": "51fea11802182307d18ee3a94db7dad00ee63c3db2029ea35d903e68b5bbf5d4",
+        "serverTime": "2026-10-21T08:54:01.151Z",
+        "count": 100,
+        "typeCounts": {
+          "fill": 100
+        },
+        "sample": {
+          "time": "2026-10-21T08:53:43.889080303Z",
+          "trade_id": 100,
+          "price": 83313,
+          "size": 0.0001,
+          "side": "buy",
+          "type": "fill",
+          "uid": "46a161ee-7c15-4b46-94cc-f3d18dad2516",
+          "sequence_id": "104754921"
+        }
+      },
+      "coverageGate": "No actual liquidation event occurred in the 100 observed samples. Support is contract verified but nonzero event reconciliation is outstanding. No complete 24h total is verified.",
+      "publicExecutions": "Alternative /api/history/v3/market/{tradeable}/executions docs verified; schema has orderType but no dedicated liquidation boolean/type definition. It was not used as liquidation evidence."
+    }
+  },
+  "evidenceLimits": [
+    "Hashes refer to full exact HTTP response bodies, while stored records are selected samples; full raw payloads were not persisted.",
+    "Terms are summarized, not a legal opinion; external product permission remains a release gate.",
+    "No proxy geography, user jurisdiction, license, SLA, complete liquidation coverage, or Java transport was assumed.",
+    "No Binance/Bybit/Deribit claim is made; Kraken was the genuinely verified alternative."
+  ]
+}

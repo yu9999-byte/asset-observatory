@@ -1,0 +1,31 @@
+{
+  "startedAt" : "2026-10-21T18:16:34.650410900Z",
+  "javaVersion" : "21.0.12.1",
+  "os" : "Windows 11",
+  "transport" : "direct",
+  "scope" : "core",
+  "localVerificationOnly" : true,
+  "productionApproved" : false,
+  "perRequestBudgetSeconds" : 10,
+  "rightsStatus" : "unresolved; no external display/storage approval inferred",
+  "historicalProbeBlock" : 25108012,
+  "sampleAddress" : "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+  "requests" : [ {
+    "id" : "mexc-contracts",
+    "url" : "https://contract.mexc.com/api/v1/contract/detail",
+    "startedAt" : "2026-10-21T18:16:34.681153200Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-21T18:16:39.860860Z",
+    "elapsedMs" : 5180
+  } ],
+  "selectedTargetIds" : [ "mexc-contracts" ],
+  "sameProviderReconciliation" : [ ],
+  "endedAt" : "2026-10-21T18:16:41.088775900Z",
+  "continuousCoverageVerified" : false,
+  "independentSourceReconciliation" : false,
+  "externalReleaseApproved" : false
+}

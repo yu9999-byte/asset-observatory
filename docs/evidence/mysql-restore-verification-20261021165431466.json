@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-21T16:54:32.6491633Z",
+  "sourceDatabase": "observatory_test",
+  "restoreDatabase": "observatory_restore_20261021165431466",
+  "engine": "MySQL 8.4.13 local isolated development instance",
+  "schemaAndDataEqual": true,
+  "beforeSha256": "F9E43A7802073F2F94E368BBB5BE36556217AAED48A0827FBD21EA83325C0AEE",
+  "afterSha256": "F9E43A7802073F2F94E368BBB5BE36556217AAED48A0827FBD21EA83325C0AEE",
+  "restoredRowCounts": [
+    "watches\t2",
+    "notes\t4",
+    "table_preferences\t5",
+    "source_policies\t1",
+    "ingest_streams\t1",
+    "ingest_batches\t1",
+    "holder_observations\t2",
+    "migrations\t6"
+  ],
+  "testFixtureOwner": "restore-drill-20261021165431466",
+  "fixturePurpose": "Synthetic test-only watch, hidden Unicode project/name/info/note v3, layout v9, disabled policy and holder journal with two balances; not source data or collection authorization.",
+  "projectRecordVerified": true,
+  "holderJournalVerified": true,
+  "holderJournalChecks": [
+    "uint256 maximum and zero as exact strings",
+    "NULL source time",
+    "UTC microsecond timestamps",
+    "committed checkpoint and version",
+    "no active lease",
+    "immutable JSON policy evidence",
+    "disabled fixture policy"
+  ],
+  "backupPath": "A:\\区块链\\backups\\restore-20261021165431466\\before.sql",
+  "sourceOverwritten": false,
+  "coverage": "Local consistent dump and independent restore; not container deployment, production recovery, or live-source reconciliation."
+}

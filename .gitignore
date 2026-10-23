@@ -1,0 +1,12 @@
+node_modules/
+target/
+frontend/dist/
+*.tsbuildinfo
+.tools/
+data/
+backups/
+.env
+*.log
+playwright-report/
+test-results/
+!docs/evidence/

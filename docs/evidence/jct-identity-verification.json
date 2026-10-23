@@ -1,0 +1,37 @@
+{
+  "status": "identity-verified-data-access-not-approved",
+  "asset": "Janction",
+  "symbol": "JCT",
+  "officialDocumentation": {
+    "url": "https://docs.janction.ai/token/tokenomics",
+    "markdownUrl": "https://docs.janction.ai/token/tokenomics.md",
+    "httpStatus": 200,
+    "retrievedAt": "2026-10-21T11:12:57.2324195Z",
+    "retrievedAtBasis": "local download file modification time immediately after curl completed",
+    "bodySha256": "6b8e5bf9a847e10b87f58a18b74507d7d0ab64c4334c83dba8fff117daf141e3",
+    "sourceAt": null,
+    "deployments": [
+      {"chain": "Ethereum", "chainId": "eip155:1", "contract": "0xc477b6dfd26ec2460b3b92de18837fd476ea7549"},
+      {"chain": "BNB Smart Chain", "chainId": "eip155:56", "contract": "0xea37a8de1de2d9d10772eeb569e28bfa5cb17707"}
+    ]
+  },
+  "arkhamCrossCheck": {
+    "url": "https://arkm.com/explorer/token/janction",
+    "title": "Janction | Arkham",
+    "observedAt": "2026-10-21T11:16:13.295Z",
+    "observedName": "Janction",
+    "observedSymbol": "JCT",
+    "displayedContractLink": "https://arkm.com/explorer/address/0xC477B6dfd26EC2460b3b92de18837Fd476Ea7549",
+    "sourceAt": null,
+    "method": "public rendered page DOM and visible contract link; no private API or login scraping"
+  },
+  "coverage": "Official deployment identity only, corroborated by the current Arkham token page. No price, balance, supply, history, labels or contract instrument coverage accepted.",
+  "decision": "Use the explicitly identified Ethereum deployment for the initial Ethereum validation path. BNB deployment is separately identified and remains outside the implemented chain adapters. Do not sum balances across deployments or infer venue instruments from JCT.",
+  "remainingGates": [
+    "Ethereum decimals verified in jct-sample-verification.json; other deployments remain outside runtime scope",
+    "Verify entitled sustainable holder/transfer API and resolve sample coverage/discrepancies documented in jct-sample-verification.json",
+    "Verify eligible venue mappings, OI units and liquidation samples",
+    "Verify historical coverage, retention and permitted display audience",
+    "Do not treat public page visibility as API or redistribution permission"
+  ]
+}

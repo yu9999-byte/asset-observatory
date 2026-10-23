@@ -1,0 +1,19 @@
+{
+  "id": "coingecko-jct-contract",
+  "provider": "CoinGecko",
+  "url": "https://api.coingecko.com/api/v3/coins/ethereum/contract/0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+  "startedAt": "2026-10-22T02:46:54Z",
+  "transport": "Chrome CDP background-tab via web-access proxy",
+  "method": "GET navigation",
+  "result": "browser_network_error",
+  "observedUrl": "chrome-error://chromewebdata/",
+  "httpStatus": null,
+  "responseBytes": null,
+  "bodySha256": null,
+  "schemaCoverage": null,
+  "rightsStatus": "not_reviewed; no response and no production approval inferred",
+  "productionApproved": false,
+  "userTabsTouched": false,
+  "temporaryTabClosed": true,
+  "interpretation": "Host/browser transport failure; this is not evidence that the provider has no JCT data."
+}

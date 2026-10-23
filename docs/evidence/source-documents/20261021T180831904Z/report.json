@@ -1,0 +1,48 @@
+{
+  "startedAt": "2026-10-21T18:08:31.907Z",
+  "purpose": "Official document verification only",
+  "productionApproved": false,
+  "method": "GET",
+  "transport": "curl direct, verified TLS, no redirects",
+  "requests": [
+    {
+      "id": "coinlore-api",
+      "url": "https://www.coinlore.com/cryptocurrency-data-api",
+      "startedAt": "2026-10-21T18:08:31.907Z",
+      "httpStatus": 200,
+      "elapsedSeconds": 1.709922,
+      "bytes": 272626,
+      "bodySha256": "ba220d8f9e90da3abb758760046bbff73903acab4ca397472aaa2e8fa95fe755",
+      "rawFile": "coinlore-api.raw",
+      "error": "Cannot create property 'border-width' on string 'initial'",
+      "endedAt": "2026-10-21T18:08:33.914Z"
+    },
+    {
+      "id": "coinlore-terms",
+      "url": "https://www.coinlore.com/terms-of-use",
+      "startedAt": "2026-10-21T18:08:34.921Z",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.974443,
+      "bytes": 125757,
+      "bodySha256": "d5063548d96295fc3e60e22fc98046dced118aff59d4a460a1fbe16e0421dd28",
+      "rawFile": "coinlore-terms.raw",
+      "error": "Cannot create property 'border-width' on string 'initial'",
+      "endedAt": "2026-10-21T18:08:36.011Z"
+    },
+    {
+      "id": "mexc-legacy-docs",
+      "url": "https://mexcdevelop.github.io/apidocs/contract_v1_en/",
+      "startedAt": "2026-10-21T18:08:37.015Z",
+      "error": "curl: (28) Operation timed out after 18006 milliseconds with 261366 out of 316221 bytes received\r\n",
+      "endedAt": "2026-10-21T18:08:55.062Z"
+    },
+    {
+      "id": "mexc-current-docs",
+      "url": "https://www.mexc.com/api-docs/futures/update-log",
+      "startedAt": "2026-10-21T18:08:56.072Z",
+      "error": "curl: (28) Connection timed out after 5012 milliseconds\r\n",
+      "endedAt": "2026-10-21T18:09:01.122Z"
+    }
+  ],
+  "endedAt": "2026-10-21T18:09:02.127Z"
+}

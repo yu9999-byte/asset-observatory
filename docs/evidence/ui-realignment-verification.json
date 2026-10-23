@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-21",
+  "contract": "docs/ui-realignment.md",
+  "scope": "UI01-UI12 partial research-interface delivery; R01-R24 production acceptance remains open",
+  "database": "MySQL 8.4.13; observatory_test used for automated write tests",
+  "frontendUnit": {"command": "npm test", "passed": 11, "failed": 0},
+  "frontendBuild": {"command": "npm run build", "result": "passed"},
+  "java": {"command": "mvn -o -s scripts/maven-settings.xml verify", "passed": 42, "failed": 0, "result": "BUILD SUCCESS"},
+  "browser": {
+    "command": "npm run e2e",
+    "passed": 8,
+    "failed": 0,
+    "durationSeconds": 27.1,
+    "desktopViewport": "1440x1000",
+    "mobileDevice": "iPhone 13 (Chromium)",
+    "checks": ["three-page navigation", "no page errors", "no document horizontal overflow", "desktop market rows <=48px", "compact title <=22px", "missing values stay missing", "watched layout persistence/conflict", "note pin/collapse/draft retention", "24H/3D/7D selection", "unverified identity scopes disabled"]
+  },
+  "regressions": [
+    "Frontend tests failed before summary/filter/note fixes; initial visual edits preceded those tests",
+    "Legacy-layout test failed with 9 columns instead of expected 11 before normalization",
+    "Browser first pass failed on a 50px desktop row; final pass passed <=48px"
+  ],
+  "visualEvidence": "docs/evidence/ui-realignment/",
+  "preview": "http://127.0.0.1:8080/",
+  "isolatedBrowserTest": "http://127.0.0.1:8081/",
+  "sourcesEnabled": false,
+  "syntheticData": "Used only in automated component/unit/integration fixtures; never wired to preview responses",
+  "productionApproved": false,
+  "newRealDataReconciliation": false,
+  "newProductionRecoveryDrill": false,
+  "openGates": ["source conditions and live coverage", "complete Top30 and identity labels", "supply/valuation/history", "rankings and period aggregates", "continuous monitoring", "project-name/info persistence", "backend global queries", "production deployment and recovery"]
+}

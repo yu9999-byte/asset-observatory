@@ -1,0 +1,16 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 200 OK
+Date: Thu, 22 Oct 2026 04:11:07 GMT
+Content-Type: text/plain
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: public, max-age=0, must-revalidate
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, accept-encoding
+Server-Timing: total;dur=0.0;desc="worker to headers", fetch;dur=0.0;desc="n=0 sum=0 pending=0", iso;desc="warm n=21 age=765s"
+x-nextjs-cache: MISS
+x-opennext: 1
+Server: cloudflare
+CF-RAY: a4e5a7fd8cb7d542-NRT
+alt-svc: h3=":443"; ma=86400
+

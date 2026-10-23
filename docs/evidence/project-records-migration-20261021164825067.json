@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-21T16:48:27.5825541Z",
+  "database": "observatory_migration_20261021164825067",
+  "legacyNotes": 2,
+  "originalColumnsBeforeSha256": "904c050774d405b68556b3b1d1153e8ac254cb4100b8bab1ca953d15d8e80067",
+  "originalColumnsAfterSha256": "904c050774d405b68556b3b1d1153e8ac254cb4100b8bab1ca953d15d8e80067",
+  "originalColumnsPreserved": true,
+  "emptyDefaultCount": 2,
+  "newUnicodeProjectFieldsVerified": true,
+  "migrations": [
+    {
+      "file": "V1__workspace.sql",
+      "sha256": "5c26847ba435b53f68e26f053c517b5b761616e6099d5a7001ec76e9491134b3"
+    },
+    {
+      "file": "V2__workspace_owners.sql",
+      "sha256": "35fc6a1b962b496035ccb64f3b45bf70c04ffce1df2b5635bbaeab6a2adbd30b"
+    },
+    {
+      "file": "V3__table_preferences.sql",
+      "sha256": "9753b551fa207bd860ea8496fbd54ff2a72651dbb8337c00cd5ebb94b77b24ec"
+    },
+    {
+      "file": "V4__holder_page_journal.sql",
+      "sha256": "c022403727a9c4cadb82093d3d6a7d0a20ce49293815a193befd753d48db49cd"
+    },
+    {
+      "file": "V5__policy_revision_evidence.sql",
+      "sha256": "a3a305bca3fea0bc4a0e826e0b978a1bd463f4fa850cb3cd9dc08c658a8ee9e5"
+    },
+    {
+      "file": "V6__project_records.sql",
+      "sha256": "f8bb0789a8cced36f870bef5d3d2ee2ee9044885f5f2839ebc21eedd9ed14fa0"
+    }
+  ],
+  "sourceDatabasesModified": false,
+  "coverage": "Exact V1-V5 SQL in a new isolated schema, two synthetic legacy notes, exact V6 SQL and Unicode project update; not application traffic during upgrade, public deployment or production rollback."
+}

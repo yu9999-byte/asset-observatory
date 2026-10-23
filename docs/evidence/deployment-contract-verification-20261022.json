@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-10-21T17:47:17Z",
+  "scope": "local static deployment contract verification",
+  "checks": [
+    {"name":"backup-script-parse","status":"passed","evidence":"scripts/backup-mysql.ps1"},
+    {"name":"restore-script-parse","status":"passed","evidence":"scripts/restore-mysql.ps1"},
+    {"name":"maven-package","status":"passed","command":"mvn -s scripts/maven-settings.xml -DskipTests package"},
+    {"name":"maven-verify","status":"passed","tests":63,"skipped":1},
+    {"name":"frontend-tests","status":"passed","tests":16},
+    {"name":"frontend-build","status":"passed","command":"npm run build"},
+    {"name":"playwright-e2e","status":"passed","tests":14,"viewports":["desktop","mobile"]},
+    {"name":"docker-compose-config","status":"not_run","reason":"docker executable is not installed on the verification host"},
+    {"name":"container-build-and-recovery","status":"not_run","reason":"requires a Docker runtime and a deployment database"}
+  ],
+  "artifacts": ["Dockerfile", ".dockerignore", "docker-compose.yml", ".github/workflows/verify.yml", "docs/deployment.md"],
+  "sourcePolicy": {"enabled":false,"reason":"provider rights and complete coverage gates remain open"},
+  "conclusion":"deployment contract is statically reviewable; container and production recovery acceptance remain open"
+}

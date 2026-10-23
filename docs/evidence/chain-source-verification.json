@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-21T08:50:00Z",
+  "network": "ethereum-mainnet",
+  "chainId": 1,
+  "scope": "Read-only ERC-20 holder and address transfer samples; no full-chain completeness or SLA claim.",
+  "transport": {
+    "browser": "Existing Chrome configured network, CDP via web-access skill; real same-origin fetch obtained HTTP status, body SHA-256 and Date.",
+    "hostDirect": "Node fetch failed; curl connection timeout.",
+    "hostSystemProxy": "Python urllib using existing Windows proxy returned Blockscout HTTP 403; Ethplorer and Routescan HTTP 200.",
+    "restriction": "No bypass attempt. Browser success does not prove server-to-server deployment availability."
+  },
+  "tokens": [
+    {
+      "symbol": "LINK",
+      "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "decimals": 18,
+      "metadataSource": "Blockscout",
+      "metadataSha256": "a775547af39596c697251959720122c042297ebe916182455b3452619838adab"
+    },
+    {
+      "symbol": "UNI",
+      "address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "decimals": 18,
+      "metadataSource": "Ethplorer getTokenInfo",
+      "metadataSha256": "913051547cba3c97c8d259772ec1f0d31c7cb59bc2417cd2b3a8d2efa69fc26e"
+    },
+    {
+      "symbol": "USDC",
+      "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "decimals": 6,
+      "metadataSource": "Ethplorer getTokenInfo",
+      "metadataSha256": "c624f66c8065c1c4224cf330fd386d109755251208e0cf9ce0b2bb1d69c99406"
+    },
+    {
+      "symbol": "WBTC",
+      "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "decimals": 8,
+      "metadataSource": "Ethplorer getTokenInfo",
+      "metadataSha256": "4a4f7f269041ce207d76ea82f367f5526cc1c30c69761db31a155357d1d978c5"
+    }
+  ],
+  "requests": [
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0x514910771af9ca656af840dff83e8264ecf986ca",
+      "observedAt": "2026-10-21T08:44:45.189Z",
+      "status": 200,
+      "responseDate": "Wed, 21 Oct 2026 08:44:47 GMT",
+      "sha256": "a775547af39596c697251959720122c042297ebe916182455b3452619838adab",
+      "sample": {
+        "symbol": "LINK",
+        "decimals": "18",
+        "total_supply": "1000000000000000000000000000",
+        "holders_count": "1008838"
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0x514910771af9ca656af840dff83e8264ecf986ca/holders",
+      "observedAt": "2026-10-21T08:44:46.471Z",
+      "status": 200,
+      "responseDate": "Wed, 21 Oct 2026 08:44:48 GMT",
+      "sha256": "a528dbe870ae3c68a728556727b9bed995570854d087346e43a6e671308d62a7",
+      "itemCount": 50,
+      "first": {
+        "address": {
+          "hash": "0x5a52E96BAcdaBb82fd05763E25335261B270Efcb",
+          "is_contract": false
+        },
+        "token_id": null,
+        "value": "42194267000000000000000000"
+      },
+      "next_page_params": {
+        "value": "1966005301820407220064100",
+        "address_hash": "0x106fe2c3c40c3e6c690b6de35674ab632b8e819a",
+        "items_count": 50
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/holders",
+      "observedAt": "2026-10-21T08:44:47.885Z",
+      "status": 200,
+      "sha256": "a54e039cee57d1d8daff3c0546e5f4dfe2aff6eec5420de83f0fabd7ab141f03",
+      "itemCount": 50,
+      "first": {
+        "address_hash": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC",
+        "value": "262247996305835021033106178"
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/holders",
+      "observedAt": "2026-10-21T08:44:49.980Z",
+      "status": 200,
+      "sha256": "f091766dda99cf70a46ddda4b825fd60bd9950392567c9b1784a7c3b9d898abb",
+      "itemCount": 50,
+      "first": {
+        "address_hash": "0x37305B1cD40574E4C5Ce33f8e8306Be057fD7341",
+        "value": "4177261629444907"
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/holders",
+      "observedAt": "2026-10-21T08:45:06.686Z",
+      "status": 200,
+      "sha256": "b44b4fe9d016e714640219b93cd1adf9a3b3ef03482f326cba408b5c19074296",
+      "itemCount": 50,
+      "first": {
+        "address_hash": "0x5Ee5bf7ae06D1Be5997A1A72006FE6C607eC6DE8",
+        "value": "3327493380614"
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0x514910771af9ca656af840dff83e8264ecf986ca/holders?value=1966005301820407220064100&address_hash=0x106fe2c3c40c3e6c690b6de35674ab632b8e819a&items_count=50",
+      "observedAt": "2026-10-21T08:46:52.436Z",
+      "status": 200,
+      "sha256": "790c9591a1ff5b626a32b9e826fbb3c0130c8be1645065e1d2241b9f478af8b9",
+      "itemCount": 50,
+      "first": {
+        "address_hash": "0x091fA383C849771D196BF95814B12A9713b2ba17",
+        "value": "1966005301820407220064100"
+      },
+      "next_page_params": {
+        "value": "1809891738397205859129740",
+        "address_hash": "0xe33bf747197b3c73650e40e3e9024ae5548e0aa7",
+        "items_count": 50
+      }
+    },
+    {
+      "source": "Blockscout",
+      "url": "https://eth.blockscout.com/api/v2/addresses/0x5a52E96BAcdaBb82fd05763E25335261B270Efcb/token-transfers?type=ERC-20&token=0x514910771af9ca656af840dff83e8264ecf986ca",
+      "observedAt": "2026-10-21T08:45:15.697Z",
+      "status": 200,
+      "responseDate": "Wed, 21 Oct 2026 08:45:38 GMT",
+      "sha256": "41e8952ff12e29e1d0d9f1442856f724b8dd1e4d40c371e07f2c7370b2b33e70",
+      "itemCount": 50,
+      "first": {
+        "block_number": 26181898,
+        "block_hash": "0x422f12e40733f164c17fd26168186917a9805a12516c7334e06a5ddcc24de0f8",
+        "transaction_hash": "0x96d31d2c64f5d8be9ce84e72fa9344341f18b5c06891156da28f8bc4995a2ab6",
+        "log_index": 244,
+        "timestamp": "2026-10-13T06:52:59.000000Z",
+        "from": {
+          "hash": "0x5a52E96BAcdaBb82fd05763E25335261B270Efcb"
+        },
+        "to": {
+          "hash": "0x835678a611B28684005a5e2233695fB6cbbB0007"
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "8715000000000000000000"
+        }
+      },
+      "next_page_params": {
+        "index": 614,
+        "token": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "block_number": 23675169
+      }
+    },
+    {
+      "source": "Ethplorer",
+      "url": "https://api.ethplorer.io/getTopTokenHolders/0x514910771af9ca656af840dff83e8264ecf986ca?apiKey=freekey&limit=10",
+      "observedAt": "2026-10-21T08:48:11.108771Z",
+      "status": 200,
+      "sha256": "b3511db1683ddee506412210c904c57c3b2183b30e18678711f68c034feb728c",
+      "itemCount": 10,
+      "first": {
+        "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+        "rawBalance": "42194267000000000000000000",
+        "share": 4.22
+      }
+    },
+    {
+      "source": "Routescan",
+      "url": "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=account&action=tokentx&address=0x5a52E96BAcdaBb82fd05763E25335261B270Efcb&contractaddress=0x514910771af9ca656af840dff83e8264ecf986ca&page=1&offset=2&sort=desc",
+      "observedAt": "2026-10-21T08:48:12.637171Z",
+      "status": 200,
+      "sha256": "69a91f1ff5af919cb1fd3a94241848d9274eb0762f1fdc461e1b70a1dd373074",
+      "itemCount": 2,
+      "first": {
+        "blockNumber": "26181898",
+        "timeStamp": "1791874379",
+        "hash": "0x96d31d2c64f5d8be9ce84e72fa9344341f18b5c06891156da28f8bc4995a2ab6",
+        "value": "8715000000000000000000",
+        "tokenDecimal": "18"
+      }
+    }
+  ],
+  "reconciliation": {
+    "holder": "Blockscout and Ethplorer first two LINK holder addresses/raw balances agree; equal-balance later ordering differs.",
+    "transfer": "Blockscout and Routescan first LINK transfer tx hash, block number, from/to and raw value agree.",
+    "limitation": "One sampled token and event; does not establish complete dataset accuracy."
+  },
+  "documentation": [
+    {
+      "url": "https://docs.blockscout.com/devs/apis",
+      "finding": "Public API, JSON/RPC and REST options, PRO API. No SLA inferred."
+    },
+    {
+      "url": "https://docs.blockscout.com/devs/apis/rest",
+      "finding": "Per-instance REST /api/v2 deprecated with planned July 1 2026 sunset; docs encourage migrating to PRO. This date is already past, although tested legacy routes still answer."
+    },
+    {
+      "url": "https://docs.blockscout.com/devs/pro-api",
+      "finding": "API key required for unified proxy and supported endpoints; free plan says 5 req/sec, paid plans/custom. Actual key/plan not obtained."
+    },
+    {
+      "url": "https://eaas.blockscout.com/terms-and-conditions",
+      "finding": "Terms page linked by Blockscout corporate site footer. Retrieved 2026-10-21; last updated 2025-04-04. API scope/redistribution entitlement for this deployment not established."
+    },
+    {
+      "url": "https://ethplorer.io/",
+      "finding": "Freekey development purposes only. Homepage states 1 req/sec, 30/min, 100/hour, 1000/day, 1000/week. Commercial projects FAQ permits API use with attribution/link; production requires suitable own key/plan."
+    },
+    {
+      "url": "https://github.com/EverexIO/Ethplorer/wiki/Ethplorer-API",
+      "finding": "Official linked API documentation. getTopTokenHolders limit max1000, default100; freekey limit documented inconsistently with homepage so conservative homepage limits apply. rawBalance is exact integer string."
+    },
+    {
+      "url": "https://docs.routescan.io/",
+      "finding": "Official endpoint/rate-limit source still requires deployment-specific terms review. Public endpoint was reachable without key; accessibility is not permission."
+    }
+  ],
+  "productionDecision": {
+    "status": "blocked",
+    "requirements": [
+      "Blockscout PRO key/plan and endpoint compatibility verification, or approved self-hosted explorer/indexer.",
+      "Confirm service terms cover production use, persistence, attribution and redistribution; no legal authorization inferred.",
+      "Verify backend-to-source connectivity on deployment host; Blockscout backend proxy currently 403.",
+      "Verify independent indexer head/finality health; token holder snapshot has no block/time guarantee.",
+      "Obtain production-eligible Ethplorer key/plan before any use beyond development.",
+      "Review Routescan terms/limits and implement exact event identity if fallback omits log_index."
+    ]
+  }
+}
+

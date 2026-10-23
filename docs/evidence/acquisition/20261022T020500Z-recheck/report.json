@@ -1,0 +1,127 @@
+{
+  "startedAt" : "2026-10-22T02:02:49.711750900Z",
+  "javaVersion" : "21.0.12.1",
+  "os" : "Windows 11",
+  "transport" : "direct",
+  "scope" : "core",
+  "localVerificationOnly" : true,
+  "productionApproved" : false,
+  "perRequestBudgetSeconds" : 10,
+  "rightsStatus" : "unresolved; no external display/storage approval inferred",
+  "historicalProbeBlock" : 25108012,
+  "sampleAddress" : "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+  "requests" : [ {
+    "id" : "routescan-transfers",
+    "url" : "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=account&action=tokentx&address=0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84&contractaddress=0xc477b6dfd26ec2460b3b92de18837fd476ea7549&page=1&offset=5&sort=desc",
+    "startedAt" : "2026-10-22T02:02:49.732196600Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "httpStatus" : 200,
+    "bytes" : 3625,
+    "bodySha256" : "a8a99f9f325c8f23c9e10647ac2ef5f657d44441386688cd407b414a6ab35056",
+    "rawFile" : "routescan-transfers.raw",
+    "contentType" : "application/json; charset=utf-8",
+    "fetchStatus" : "captured",
+    "schema" : {
+      "count" : 4,
+      "scope" : "bounded historical sample; not continuous/full history"
+    },
+    "schemaStatus" : "checked",
+    "endedAt" : "2026-10-22T02:02:52.717260600Z",
+    "elapsedMs" : 2983
+  }, {
+    "id" : "routescan-logs",
+    "url" : "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=logs&action=getLogs&fromBlock=25108012&toBlock=25108012&address=0xc477b6dfd26ec2460b3b92de18837fd476ea7549&page=1&offset=100",
+    "startedAt" : "2026-10-22T02:02:53.940964200Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "httpStatus" : 200,
+    "bytes" : 1358,
+    "bodySha256" : "e942fca39165ac032c5e634574da0ed3ee36f90237508b6e0b960491af3a2cb7",
+    "rawFile" : "routescan-logs.raw",
+    "contentType" : "application/json; charset=utf-8",
+    "fetchStatus" : "captured",
+    "schema" : {
+      "count" : 2,
+      "scope" : "bounded historical sample; not continuous/full history",
+      "verifiedLogs" : [ {
+        "id" : "ethereum:0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b:411",
+        "assetId" : "JCT",
+        "chain" : "ethereum",
+        "contract" : "0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+        "hash" : "0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b",
+        "logIndex" : 411,
+        "blockNumber" : 25108012,
+        "blockHash" : "0x7686195d82ab5dbdaea47e7557b03c4beaa12085d6533b1823d4f0aacc61f275",
+        "from" : "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "to" : "0x58e53cad56180743ace00349ef3e1bfe4eff5732",
+        "amount" : "3999980000",
+        "rawAmount" : "3999980000000000000000000000",
+        "decimals" : 18,
+        "sourceAt" : "2026-05-16T13:25:11Z"
+      }, {
+        "id" : "ethereum:0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b:412",
+        "assetId" : "JCT",
+        "chain" : "ethereum",
+        "contract" : "0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+        "hash" : "0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b",
+        "logIndex" : 412,
+        "blockNumber" : 25108012,
+        "blockHash" : "0x7686195d82ab5dbdaea47e7557b03c4beaa12085d6533b1823d4f0aacc61f275",
+        "from" : "0x58e53cad56180743ace00349ef3e1bfe4eff5732",
+        "to" : "0x0000000000000000000000000000000000000000",
+        "amount" : "3999980000",
+        "rawAmount" : "3999980000000000000000000000",
+        "decimals" : 18,
+        "sourceAt" : "2026-05-16T13:25:11Z"
+      } ]
+    },
+    "schemaStatus" : "checked",
+    "endedAt" : "2026-10-22T02:02:55.309522900Z",
+    "elapsedMs" : 1368
+  }, {
+    "id" : "blockscout-holders",
+    "url" : "https://eth.blockscout.com/api/v2/tokens/0xc477b6dfd26ec2460b3b92de18837fd476ea7549/holders",
+    "startedAt" : "2026-10-22T02:02:56.513758700Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-22T02:03:01.530647400Z",
+    "elapsedMs" : 5017
+  }, {
+    "id" : "ethplorer-holders",
+    "url" : "https://api.ethplorer.io/getTopTokenHolders/0xc477b6dfd26ec2460b3b92de18837fd476ea7549?apiKey=freekey&limit=30",
+    "startedAt" : "2026-10-22T02:03:02.740105Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-22T02:03:07.751673700Z",
+    "elapsedMs" : 5012
+  } ],
+  "selectedTargetIds" : [ "blockscout-holders", "ethplorer-holders", "routescan-logs", "routescan-transfers" ],
+  "sameProviderReconciliation" : [ {
+    "transactionHash" : "0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b",
+    "status" : "unique_exact_match",
+    "matchingEventIds" : [ "ethereum:0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b:411" ]
+  }, {
+    "transactionHash" : "0xc41376ce85eb13002652d7caed96b14be944d6455d7fd949699283c278d1b0c1",
+    "status" : "outside_captured_logs",
+    "matchingEventIds" : [ ]
+  }, {
+    "transactionHash" : "0x04b66edffba34abf4baa62cd855699eed66b2c83d495183751baaa4fde79ea6d",
+    "status" : "outside_captured_logs",
+    "matchingEventIds" : [ ]
+  }, {
+    "transactionHash" : "0x2d51d283739f8aabe9fe278473bb33f4f6da080a156424a7531be301a1fda689",
+    "status" : "outside_captured_logs",
+    "matchingEventIds" : [ ]
+  } ],
+  "endedAt" : "2026-10-22T02:03:08.966355500Z",
+  "continuousCoverageVerified" : false,
+  "independentSourceReconciliation" : false,
+  "externalReleaseApproved" : false
+}

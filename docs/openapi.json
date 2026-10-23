@@ -1,0 +1,304 @@
+{
+  "openapi": "3.1.0",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Asset Observatory API",
+    "version": "0.1.0",
+    "description": "R01-R12/R20/R23 implementation contract. Decimal quantities are strings; times are UTC ISO 8601. Catalog entries are connectivity samples, not coverage claims. External mode permits anonymous app shell, CSRF bootstrap and POST /api/accounts only; all research and admin routes require HTTP Basic. Public registration creates RESEARCHER accounts and must be protected by deployment abuse controls before unrestricted public exposure. HTTPS and secure session cookies are required. All writes require the session from GET /api/csrf and its X-CSRF-TOKEN. Production use and redistribution remain gated by docs/source-matrix.md."
+  },
+  "servers": [{"url": "/", "description": "Same origin; no wildcard CORS"}],
+  "security": [{}, {"basicAuth": []}],
+  "paths": {
+    "/api/csrf": {
+      "get": {
+        "operationId": "getCsrf", "summary": "Obtain session-bound CSRF token",
+        "security": [],
+        "responses": {
+          "200": {"description": "Retain the JSESSIONID cookie for subsequent writes", "headers": {"Set-Cookie": {"description": "A new session sets HttpOnly JSESSIONID; SameSite=Strict, Secure in external mode", "schema": {"type": "string"}}}, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Csrf"}}}},
+          "401": {"$ref": "#/components/responses/Unauthorized"}
+        }
+      }
+    },
+    "/api/accounts": {
+      "post": {
+        "operationId": "registerAccount", "summary": "Publicly register a researcher account",
+        "security": [{"sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/CreateAccountInput"}}}},
+        "responses": {
+          "201": {"description": "Registered researcher account without password material", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Account"}}}},
+          "400": {"$ref": "#/components/responses/BadInput"},
+          "409": {"$ref": "#/components/responses/Conflict"}
+        }
+      }
+    },
+    "/api/markets": {
+      "get": {
+        "operationId": "getMarkets", "summary": "Catalog with venue-scoped spot and derivative snapshots",
+        "responses": {"200": {"description": "Status and provenance are per dataset", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Markets"}}}}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/markets/query": {
+      "get": {
+        "operationId": "queryMarkets", "summary": "Globally query the configured seven-asset directory",
+        "description": "Filtering, ordering and pagination apply to the complete configured directory only; this is not a claim about the market universe. The cursor is bound to q, sort, direction, limit and a two-minute MySQL-persisted snapshot of ordered rows and source provenance; expired snapshots are removed and at most 32 are retained.",
+        "parameters": [
+          {"name": "q", "in": "query", "required": false, "schema": {"type": "string", "maxLength": 80}, "description": "Case-insensitive asset ID or venue instrument search"},
+          {"name": "sort", "in": "query", "required": false, "schema": {"type": "string", "enum": ["assetId", "instrument", "lastPrice", "change24hPct", "volume24hBase", "turnover24hQuote"], "default": "assetId"}},
+          {"name": "direction", "in": "query", "required": false, "schema": {"type": "string", "enum": ["asc", "desc"], "default": "asc"}},
+          {"name": "limit", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 30}},
+          {"$ref": "#/components/parameters/Cursor"}
+        ],
+        "responses": {"200": {"description": "Complete for the configured seven-asset directory; missing measurements remain null", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/MarketQueryPage"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/assets/{id}/holders": {
+      "parameters": [{"$ref": "#/components/parameters/AssetId"}, {"$ref": "#/components/parameters/Cursor"}],
+      "get": {
+        "operationId": "getHolders", "summary": "One ERC-20 indexer page; no global filter/sort, total, full ranking or historical guarantee",
+        "responses": {"200": {"description": "Unsupported assets are explicit; null cursor means no further page is known", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/HolderEnvelope"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/addresses/{address}/transfers": {
+      "parameters": [{"$ref": "#/components/parameters/Address"}, {"name": "asset", "in": "query", "required": true, "schema": {"$ref": "#/components/schemas/AssetId"}}, {"$ref": "#/components/parameters/Cursor"}],
+      "get": {
+        "operationId": "getTransfers", "summary": "One address/asset ERC-20 transfer page; no global filter/sort, total or complete-period guarantee",
+        "responses": {"200": {"description": "Event sourceAt is block time, not observation or finality", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TransferEnvelope"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/assets/{id}/liquidations": {
+      "parameters": [{"$ref": "#/components/parameters/AssetId"}],
+      "get": {
+        "operationId": "getLiquidations", "summary": "Bounded execution samples filtered for liquidation",
+        "responses": {"200": {"description": "Empty partial data is not a complete 24h zero", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/LiquidationEnvelope"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/sources": {
+      "get": {
+        "operationId": "getSources", "summary": "Provider permissions and coverage gates",
+        "responses": {"200": {"description": "Enabled does not imply production-approved", "content": {"application/json": {"schema": {"type": "array", "items": {"$ref": "#/components/schemas/Source"}}}}}, "401": {"$ref": "#/components/responses/Unauthorized"}}
+      }
+    },
+    "/api/workspace": {
+      "get": {
+        "operationId": "getWorkspace", "summary": "Current server-authenticated owner's watches and notes",
+        "responses": {"200": {"description": "Owner cannot be selected by query parameter", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Workspace"}}}}, "401": {"$ref": "#/components/responses/Unauthorized"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      }
+    },
+    "/api/admin/accounts": {
+      "get": {
+        "operationId": "listAccounts", "summary": "List accounts for an administrator",
+        "security": [{"basicAuth": []}],
+        "responses": {
+          "200": {"description": "Password hashes and credentials are never returned", "content": {"application/json": {"schema": {"type": "array", "items": {"$ref": "#/components/schemas/Account"}}}}},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "403": {"$ref": "#/components/responses/Forbidden"}
+        }
+      },
+      "post": {
+        "operationId": "createAccount", "summary": "Create an enabled researcher account",
+        "security": [{"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/CreateAccountInput"}}}},
+        "responses": {
+          "201": {"description": "Created account, without password material", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Account"}}}},
+          "400": {"$ref": "#/components/responses/BadInput"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "403": {"$ref": "#/components/responses/Forbidden"},
+          "409": {"$ref": "#/components/responses/Conflict"}
+        }
+      }
+    },
+    "/api/admin/accounts/{username}/password": {
+      "parameters": [{"name": "username", "in": "path", "required": true, "schema": {"type": "string", "pattern": "^[A-Za-z0-9._@-]{3,64}$"}}],
+      "put": {
+        "operationId": "resetAccountPassword", "summary": "Replace a researcher's password",
+        "security": [{"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/PasswordResetInput"}}}},
+        "responses": {
+          "204": {"description": "Password replaced; no response body"},
+          "400": {"$ref": "#/components/responses/BadInput"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "403": {"$ref": "#/components/responses/Forbidden"},
+          "404": {"description": "Account does not exist"}
+        }
+      }
+    },
+    "/api/admin/accounts/{username}/enabled": {
+      "parameters": [{"name": "username", "in": "path", "required": true, "schema": {"type": "string", "pattern": "^[A-Za-z0-9._@-]{3,64}$"}}],
+      "put": {
+        "operationId": "setAccountEnabled", "summary": "Enable or disable an account",
+        "description": "Cannot disable the acting administrator or the final enabled administrator.",
+        "security": [{"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/AccountEnabledInput"}}}},
+        "responses": {
+          "200": {"description": "Updated account without password material", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Account"}}}},
+          "400": {"$ref": "#/components/responses/BadInput"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "403": {"$ref": "#/components/responses/Forbidden"},
+          "404": {"description": "Account does not exist"},
+          "409": {"$ref": "#/components/responses/Conflict"}
+        }
+      }
+    },
+    "/api/watches/{kind}/{key}": {
+      "parameters": [{"$ref": "#/components/parameters/Kind"}, {"$ref": "#/components/parameters/EntityKey"}],
+      "put": {
+        "operationId": "putWatch", "summary": "Idempotently watch an entity; maximum 20 per owner and kind",
+        "security": [{"sessionCookie": [], "csrfToken": []}, {"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "responses": {"200": {"description": "Existing or newly saved watch", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Watch"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}, "403": {"$ref": "#/components/responses/Forbidden"}, "409": {"$ref": "#/components/responses/Conflict"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      },
+      "delete": {
+        "operationId": "deleteWatch", "summary": "Idempotently remove the current owner's watch",
+        "security": [{"sessionCookie": [], "csrfToken": []}, {"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "responses": {"204": {"description": "Removed or already absent; no response body"}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}, "403": {"$ref": "#/components/responses/Forbidden"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      }
+    },
+    "/api/notes/{kind}/{key}": {
+      "parameters": [{"$ref": "#/components/parameters/Kind"}, {"$ref": "#/components/parameters/EntityKey"}],
+      "put": {
+        "operationId": "putNote", "summary": "Save note and visibility with optimistic version; hiding retains text",
+        "description": "Version 0 creates; a successful save increments version. At most 1000 notes per owner. Size limit is 4000 Java UTF-16 code units. Conflict requires explicit reload.",
+        "security": [{"sessionCookie": [], "csrfToken": []}, {"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/NoteInput"}}}},
+        "responses": {"200": {"description": "Saved note", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Note"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}, "403": {"$ref": "#/components/responses/Forbidden"}, "409": {"$ref": "#/components/responses/Conflict"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      }
+    },
+    "/api/table-preferences/{tableId}": {
+      "parameters": [{"name": "tableId", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/TableId"}}],
+      "get": {
+        "operationId": "getTablePreferences", "summary": "Read owner-scoped table layout or version-0 defaults",
+        "responses": {"200": {"description": "Confirmed settings; search and current page are transient", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TablePreference"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      },
+      "put": {
+        "operationId": "putTablePreferences", "summary": "Save owner-scoped table layout using optimistic version",
+        "description": "order must be the exact permutation for tableId; hidden and sortKey must be known columns. At least one column remains visible. Column sets are in docs/api-contract.md. GET normalizes legacy saved column layouts without writing or changing the optimistic version. Failed saves preserve the confirmed layout and require explicit reload.",
+        "security": [{"sessionCookie": [], "csrfToken": []}, {"basicAuth": [], "sessionCookie": [], "csrfToken": []}],
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TablePreferenceInput"}}}},
+        "responses": {"200": {"description": "Saved settings with incremented version", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TablePreference"}}}}, "400": {"$ref": "#/components/responses/BadInput"}, "401": {"$ref": "#/components/responses/Unauthorized"}, "403": {"$ref": "#/components/responses/Forbidden"}, "409": {"$ref": "#/components/responses/Conflict"}, "503": {"$ref": "#/components/responses/StorageUnavailable"}}
+      }
+    },
+    "/actuator/health": {
+      "get": {"operationId": "getHealth", "summary": "Aggregate application health without component details", "responses": {"200": {"$ref": "#/components/responses/Health"}, "503": {"$ref": "#/components/responses/Health"}, "401": {"$ref": "#/components/responses/Unauthorized"}}}
+    },
+    "/actuator/health/liveness": {
+      "get": {"operationId": "getLiveness", "summary": "Application liveness", "responses": {"200": {"$ref": "#/components/responses/Health"}, "503": {"$ref": "#/components/responses/Health"}, "401": {"$ref": "#/components/responses/Unauthorized"}}}
+    },
+    "/actuator/health/readiness": {
+      "get": {"operationId": "getReadiness", "summary": "Application readiness; not a claim of provider coverage", "responses": {"200": {"$ref": "#/components/responses/Health"}, "503": {"$ref": "#/components/responses/Health"}, "401": {"$ref": "#/components/responses/Unauthorized"}}}
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {"type": "http", "scheme": "basic", "description": "Mandatory in external mode; use only over TLS"},
+      "sessionCookie": {"type": "apiKey", "in": "cookie", "name": "JSESSIONID", "description": "Session obtained with GET /api/csrf"},
+      "csrfToken": {"type": "apiKey", "in": "header", "name": "X-CSRF-TOKEN", "description": "Exact token from GET /api/csrf for the same session"}
+    },
+    "parameters": {
+      "AssetId": {"name": "id", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/AssetId"}},
+      "Address": {"name": "address", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/Address"}},
+      "Kind": {"name": "kind", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/Kind"}},
+      "EntityKey": {"name": "key", "in": "path", "required": true, "schema": {"oneOf": [{"$ref": "#/components/schemas/AssetId"}, {"$ref": "#/components/schemas/Address"}]}, "description": "Catalog ID for kind=asset, full Ethereum address for kind=address; addresses normalized lowercase"},
+      "Cursor": {"name": "cursor", "in": "query", "required": false, "schema": {"type": "string", "maxLength": 2048}, "description": "Opaque URL-safe base64 provider pagination object; only approved keys allowed; absent or blank starts first page"}
+    },
+    "responses": {
+      "BadInput": {"description": "INVALID_INPUT for entity/column/cursor errors; VALIDATION_FAILED for malformed bodies or bean validation", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "Conflict": {"description": "Stale version or capacity exceeded (REQUEST_REJECTED)", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "StorageUnavailable": {"description": "Database operation failed; no confirmed save (STORAGE_UNAVAILABLE)", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "Unauthorized": {"description": "External mode requires valid HTTP Basic credentials; framework body unspecified"},
+      "Forbidden": {"description": "CSRF token/session absent or invalid; framework body unspecified"},
+      "Health": {"description": "Only status and optional health group names are exposed; request application/json or use the default Actuator vendor media type", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Health"}}, "application/vnd.spring-boot.actuator.v3+json": {"schema": {"$ref": "#/components/schemas/Health"}}, "application/vnd.spring-boot.actuator.v2+json": {"schema": {"$ref": "#/components/schemas/Health"}}}}
+    },
+    "schemas": {
+      "AssetId": {"type": "string", "enum": ["BTC", "ETH", "LINK", "UNI", "USDC", "WBTC", "JCT"]},
+      "Address": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
+      "Kind": {"type": "string", "enum": ["asset", "address"]},
+      "TableId": {"type": "string", "enum": ["markets", "holders", "transfers", "liquidations", "watches"]},
+      "Decimal": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$", "description": "Exact plain decimal, never a JSON number or exponent"},
+      "NullableDecimal": {"oneOf": [{"$ref": "#/components/schemas/Decimal"}, {"type": "null"}]},
+      "RawInteger": {"type": "string", "pattern": "^[0-9]+$", "description": "Token raw integer; may exceed JavaScript safe integer"},
+      "UtcTime": {"type": "string", "format": "date-time", "pattern": "Z$"},
+      "NullableTime": {"oneOf": [{"$ref": "#/components/schemas/UtcTime"}, {"type": "null"}]},
+      "Version": {"type": "integer", "minimum": 0, "maximum": 9223372036854775806},
+      "Csrf": {"type": "object", "additionalProperties": false, "required": ["token", "headerName"], "properties": {"token": {"type": "string", "minLength": 1}, "headerName": {"const": "X-CSRF-TOKEN"}}},
+      "Error": {"type": "object", "additionalProperties": false, "required": ["code", "message"], "properties": {"code": {"type": "string", "enum": ["INVALID_INPUT", "VALIDATION_FAILED", "REQUEST_REJECTED", "STORAGE_UNAVAILABLE"]}, "message": {"type": "string"}}},
+      "Asset": {
+        "type": "object", "additionalProperties": false, "required": ["id", "symbol", "name", "contract", "chain", "spotInstrument", "swapInstrument", "decimals"],
+        "properties": {"id": {"$ref": "#/components/schemas/AssetId"}, "symbol": {"type": "string"}, "name": {"type": "string"}, "contract": {"oneOf": [{"$ref": "#/components/schemas/Address"}, {"type": "null"}]}, "chain": {"type": ["string", "null"]}, "spotInstrument": {"type": ["string", "null"]}, "swapInstrument": {"type": ["string", "null"]}, "decimals": {"type": "integer", "minimum": 0, "maximum": 255}}
+      },
+      "Market": {
+        "type": "object", "additionalProperties": false, "required": ["assetId", "instrument", "lastPrice", "open24h", "change24hPct", "volume24hBase", "turnover24hQuote", "quote", "sourceAt"],
+        "properties": {"assetId": {"$ref": "#/components/schemas/AssetId"}, "instrument": {"type": "string"}, "lastPrice": {"$ref": "#/components/schemas/NullableDecimal"}, "open24h": {"$ref": "#/components/schemas/NullableDecimal"}, "change24hPct": {"$ref": "#/components/schemas/NullableDecimal"}, "volume24hBase": {"$ref": "#/components/schemas/NullableDecimal"}, "turnover24hQuote": {"$ref": "#/components/schemas/NullableDecimal"}, "quote": {"type": "string"}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}}
+      },
+      "Derivative": {
+        "type": "object", "additionalProperties": false, "required": ["assetId", "instrument", "openInterestContracts", "openInterestUsd", "openInterestRaw", "openInterestUnit", "sourceAt"],
+        "properties": {"assetId": {"$ref": "#/components/schemas/AssetId"}, "instrument": {"type": "string"}, "openInterestContracts": {"$ref": "#/components/schemas/NullableDecimal"}, "openInterestUsd": {"$ref": "#/components/schemas/NullableDecimal"}, "openInterestRaw": {"$ref": "#/components/schemas/NullableDecimal"}, "openInterestUnit": {"type": "string"}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}}
+      },
+      "Holder": {
+        "type": "object", "additionalProperties": false, "required": ["address", "balance", "rawBalance", "decimals", "isContract"],
+        "properties": {"address": {"$ref": "#/components/schemas/Address"}, "balance": {"$ref": "#/components/schemas/Decimal"}, "rawBalance": {"$ref": "#/components/schemas/RawInteger"}, "decimals": {"type": "integer", "minimum": 0, "maximum": 255}, "isContract": {"type": "boolean"}}
+      },
+      "Transfer": {
+        "type": "object", "additionalProperties": false, "required": ["id", "hash", "logIndex", "blockNumber", "from", "to", "direction", "amount", "rawAmount", "decimals", "sourceAt"],
+        "properties": {"id": {"type": "string", "pattern": "^ethereum:0x[0-9a-f]{64}:(0|[1-9][0-9]*)$"}, "hash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}, "logIndex": {"type": "integer", "minimum": 0, "maximum": 9007199254740991}, "blockNumber": {"type": "integer", "minimum": 0, "maximum": 9007199254740991}, "from": {"$ref": "#/components/schemas/Address"}, "to": {"$ref": "#/components/schemas/Address"}, "direction": {"type": "string", "enum": ["IN", "OUT", "SELF"]}, "amount": {"$ref": "#/components/schemas/Decimal"}, "rawAmount": {"allOf": [{"$ref": "#/components/schemas/RawInteger"}], "maxLength": 78}, "decimals": {"type": "integer", "minimum": 0, "maximum": 36}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}}
+      },
+      "Liquidation": {
+        "type": "object", "additionalProperties": false, "required": ["id", "sequenceId", "instrument", "side", "eventType", "sizeRaw", "sizeUnit", "price", "sourceAt"],
+        "properties": {"id": {"type": "string"}, "sequenceId": {"type": "string"}, "instrument": {"type": "string"}, "side": {"type": "string"}, "eventType": {"type": "string", "enum": ["liquidation", "partial liquidation"]}, "sizeRaw": {"$ref": "#/components/schemas/Decimal"}, "sizeUnit": {"type": "string"}, "price": {"$ref": "#/components/schemas/Decimal"}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}}
+      },
+      "Envelope": {
+        "type": "object", "required": ["data", "status", "source", "sourceUrl", "fetchedAt", "sourceAt", "coverage", "reason", "nextCursor"],
+        "properties": {"data": {"type": "array"}, "status": {"type": "string", "enum": ["ok", "partial", "stale", "unavailable", "unsupported"]}, "source": {"type": "string", "minLength": 1}, "sourceUrl": {"type": "string", "format": "uri", "pattern": "^https://"}, "fetchedAt": {"$ref": "#/components/schemas/NullableTime"}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}, "coverage": {"type": "string", "minLength": 1}, "reason": {"type": ["string", "null"]}, "nextCursor": {"type": ["string", "null"], "maxLength": 2048}},
+        "allOf": [
+          {"if": {"properties": {"status": {"enum": ["unavailable", "unsupported"]}}}, "then": {"properties": {"data": {"maxItems": 0}, "fetchedAt": {"type": "null"}, "sourceAt": {"type": "null"}, "nextCursor": {"type": "null"}, "reason": {"type": "string", "minLength": 1}}}},
+          {"if": {"properties": {"status": {"enum": ["ok", "partial", "stale"]}}}, "then": {"properties": {"fetchedAt": {"$ref": "#/components/schemas/UtcTime"}}}},
+          {"if": {"properties": {"status": {"const": "stale"}}}, "then": {"properties": {"reason": {"type": "string", "minLength": 1}}}}
+        ]
+      },
+      "MarketEnvelope": {"allOf": [{"$ref": "#/components/schemas/Envelope"}, {"properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Market"}}}}], "unevaluatedProperties": false},
+      "DerivativeEnvelope": {"allOf": [{"$ref": "#/components/schemas/Envelope"}, {"properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Derivative"}}}}], "unevaluatedProperties": false},
+      "HolderEnvelope": {"allOf": [{"$ref": "#/components/schemas/Envelope"}, {"properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Holder"}}}}], "unevaluatedProperties": false},
+      "TransferEnvelope": {"allOf": [{"$ref": "#/components/schemas/Envelope"}, {"properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Transfer"}}}}], "unevaluatedProperties": false},
+      "LiquidationEnvelope": {"allOf": [{"$ref": "#/components/schemas/Envelope"}, {"properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Liquidation"}}}}], "unevaluatedProperties": false},
+      "Markets": {"type": "object", "additionalProperties": false, "required": ["assets", "market", "derivatives"], "properties": {"assets": {"type": "array", "items": {"$ref": "#/components/schemas/Asset"}}, "market": {"$ref": "#/components/schemas/MarketEnvelope"}, "derivatives": {"$ref": "#/components/schemas/DerivativeEnvelope"}}},
+      "MarketQueryPage": {"type": "object", "additionalProperties": false, "required": ["data", "nextCursor", "total", "completeness", "snapshotAt", "source", "sourceUrl", "fetchedAt", "sourceAt", "coverage", "reason"], "properties": {"data": {"type": "array", "items": {"$ref": "#/components/schemas/Market"}}, "nextCursor": {"type": ["string", "null"], "maxLength": 2048}, "total": {"type": "integer", "minimum": 0}, "completeness": {"enum": ["partial", "complete"]}, "snapshotAt": {"$ref": "#/components/schemas/UtcTime"}, "source": {"type": "string", "minLength": 1}, "sourceUrl": {"type": "string", "format": "uri", "pattern": "^https://"}, "fetchedAt": {"$ref": "#/components/schemas/NullableTime"}, "sourceAt": {"$ref": "#/components/schemas/NullableTime"}, "coverage": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}, "unevaluatedProperties": false},
+      "Source": {
+        "type": "object", "additionalProperties": false, "required": ["name", "documentation", "terms", "enabled", "productionApproved", "gap"],
+        "properties": {"name": {"type": "string"}, "documentation": {"type": "string", "format": "uri"}, "terms": {"type": ["string", "null"], "format": "uri"}, "enabled": {"type": "boolean"}, "productionApproved": {"type": "boolean"}, "gap": {"type": "string"}, "verification": {"$ref": "#/components/schemas/SourceVerification"}}
+      },
+      "SourceVerification": {
+        "type": "object", "additionalProperties": false,
+        "required": ["checkedAt", "transportStatus", "scope", "rightsStatus", "evidenceId"],
+        "properties": {
+          "checkedAt": {"$ref": "#/components/schemas/UtcTime"},
+          "transportStatus": {"type": "string", "enum": ["reachable", "unreachable", "not_verified"]},
+          "scope": {"type": "string", "minLength": 1},
+          "rightsStatus": {"type": "string", "minLength": 1},
+          "evidenceId": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[a-zA-Z0-9_/-]+$"}
+        }
+      },
+      "Account": {"type": "object", "additionalProperties": false, "required": ["username", "role", "enabled", "createdAt"], "properties": {"username": {"type": "string", "pattern": "^[A-Za-z0-9._@-]{3,64}$"}, "role": {"type": "string", "enum": ["ADMIN", "RESEARCHER"]}, "enabled": {"type": "boolean"}, "createdAt": {"$ref": "#/components/schemas/UtcTime"}}},
+      "CreateAccountInput": {"type": "object", "additionalProperties": false, "required": ["username", "password"], "properties": {"username": {"type": "string", "pattern": "^[A-Za-z0-9._@-]{3,64}$"}, "password": {"type": "string", "minLength": 16, "maxLength": 128}}},
+      "PasswordResetInput": {"type": "object", "additionalProperties": false, "required": ["password"], "properties": {"password": {"type": "string", "minLength": 16, "maxLength": 128}}},
+      "AccountEnabledInput": {"type": "object", "additionalProperties": false, "required": ["enabled"], "properties": {"enabled": {"type": "boolean"}}},
+      "Watch": {
+        "type": "object", "additionalProperties": false, "required": ["kind", "key", "createdAt"],
+        "properties": {"kind": {"$ref": "#/components/schemas/Kind"}, "key": {"type": "string"}, "createdAt": {"$ref": "#/components/schemas/UtcTime"}}
+      },
+      "NoteInput": {
+        "type": "object", "required": ["text", "visible", "version"],
+        "properties": {"text": {"type": "string", "maxLength": 4000, "description": "Server enforces 4000 UTF-16 code units; astral characters consume two"}, "projectName": {"type": ["string", "null"], "maxLength": 120, "description": "Private user record; at most120 UTF-16 units. Omitted/null preserves stored value; empty string clears."}, "projectInfo": {"type": ["string", "null"], "maxLength": 4000, "description": "Private user record; at most4000 UTF-16 units. Omitted/null preserves stored value; empty string clears."}, "visible": {"type": "boolean"}, "version": {"type": "integer", "minimum": 0, "maximum": 9223372036854775807}}
+      },
+      "Note": {
+        "type": "object", "additionalProperties": false, "required": ["kind", "key", "projectName", "projectInfo", "text", "visible", "version", "updatedAt"],
+        "properties": {"kind": {"$ref": "#/components/schemas/Kind"}, "key": {"type": "string"}, "projectName": {"type": "string", "maxLength": 120}, "projectInfo": {"type": "string", "maxLength": 4000}, "text": {"type": "string", "maxLength": 4000}, "visible": {"type": "boolean"}, "version": {"type": "integer", "minimum": 1}, "updatedAt": {"$ref": "#/components/schemas/UtcTime"}}
+      },
+      "Workspace": {"type": "object", "additionalProperties": false, "required": ["watches", "notes"], "properties": {"watches": {"type": "array", "maxItems": 40, "items": {"$ref": "#/components/schemas/Watch"}}, "notes": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/components/schemas/Note"}}}},
+      "TableSettings": {
+        "type": "object", "required": ["hidden", "order", "sortKey", "desc", "pageSize"],
+        "properties": {"hidden": {"type": "array", "maxItems": 16, "uniqueItems": true, "items": {"type": "string"}}, "order": {"type": "array", "maxItems": 16, "uniqueItems": true, "items": {"type": "string"}}, "sortKey": {"type": ["string", "null"], "maxLength": 32}, "desc": {"type": "boolean"}, "pageSize": {"type": "integer", "enum": [15, 30, 60]}}
+      },
+      "TablePreferenceInput": {"allOf": [{"$ref": "#/components/schemas/TableSettings"}, {"type": "object", "required": ["version"], "properties": {"version": {"$ref": "#/components/schemas/Version"}}}]},
+      "TablePreference": {"allOf": [{"$ref": "#/components/schemas/TableSettings"}, {"type": "object", "required": ["tableId", "version", "updatedAt"], "properties": {"tableId": {"$ref": "#/components/schemas/TableId"}, "version": {"type": "integer", "minimum": 0}, "updatedAt": {"$ref": "#/components/schemas/NullableTime"}}}], "unevaluatedProperties": false},
+      "Health": {"type": "object", "additionalProperties": false, "required": ["status"], "properties": {"status": {"type": "string", "enum": ["UP", "DOWN", "OUT_OF_SERVICE", "UNKNOWN"]}, "groups": {"type": "array", "items": {"type": "string"}}}}
+    }
+  }
+}

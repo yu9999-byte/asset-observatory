@@ -1,0 +1,113 @@
+{
+  "recordedAt": "2026-10-21T18:21:29.6483780+00:00",
+  "command": "mvn -q test",
+  "database": "isolated MySQL 8.4 observatory_test",
+  "totals": {
+    "tests": 71.0,
+    "failures": 0.0,
+    "errors": 0.0,
+    "skipped": 1.0
+  },
+  "suites": [
+    {
+      "name": "io.observatory.AcquisitionEvidenceTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.AcquisitionProbeLiveTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "name": "io.observatory.CacheTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.CursorTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.DiscoveryMappingTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.ExternalSecurityTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.HistoryStoreIntegrationTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.MarketQuerySnapshotIntegrationTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.MetricTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.OpenApiContractTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.ProviderMappingTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.SourceHttpTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.TransferValidationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "io.observatory.WorkspaceIntegrationTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "productionApproved": false,
+  "scope": "Transfer validation and source review; offline/synthetic software behavior; live investigation skipped"
+}

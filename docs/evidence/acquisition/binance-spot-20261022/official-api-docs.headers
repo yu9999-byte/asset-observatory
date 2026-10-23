@@ -1,0 +1,41 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 302 Moved Temporarily
+Content-Type: text/html
+Content-Length: 138
+Connection: keep-alive
+Date: Thu, 22 Oct 2026 04:23:26 GMT
+Strict-Transport-Security: max-age=31536000; includeSubdomains
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://bin.bnbstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://bin.bnbstatic.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https: www.googletagmanager.com; connect-src 'self' https: wss:; frame-src 'self' https://www.googletagmanager.com;
+K8scluster: master
+Location: /en/docs/catalog/core-trading-spot-trading/api/rest-api/market
+X-Envoy-Upstream-Service-Time: 4
+X-Gateway: traefik
+X-Service-Name: binance-dev-docs
+X-Trace-Id: bfad03d2527b4bc58f0eeb042c892f82
+X-Traefik-Duration: 4.00
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Referrer-Policy: origin-when-cross-origin
+X-Cache: Miss from cloudfront
+Via: 1.1 1b64143ad8928c8f978ba9e138d9f266.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: NRT20-P9
+X-Amz-Cf-Id: B9Ar3lxGuGVaK4D21N7IRQE_TLFZu_zeuqwb41VxMUdnXJFluKOycw==
+
+HTTP/1.1 202 Accepted
+Server: CloudFront
+Date: Thu, 22 Oct 2026 04:23:26 GMT
+Content-Length: 0
+Connection: keep-alive
+x-amzn-waf-action: challenge
+Cache-Control: no-store, max-age=0
+Content-Type: text/html; charset=UTF-8
+Access-Control-Allow-Origin: *
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Methods: OPTIONS,GET,POST
+Access-Control-Expose-Headers: x-amzn-waf-action
+X-Cache: Error from cloudfront
+Via: 1.1 1b64143ad8928c8f978ba9e138d9f266.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: NRT20-P9
+X-Amz-Cf-Id: tI31elqsLBZlAK88EWgRpA46znpArESb0xDVULFL9LLgqopj4WSslg==
+

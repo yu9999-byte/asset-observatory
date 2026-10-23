@@ -1,0 +1,44 @@
+{
+  "CoinLore": {
+    "checkedAt": "2026-10-21T18:13:34.069Z",
+    "transportStatus": "reachable",
+    "scope": "行情采集记录截至 2026-10-21 16:26:07 UTC：7 个目录币种；JCT 市值、供应量及链合约关联未齐，源行情时点未知。本次仅复核官方文档，未刷新行情。",
+    "rightsStatus": "官方条款第6节要求复制、再分发或商业使用取得明确书面同意；免费免Key不授予对外展示权。尚未取得同意或澄清API适用范围，保持禁用。",
+    "evidenceId": "source-documents-review-2026-10-22"
+  },
+  "MEXC candidate": {
+    "checkedAt": "2026-10-21T18:17:21.3439685Z",
+    "transportStatus": "unreachable",
+    "scope": "旧版官方文档记录 contract.mexc.com/api/v1/contract/detail；纠正探测地址后，Java直连失败，curl连接超时。现行文档未连通；未取得JCT合约样本或证明币种映射、OI单位及时间。",
+    "rightsStatus": "使用条款与对外展示/保存许可尚未核验；旧版公开端点示例不构成授权。",
+    "evidenceId": "source-documents-review-2026-10-22"
+  },
+  "Routescan": {
+    "checkedAt": "2026-10-21T16:26:07.324901800Z",
+    "transportStatus": "reachable",
+    "scope": "Java 直连取得 JCT 一个地址的 4 条历史转账及 4 个区块的 7 条原始日志；4 笔唯一匹配同源日志。较早 LINK 转账样本的交易哈希、区块、地址和金额跨来源一致，但缺少独立日志索引对账，未证明全量或连续监控。",
+    "rightsStatus": "API 条款含内部用途、计划及内容使用限制；对外展示与保存范围尚未解锁。",
+    "evidenceId": "acquisition/20261021T162534395Z-direct"
+  },
+  "Blockscout legacy": {
+    "checkedAt": "2026-10-21T16:23:20.678035400Z",
+    "transportStatus": "unreachable",
+    "scope": "浏览器取得 LINK、UNI、USDC、WBTC 持仓页及 LINK 地址转账页；宿主直连失败、系统代理返回 403，浏览器成功不替代部署网络验证。",
+    "rightsStatus": "旧接口生产条件未解锁；统一 API 需要验证 Key、额度与适用使用条件。",
+    "evidenceId": "acquisition/20261021T162159001Z-direct"
+  },
+  "Kraken": {
+    "checkedAt": "2026-10-21T16:23:20.678035400Z",
+    "transportStatus": "unreachable",
+    "scope": "现货六个 USD 币对、五个 PF 合约及 history 合同经系统代理取得；Java 直连失败，JCT 没有经核验的 venue/instrument 映射，爆仓样本未出现实际爆仓事件。",
+    "rightsStatus": "自用与对外展示分别核验；未取得对外展示授权。",
+    "evidenceId": "acquisition/20261021T162159001Z-direct"
+  },
+  "CoinDesk Data API": {
+    "checkedAt": "2026-10-22T05:08:00Z",
+    "transportStatus": "reachable",
+    "scope": "官方主页、documentation、pricing 路径的静态请求返回相同7,596字节Nuxt壳；主页metadata仅说明数据类别，未读到计划、配额或API合同。Chrome渲染documentation于05:08 UTC超时，显示ERR_CONNECTION_TIMED_OUT；非源端缺少数据证明。",
+    "rightsStatus": "API专属外部展示、存储/缓存、再分发及衍生指标许可未知；CryptoCompare通用网站条款不作为API授权。免费计划、价格、额度与字段覆盖未验证。保持禁用。",
+    "evidenceId": "coindesk-data-api-access-review-2026-10-22"
+  }
+}

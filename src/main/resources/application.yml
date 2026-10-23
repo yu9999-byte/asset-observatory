@@ -1,0 +1,43 @@
+server:
+  address: ${APP_BIND:127.0.0.1}
+  port: ${PORT:8080}
+  error:
+    include-message: never
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: strict
+        secure: ${APP_SECURE_COOKIE:false}
+  tomcat:
+    max-http-form-post-size: 32KB
+    threads:
+      max: 40
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://127.0.0.1:3307/observatory?connectionTimeZone=UTC&characterEncoding=UTF-8}
+    username: ${DATABASE_USER:observatory}
+    password: ${DATABASE_PASSWORD:}
+  jackson:
+    default-property-inclusion: always
+  mvc:
+    log-resolved-exception: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+app:
+  external: ${APP_EXTERNAL:false}
+  user: ${APP_USER:researcher}
+  password: ${APP_PASSWORD:}
+  proxy: ${APP_PROXY:}
+  sources:
+    enabled: ${APP_SOURCES_ENABLED:false}
+    kraken-approved: ${APP_KRAKEN_APPROVED:false}
+    blockscout-legacy-approved: ${APP_BLOCKSCOUT_LEGACY_APPROVED:false}

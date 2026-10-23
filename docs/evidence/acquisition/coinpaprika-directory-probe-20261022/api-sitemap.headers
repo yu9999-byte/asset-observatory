@@ -1,0 +1,16 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 200 OK
+Date: Thu, 22 Oct 2026 04:13:11 GMT
+Content-Type: application/xml; charset=utf-8
+Content-Length: 893
+Connection: keep-alive
+CF-Cache-Status: MISS
+Cache-Control: public, max-age=0, must-revalidate
+ETag: "d3be338b06ea42890997e6a94dde0402"
+x-content-type-options: nosniff
+Vary: accept-encoding
+Server: cloudflare
+CF-RAY: a4e5ab011c60e361-NRT
+alt-svc: h3=":443"; ma=86400
+

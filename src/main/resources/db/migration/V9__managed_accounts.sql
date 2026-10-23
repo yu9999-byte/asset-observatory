@@ -1,0 +1,10 @@
+CREATE TABLE user_accounts (
+  username VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  password_hash VARCHAR(100) NOT NULL,
+  role VARCHAR(16) NOT NULL,
+  enabled BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (username),
+  CONSTRAINT chk_user_accounts_role CHECK (role IN ('ADMIN', 'RESEARCHER'))
+);

@@ -1,0 +1,14 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 200 OK
+Date: Thu, 22 Oct 2026 04:25:30 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-powered-by: Next.js
+cache-control: public, max-age=30
+vary: Accept-Encoding
+cf-cache-status: REVALIDATED
+Server: cloudflare
+CF-RAY: a4e5bd080cc2b9dd-NRT
+

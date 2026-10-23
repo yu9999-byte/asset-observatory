@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-21T11:21:58.4420152Z",
+  "sourceDatabase": "observatory_test",
+  "restoreDatabase": "observatory_restore_20261021112157667",
+  "engine": "MySQL 8.4.13 local isolated development instance",
+  "schemaAndDataEqual": true,
+  "beforeSha256": "CCFA159872C9690DC787977820EB4824232DAE082DCABF6045633BD25FF43CCA",
+  "afterSha256": "CCFA159872C9690DC787977820EB4824232DAE082DCABF6045633BD25FF43CCA",
+  "restoredRowCounts": [
+    "watches\t1",
+    "notes\t1",
+    "table_preferences\t1",
+    "source_policies\t1",
+    "ingest_streams\t1",
+    "ingest_batches\t1",
+    "holder_observations\t2",
+    "migrations\t5"
+  ],
+  "testFixtureOwner": "restore-drill-20261021112157667",
+  "fixturePurpose": "Synthetic test-only watch, hidden Unicode note v3, layout v9, disabled policy and holder journal with two balances; not source data or collection authorization.",
+  "holderJournalVerified": true,
+  "holderJournalChecks": [
+    "uint256 maximum and zero as exact strings",
+    "NULL source time",
+    "UTC microsecond timestamps",
+    "committed checkpoint and version",
+    "no active lease",
+    "immutable JSON policy evidence",
+    "disabled fixture policy"
+  ],
+  "backupPath": "A:\\区块链\\backups\\restore-20261021112157667\\before.sql",
+  "sourceOverwritten": false,
+  "coverage": "Local consistent dump and independent restore; not container deployment, production recovery, or live-source reconciliation."
+}

@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+<html ng-app="ccc-app" class="" ng-class-for-lights>
+<head ng-controller="HeaderSEOCtrl">
+	
+	
+	<title>CryptoCompare.com - Terms and Conditions | CryptoCompare.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content='Crypto Coin Comparison LTD is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.' />
+	<link rel="icon" href="/media/20562/favicon.png?v=2" type="image/png">
+	<link rel="apple-touch-icon" href="/media/20562/favicon.png?v=3">
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@cryptocompare" />
+	<meta name="twitter:title" content='CryptoCompare.com - Terms and Conditions' />
+	<meta name="twitter:description" content='Crypto Coin Comparison LTD is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.' />
+	<meta property="og:title" content='CryptoCompare.com - Terms and Conditions' />
+	<meta property="og:url" content='https://www.cryptocompare.com/terms-conditions/' />
+	<meta property="og:type" content='website' />
+	<meta property="og:site_name" content="CryptoCompare" />
+	<meta property="og:description" content='Crypto Coin Comparison LTD is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.' />
+		<meta property="og:image:width" content="1200" /> 
+		<meta property="og:image:height" content="795" />
+		<meta property="og:image" content='https://www.cryptocompare.com/media/1437/bitcoin_chart_magnifying_glass_l.jpg' />
+		<meta property="og:image:secure_url" content="https://www.cryptocompare.com/media/1437/bitcoin_chart_magnifying_glass_l.jpg" /> 
+		<meta name="twitter:image" content="https://www.cryptocompare.com/media/1437/bitcoin_chart_magnifying_glass_l.jpg" />
+
+
+	
+	<link href="https://plus.google.com/115435853043353159139" rel="publisher" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700|Outfit:400,700" rel="stylesheet" />
+	<link href="/DependencyHandler.axd?s=L2Nzcy9hbmd1bGFyLW1hdGVyaWFsLjEuMS4wLm1pbi5jc3M7L2Nzcy9ib290c3RyYXAtbWluLmNzczsvY3NzL1JURS5jc3M7L2Nzcy9jY2Nub25sZXNzLmNzczsvY3NzL2ZvbnQtYXdlc29tZS5jc3M7L2Nzcy9zd2lwZXIuY3NzOy9jc3Mvc3R5bGVzLmNzczsvY3NzL25hdi5jc3M7L2Nzcy9mb3J1bS5jc3M7L2Nzcy9kYXJrLmNzczs&amp;t=Css&amp;cdv=1833" type="text/css" rel="stylesheet"/>
+
+	
+
+	<style>[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak,ng-hide:not(.ng-hide-animate) {display: none !important;}</style>
+	<!--[if lte IE 8]><style>#ieError{display:block;}</style><![endif]-->
+
+
+	<script src="/DependencyHandler.axd?s=L3NjcmlwdHMvVmVuZG9yL2pxdWVyeS0xLjExLjMubWluLmpzOy9zY3JpcHRzL1ZlbmRvci9hbmd1bGFyLjEuNS41Lm1pbi5qczsvc2NyaXB0cy9WZW5kb3IvZXh0cmEtYW5ndWxhci1tb2R1bGVzLmpzOy9zY3JpcHRzL2luaXRhbmd1bGFyYXBwLmpzOy9zY3JpcHRzL1ZlbmRvci9zb2NrZXQuaW8tMi4wLjMuanM7L3NjcmlwdHMvVmVuZG9yL2hvdmVyLWRyb3Bkb3duLmpzOy9zY3JpcHRzL3N0cmVhbWluZy11dGlsaXRpZXMuanM7L3NjcmlwdHMvc2VydmljZXMvZ2xvYmFsLmpzOy9zY3JpcHRzL2NvbnRyb2xsZXJzL2dsb2JhbC5qczsvc2NyaXB0cy9kaXJlY3RpdmVzL2dsb2JhbC5qczsvc2NyaXB0cy9nbG9iYWwuanM7L3NjcmlwdHMvc2VydmljZXMvc3RyZWFtaW5nLmpzOy9zY3JpcHRzL3NlcnZpY2VzL2F1dGgwLmpzOw&amp;t=Javascript&amp;cdv=1833" type="text/javascript"></script>
+	<script>
+		var CCC = CCC || {};
+		CCC.authApiUrl = 'https://auth-api.cryptocompare.com/';
+		CCC.minApiUrl = 'https://min-api.cryptocompare.com/';
+		CCC.dataApiUrl = 'https://data-api.cryptocompare.com/';
+		CCC.streamerUrl = 'wss://streamer.cryptocompare.com/v2?format=streamer';
+		CCC.pathForWebsite = 'https://www.cryptocompare.com';
+		CCC.toolsApiUrl = 'https://tools-api.cryptocompare.com/';
+		CCC.authKeyName = 'auth_key';
+		CCC.stripePublishableKey ='pk_live_CUMD3HX8RVJZOAGXsN4il39r';
+		CCC.taxamoPublishableKey ='public_Wi8s4N_4-ZvxPyvb2E98HmBcdUED6SPgTQPQ_4wdP9Y';
+		CCC.transakProductionKey ='20ed036a-c141-4d1a-a426-503fe5c4b6cb';
+		CCC.auth0Domain = 'auth.coindesk.com';
+		CCC.auth0ClientId = 'vKsLfYq50iKSOJNwhS0lur52ODlCYoUa';
+
+        var u = new URL(location.href);
+
+        if (u.searchParams.has('code'))  sessionStorage.setItem('oauth_return_code',  u.searchParams.get('code'));
+        if (u.searchParams.has('state')) sessionStorage.setItem('oauth_return_state', u.searchParams.get('state'));
+
+        // remove only the OAuth params
+        u.searchParams.delete('code');
+        u.searchParams.delete('state');
+        u.searchParams.delete('iss');
+
+        // keep everything else (e.g., ?disable_mfa=1) + hash
+        var qs = u.searchParams.toString();
+        var clean = u.origin + u.pathname + (qs ? '?' + qs : '') + (u.hash || '');
+        history.replaceState({}, document.title, clean);
+
+
+        angular.module('ccc-app').config([
+          '$httpProvider',
+          '$locationProvider',
+          function ($httpProvider, $locationProvider) {
+            $httpProvider.interceptors.push([
+              '$q', '$rootScope',
+              function ($q, $rootScope) {
+                return {
+                  response: function (response) {
+                    if (response.data && response.data.Response === 'Error' && response.data.Type === 99) {
+                      $rootScope.$emit('rateLimitExceeded');
+                    }
+                    return response;
+                  }
+                };
+              }
+            ]);
+          }
+        ]);
+
+	</script>
+	<script>
+		angular.module('ccc-app').run(function(userManager,auth0,pageInfo,toastNotifications,$location){
+            pageInfo.setUserCountryCode("NZ");
+            userManager.handleAuth0Flow().then(function(){ $location.search('code', null);});
+					userManager.setLoggedIn(false);
+					userManager.setAvatarUrl('/media/19582/icon-user-default.png');
+					userManager.setUsername('Anonymous');
+					userManager.setEmailAddress('Anonymous');
+		});
+	</script>
+	
+	<style>
+	.front-page-bespoke-wrapper {
+	       margin-top: 5px;
+	}
+
+	.front-page-bespoke-wrapper img {
+		width: 100%;
+	}
+
+	.front-page-bespoke-wrapper .is-desktop-fpiw {
+		margin: 0 auto;
+		width: 728px;
+	 }
+
+	.front-page-bespoke-wrapper .is-mobile-fpiw {
+		margin: 0 auto;
+		width: 320px;
+	}
+
+	.front-page-bespoke-wrapper .is-mobile-fpiw img,
+	.front-page-bespoke-wrapper .is-desktop-fpiw img {
+		width: 100%;
+	}
+
+	.is-desktop-fpiw > a, .is-mobile-fpiw > a {
+		display: block;
+	}
+
+	.front-page-bespoke-wrapper .disclaimer {
+		position: relative;
+		font-size: 12px;
+		text-align: center;
+	}
+
+.externalinfoimage-fpiw {
+	display: block;
+	height: 0;
+}
+
+
+	.Webpageexchangeh .front-page-bespoke-wrapper,
+	.Webpagecoinp .front-page-bespoke-wrapper,
+	.Webpagearticleguidep .front-page-bespoke-wrapper,
+	.webPageStaticExternalWidget .front-page-bespoke-wrapper {
+	       margin-bottom: 5px;
+	}
+
+	.Webpagehome .front-page-bespoke-wrapper,
+	.webPageCoinListH .front-page-bespoke-wrapper,
+	.Webpagearticleguideh .front-page-bespoke-wrapper,
+	.webPageNewsListH .front-page-bespoke-wrapper,
+	.webPageCoinICOH .front-page-bespoke-wrapper,
+	.Webpageminingh .front-page-bespoke-wrapper,
+	.Webpagewalleth .front-page-bespoke-wrapper,
+	.Webpageminingcalculatorh .front-page-bespoke-wrapper {
+	}
+
+	@media only screen and (min-width: 800px) {
+
+	}
+	@media only screen and (max-width: 992px){
+		.Webpagehome .front-page-bespoke-wrapper,
+		.webPageCoinListH .front-page-bespoke-wrapper,
+		.Webpagearticleguideh .front-page-bespoke-wrapper,
+		.webPageNewsListH .front-page-bespoke-wrapper,
+		.webPageCoinICOH .front-page-bespoke-wrapper,
+		.Webpageminingh .front-page-bespoke-wrapper,
+		.Webpagewalleth .front-page-bespoke-wrapper,
+		.Webpageminingcalculatorh .front-page-bespoke-wrapper {
+			margin-bottom: 0px;
+		}
+	}
+
+	@media(max-width: 768px) { 
+		.front-page-bespoke-wrapper .is-desktop-fpiw {
+			width: 100%;
+		 }
+	}
+
+
+	@media(max-width: 500px) { 
+		.responsive-bw {
+			width: 468px; 
+			height: 60px; 
+		} 
+	}
+</style>
+<script src="/scripts/prebid.js"></script>
+
+<script type="text/ng-template" id="general/big-info-section.html">
+	<div id="big-info-section-top"
+		class="big-info-section-wrapper"
+		ng-if="isHidden === false && chosenInfo.isActive === true">
+			<div ng-if="chosenInfo.sectionType === 'InfoHtml'">
+				<style>
+					{{chosenInfo.extraCssData}}
+				</style>
+				<div ng-bind-html="chosenInfo.htmlData" ></div>
+			</div>
+	</div>
+</script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6Le3TrMUAAAAAJf-cqN5ZCubOFW-jHhC_cc2ybni"></script>
+	
+	
+
+
+</head>
+<body class="Webpagestaticsimple " ng-class-for-lights>
+	<!-- Google Tag Manager -->
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id=GTM-NPCM6K"
+				height="0" width="0" style="display:none;visibility:hidden"></iframe>
+			<div class="container-js-not-enabled">
+				<div class="js-not-enabled-error">
+					<div class="browser-js-not-enabled">
+						<p><b>CryptoCompare</b> needs javascript enabled in order to work.</p>
+					</div>
+					<p>Follow these instructions to activate and enable JavaScript in <b>Chrome</b>.</p>
+					<p>PC</p>
+					<ol>
+						<li>To the right of the address bar, click the icon with <strong>3 stacked horizontal lines</strong>.</li>
+						<li>From the drop-down menu, select <strong>Settings</strong>.</li>
+						<li>At the bottom of the page, click the <strong>Show advanced settings…</strong> link.</li>
+						<li>Under the <strong>Privacy</strong> section, click the <strong>Content settings…</strong> button.</li>
+						<li>Under the <strong>JavaScript</strong> heading, select the <strong>Allow all sites to run JavaScript</strong> radio button.</li>
+						<li>Finally, <strong>refresh</strong> your browser.</li>
+					</ol>
+					<p>MAC</p>
+					<ol>
+						<li>Select <strong>Chrome</strong> from the Apple/System bar at the top of the screen.</li>
+						<li>Select <strong>Preferences...</strong> from the drop-down menu.</li>
+						<li>In the left-hand column, select <strong>Settings</strong> from the list.</li>
+						<li>At the bottom of the page, click the <strong>Show advanced settings…</strong> link.</li>
+						<li>Under the <strong>Privacy</strong> section, click the <strong>Content settings…</strong> button.</li>
+						<li>Under the <strong>JavaScript</strong> heading, select the <strong>Allow all sites to run JavaScript</strong> radio button.</li>
+						<li>Finally, <strong>refresh</strong> your browser.</li>
+					</ol>
+				</div>
+			</div>
+		</noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NPCM6K');</script>
+	<!-- End Google Tag Manager -->
+	<div class="normal-browser" ng-cloak>
+		<script type="text/ng-template" id="general/auto-suggest-result.html">
+	<div class="typeahead-group-header" ng-if="match.model.firstInGroup">{{match.model.group}}</div>
+	<a ng-if="match.model.group !== 'Sponsored'"class="typeahead-result-option" href="#">
+		<img ng-if="match.model.imageUrl" class="logo" ng-src="{{match.model.imageUrl}}">
+		<span class="result-name" ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+		<span ng-if="match.model.changePct != undefined" class="result-change" ng-class="{'up-text':match.model.changePct>0, 'down-text':match.model.changePct<0}">{{match.model.changePct.toFixed(2)}}%</span>
+	</a>
+	<a ng-if="match.model.group == 'Sponsored'"class="typeahead-result-option" href="#">
+		<img class="logo-info" ng-src="{{match.model.imageUrl}}">
+		<div><b>{{match.model.textTop}}:</b> {{match.label}}</div>
+	</a>
+</script>
+		<script type="text/ng-template" id="general/notification-user-action.html">
+<li>
+	<span href="#" class="media" ng-class="{'new':!notification.read}">
+		<span class="label pull-right" ng-show='!notification.read'></span>
+		<div class="media-left">
+			<img ng-src="{{latestItem.Cryptopian.Avatar ? getFullImageUrl(latestItem.Cryptopian.Avatar) : latestItem.Parent.ImageUrl}}" class="img-user" />
+		</div>
+		<div class="media-body">
+			<div ng-if="notification.type === 'PostDelete'" >
+				Your post in the <a href="{{latestItem.Parent.Url}}"><b>{{latestItem.Parent.Name}}</b></a> forum was deleted:
+				<div class="notification-post-body">
+					{{decodeHTML(latestItem.Body)}}
+				</div>
+			</div>
+			<div ng-if="notification.type === 'PostUnDelete'" >
+				Your post in the <a href="{{latestItem.Parent.Url}}"><b>{{latestItem.Parent.Name}}</b></a> forum was restored:
+				<a href="{{latestItem.Parent.Url + 'post/p_' + latestItem.ReplyToPost.Id + '#' + latestItem.ExternalId}}">
+					<div class="notification-post-body">
+						{{decodeHTML(latestItem.Body)}}
+					</div>
+				</a>
+			</div>
+			<div ng-if="notification.type === 'Following'" ><a href="/profile/{{latestItem.Cryptopian.Name}}/"><b>{{latestItem.Cryptopian.Name}}</b></a>
+				<span ng-show="cryptopians.length>0">and <span class="other-users-tip" tooltip-placement="bottom" data-html="true" uib-tooltip-html="tooltip">{{cryptopians.length}} other user<span ng-show="cryptopians.length>1">s</span></span></span>
+				followed you.
+			</div>
+			<div ng-if="notification.type === 'PostA'" >
+				<a href="/profile/{{latestItem.Cryptopian.Name}}/"><b>{{latestItem.Cryptopian.Name}}</b></a>
+				<span ng-show="cryptopians.length>0">and <span class="other-users-tip" tooltip-placement="bottom" data-html="true" uib-tooltip-html="tooltip">{{cryptopians.length}} other user<span ng-show="cryptopians.length>1">s</span></span></span>
+				<span ng-show="notification.items[0].ActionType === 1">disagree</span><span ng-show="notification.items[0].ActionType === 0">agree</span><span ng-show="cryptopians.length === 0">s</span>
+				 with:<br/>
+				<a href="{{latestItem.Target.Parent.Url + 'post/p_' + (latestItem.Target.ReplyTo ? latestItem.Target.ReplyTo : latestItem.Target.Id)}}">
+					<div class="notification-post-body">
+						{{decodeHTML(latestItem.Target.Body)}}
+					</div>
+				</a>
+			</div>
+			<div ng-if="notification.type === 'Post'" ><a href="/profile/{{latestItem.Cryptopian.Name}}/"><b>{{latestItem.Cryptopian.Name}}</b></a>
+				<span ng-show="cryptopians.length>0">and <span class="other-users-tip" tooltip-placement="bottom" data-html="true" uib-tooltip-html="tooltip">{{cryptopians.length}} other user<span ng-show="cryptopians.length>1">s</span></span></span>
+				replied: </br>
+				<a href="{{latestItem.Parent.Url + 'post/p_' + latestItem.ReplyToPost.Id + '#' + latestItem.ExternalId}}">
+					<div class="notification-post-body">
+					 {{decodeHTML(latestItem.Body)}}
+					</div>
+				</a>
+			</div>
+			<small class="text-muted">{{DateParsing.formatFromNow(notification.timestamp*1000)}}</small>
+		</div>
+	</span>
+</li>
+</script>
+		<script type="text/ng-template" id="general/popover-rating.html">
+	<div class="wrapper-star">
+		<span class="stars-label">5 star </span>
+		<span class="stars-progress-bar">
+			<uib-progressbar value="item.Rating['Five']" max="item.Rating['TotalUsers']||1" animate="false"></uib-progressbar>
+		</span>
+		<span class="total-users">
+			{{item.Rating['Five']}}
+		</span>
+	</div>
+	<div class="wrapper-star">
+		<span class="stars-label">4 star </span>
+		<span class="stars-progress-bar">
+			<uib-progressbar value="item.Rating['Four']" max="item.Rating['TotalUsers']||1" animate="false"></uib-progressbar>
+		</span>
+		<span class="total-users">
+			{{item.Rating['Four']}}
+		</span>
+	</div>
+	<div class="wrapper-star">
+		<span class="stars-label">3 star </span>
+		<span class="stars-progress-bar">
+			<uib-progressbar value="item.Rating['Three']" max="item.Rating['TotalUsers']||1" animate="false"></uib-progressbar>
+		</span>
+		<span class="total-users">
+			{{item.Rating['Three']}}
+		</span>
+	</div>
+	<div class="wrapper-star">
+		<span class="stars-label">2 star </span>
+		<span class="stars-progress-bar">
+			<uib-progressbar value="item.Rating['Two']" max="item.Rating['TotalUsers']||1" animate="false"></uib-progressbar>
+		</span>
+		<span class="total-users">
+			{{item.Rating['Two']}}
+		</span>
+	</div>
+	<div class="wrapper-star">
+		<span class="stars-label">1 star </span>
+		<span class="stars-progress-bar">
+			<uib-progressbar value="item.Rating['One']" max="item.Rating['TotalUsers']||1" animate="false"></uib-progressbar>
+		</span>
+		<span class="total-users">
+			{{item.Rating['One']}}
+		</span>
+	</div>
+</script>
+		<script>
+	angular.module('ccc-app').run(function(notificationsManager, userManager, $rootScope, pageInfo){
+        function initNotifications(){
+            if(userManager.isLoggedIn()){
+                notificationsManager.getNotificationsFromApi();
+            } else {
+                notificationsManager.resetNotifications();
+            }
+        }
+        pageInfo.setSlots([{"id":963760,"documentType":"contentAdvertisingSearchSponsor","link":"https://tools-api.cryptocompare.com/people/interact/increase?id=1867","textTop":"Bybit","topSubtext":"$100,000 And Other Prizes For Grabs! Deposit and Trade to have the chance to win USDT, F1 tickets, New Listing Tokens and Funded Account.","logo":"/media/44614059/bybit_lg2.jpg","externalId":"1867","countriesList":"!GB","typePosition":"search_bar_info"}], "search_bar_info");
+        initNotifications();
+        $rootScope.$on("LoginValueChange",function(event,newValue){
+            initNotifications();
+        });
+	});
+</script>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top visible-xs-block">
+	<div class="wrapper-mobile">
+		<ul class="nav navbar-nav pull-left nav-menu-mobile" ng-controller="DropdownMenuUserSectionCtrl" ng-class="{'not-loggedin':!userManager.isLoggedIn()}">
+			<li class="dropdown" uib-dropdown>
+			  <a class="dropdown-toggle" uib-dropdown-toggle><span class="fa fa-bars"></span> <span class="caret"></span></a>
+				<ul class="uib-dropdown-menu" role="menu">
+					<li class="dropdown mobile-tab-section selected">
+						<a href="/">Markets</a>
+					</li>
+					<li class="dropdown mobile-tab-section">
+						<a href="https://data.coindesk.com">Data</a>
+					</li>
+					<li class="dropdown mobile-tab-section">
+						<a href="https://developers.coindesk.com/documentation">{API}</a>
+					</li>
+					<li class="dropdown">
+						<a href="/" class="link-home"><div class="icon-mobile"><span class="fa fa-home fa-2x"></span></div>Home</a>
+					</li>
+					<li class="dropdown">
+						<a href="/coins/list/all/USD/1"><div class="icon-mobile"><span class="fa fa-bitcoin fa-2x"></span></div>Top Lists</a>
+					</li>
+					<li class="dropdown">
+						<a href="/exchanges/"  ><div class="icon-mobile"><span class="fa fa-institution fa-2x"></span></div>Exchanges</a>
+					</li>
+					<li class="dropdown">
+						<a href="/mining/" ><div class="icon-mobile"><span class="fa fa-gears fa-2x"></span></div>Mining</a>
+					</li>
+					<li class="dropdown">
+						<a href="/mining/calculator/btc" ><div class="icon-mobile"><span class="fa fa-calculator fa-2x"></span></div>Mining Calc</a>
+					</li>
+					<li class="dropdown">
+						<a href="/wallets/" ><div class="icon-mobile"><span class="fa fa-book fa-2x"></span></div>Wallets</a>
+					</li>
+					<li class="dropdown">
+						<a href="/news/list/latest/"><div class="icon-mobile"><span class="fa fa-comments fa-2x"></span></div>News</a>
+					</li>
+					<li class="dropdown">
+						<a href="/portfolio/"><div class="icon-mobile"><span class="fa fa-bar-chart fa-2x"></span></div>Portfolio</a>
+					</li>
+					<li class="dropdown">
+						<a href="" ng-click="switchLights()"><div class="icon-mobile"><span class="fa fa-lightbulb-o fa-2x"></span></div>Turn {{LightsStatus}}</a>
+					</li>
+					<li class="dropdown">
+						<a href="https://developers.coindesk.com/documentation"><div class="icon-mobile"><span class="fa fa-code fa-2x"></span></div>API</a>
+					</li>
+					<li class="dropdown" ng-show="!userManager.isLoggedIn()">
+						<a href="" ng-click="showLogin()">
+							<div class="mobile-avatar"><i class="fa fa-key"></i></div>
+							Login / Register
+						</a>
+					</li>
+					<li class="dropdown ng-hide" uib-dropdown ng-show="userManager.isLoggedIn()">
+						<a href="/cryptopian/" class="uib-dropdown-toggle nav-profile">
+							<div class="mobile-avatar"><img ng-src="{{userManager.getAvatarUrl()}}" class="navbar-profile-avatar" alt=""/></div>
+							<span class="navbar-profile-label" ng-bind="userManager.getUsername()"></span>
+						</a>
+					</li>
+			   </ul>
+			</li>
+		</ul>
+			<div class="container-search">
+		<form id="search-mobile" class="search-mobile" ng-controller="AutosuggestCtrl">
+			<input class="form-control searchbar-input" type="text"
+				placeholder="Search"
+				autocomplete="off"
+				ng-model="asyncDataResult"
+				ng-click="openTrending($event)"
+				uib-typeahead="result as result.nodeName for result in getAutosuggest($viewValue)"
+				active-idx="{{activeIdx}}"
+				typeahead-template-url="general/auto-suggest-result.html"
+				typeahead-wait-ms=200
+				typeahead-focus-first="true"
+				typeahead-min-length=0
+				typeahead-show-hint="true"
+				typeahead-loading="loadingData"
+				typeahead-on-select='onSelect($item, $model, $label)'>
+		</form>
+	</div>
+
+	</div>
+</div>
+
+
+<div
+	id="navigation-tabs"
+	class="navbar navbar-main navbar-top visible-md-block visible-lg-block visible-sm-block"
+	role="navigation"
+>
+	<div class="container">
+		<div class="navbar-wrapper">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<span class="powered-by">Powered By CoinDesk Data</span>
+				</a>
+			</div>
+			<ul class="tabrow">
+				<li class="selected"><a href="/">Markets</a></li>
+				<li><a href="https://data.coindesk.com">CoinDesk Data</a></li>
+				<li><a href="https://developers.coindesk.com/documentation">{API}</a></li>
+				<li><a href="https://consensus.coindesk.com/">Events</a></li>
+			</ul>
+				<ul class="nav navbar-nav navbar-right navbar-login-main" ng-controller="DropdownMenuUserSectionCtrl">
+		<li class="navbar-portfolio">
+			<a href="/portfolio/">
+				Portfolio
+			</a>
+		</li>
+		<li class="navbar-portfolio-mobile">
+			<a href="/portfolio/">
+				<span class="fa fa-bar-chart"></span>
+			</a>
+		</li>			
+		<li class="login-button" ng-show = "!userManager.isLoggedIn()">
+<!-- 			<a href="" ng-click="showLogin()"> -->
+<!-- 				Log In / Sign Up -->
+<!-- 			</a> -->
+			<a href="" aria-controls="login" class="activate-login" ng-click="showLogin()">Login</a>
+		</li>
+		<li class="login-button" ng-show = "!userManager.isLoggedIn()">
+			<a href="" aria-controls="signup" class="activate-signup" ng-click="showSignup()">Signup</a>
+		</li>
+		<li id="notification-dropdown" class="dropdown ng-hide" uib-dropdown on-toggle="toggled(open,'notifications')" ng-show = "userManager.isLoggedIn()">
+			<a href class="dropdown-toggle nav-notifications notices" uib-dropdown-toggle >
+				<span class="fa fa-bell"></span>
+				<span class="badge badge-on" ng-show="notificationsManager.getNewNotificaticationsCount()>0" ng-bind="notificationsManager.getNewNotificaticationsCount()"></span>
+			</a>
+			<div class="uib-dropdown-menu with-arrow dropdown-menu-md" ng-click="$event.stopPropagation()" role="menu">
+				<div class="nano">
+					<div ng-show="notificationsManager.getNotifications().length > 0" notifications-list class="notifications-list nano-content" >
+						<ul class="head-list">
+							<notification-action ng-repeat="(key,notification) in notificationsManager.getNotifications()" notification="notification"></notification-action>
+						</ul>						
+					</div>
+					<div ng-show="notificationsManager.getNotifications().length === 0" class="notifications-list empty nano-content" >
+						<ul class="head-list">
+							<li>
+								<div class="notifications-empty-wrapper">
+									<i class="fa fa-inbox"></i>
+								</div>
+								<div>
+									<b>No notifications...yet!</b>
+								</div>
+							</li>
+						</ul>
+						<div class="notifications-footer">
+							<div>
+								When someone replies or reacts to one of your posts, you'll see it here. Until then, head over to
+								the forums and join the conversation!
+							</div>
+							<div class="forum-cta-wrapper">
+								<a class="btn btn-success" href="/forum#/coin">Go to the Forums</a>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>    
+		<li class="dropdown navbar-profile ng-hide" uib-dropdown on-toggle="toggled(open,'profile')" ng-show = "userManager.isLoggedIn()">
+			<a href id="nav-username" class="dropdown-toggle nav-profile" uib-dropdown-toggle>
+				<img ng-src="{{userManager.getAvatarUrl()}}" class="navbar-profile-avatar" alt=""/>
+				<span class="navbar-profile-label" ng-bind="userManager.getUsername()"></span>
+				<i class="fa fa-caret-down"></i>
+			</a>
+			<ul class="uib-dropdown-menu" role="menu">
+				<li>
+					<a href="/quiz/">
+						<i class="fa fa-question"></i> Quiz
+					</a>
+				</li>
+				<li>
+					<a ng-href="/profile/{{userManager.getUsername()}}/">
+						<i class="fa fa-user"></i> View My Profile
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/general">
+						<i class="fa fa-cogs"></i> Account
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/api-keys">
+						<i class="fa fa-code"></i> API Keys
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/billing">
+						<i class="fa fa-credit-card"></i> Billing
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="" ng-click="switchLights()">
+						<i class="fa fa-lightbulb-o"></i>Turn {{LightsStatus}}
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href ng-click='userManager.logout()'>
+						<i class="fa fa-sign-out"></i> Logout
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+		</div>
+	</div>
+</div>
+<div
+	ng-controller="HeaderCtrl"
+	id="navigation-markets"
+	class="navbar navbar-main navbar-secondary visible-md-block visible-lg-block visible-sm-block"
+	role="navigation"
+>
+			<div class="navbar-top collapse navbar-collapse">
+				<div class="container">
+				<div class="navbar-secondary-wrapper">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/"></a>
+					</div>
+
+					<ul class="nav navbar-nav navbar-megamenu" ng-controller="DropdownCtrl">
+						<li class="dropdown " uib-dropdown on-toggle="toggled(open)">
+							<a href="/coins/list/all/USD/1" class="uib-dropdown-toggle nav-link" data-toggle="dropdown" data-hover="dropdown" data-delay="200" ng-mouseover="menuForum=true" ng-mouseleave="menuForum=false">Coin List</a>
+						</li>
+						<li class="dropdown" uib-dropdown on-toggle="toggled(open); isopen=!isopen">
+							<a uib-dropdown-toggle href="/coins/list/" class="uib-dropdown-toggle nav-link" >Top Lists <i ng-class="{'fa fa-angle-down':isopen,'fa fa-angle-up':!isopen}"></i></a>
+							<ul class="uib-dropdown-menu megamenu row">
+								<li>
+									<div class="col-xs-3">
+										<div class="menu-column border-left">
+											<h4>Trading / Mining<i class="fas fa-chart-bar"></i></h4>
+											<div>
+												<ul>
+													<li><a href="/coins/list/all/USD/1">Coins<i class="fa fa-chart-bar"></i></a></li>
+													<li><a href="/coins/list/defi/USD/1">DeFi</a></li>
+													<li><a href="/exchanges/">Exchanges</a></li>
+													<li><a href="/mining/">Mining</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="menu-column border-left">
+											<h4>Other</h4>
+											<div>
+												<ul>
+													<li><a href="/wallets/#/overview">Wallets</a></li>
+													<li><a href="/wallets/#/cards">Cards</a></li>
+													<li><a href="/forum/#/latest-posts">Latest posts</a></li>
+													<li><a href="/portfolio-public/#/overview">Public Portfolios</a></li>
+													<li><a href="/mining/calculator/">Mining Calculator</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-6">
+										<div class="menu-column coins-featured">
+											<h4>Popular Coins</h4>
+											<ul class="popular-items">
+													<li class="">
+														<a href="/coins/btc/overview" class="popular-item " title="Bitcoin">
+																<div class="thumb-coin">
+																	<img src="/media/37746251/btc.png?anchor=center&mode=crop&width=32&height=32" title="BTC">
+																</div>
+															<div class="coins-name">
+Bitcoin															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/eth/overview" class="popular-item " title="Ethereum">
+																<div class="thumb-coin">
+																	<img src="/media/37746238/eth.png?anchor=center&mode=crop&width=32&height=32" title="ETH">
+																</div>
+															<div class="coins-name">
+Ethereum															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/ltc/overview" class="popular-item " title="Litecoin">
+																<div class="thumb-coin">
+																	<img src="/media/37746243/ltc.png?anchor=center&mode=crop&width=32&height=32" title="LTC">
+																</div>
+															<div class="coins-name">
+Litecoin															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/xrp/overview" class="popular-item " title="XRP">
+																<div class="thumb-coin">
+																	<img src="/media/38553096/xrp.png?anchor=center&mode=crop&width=32&height=32" title="XRP">
+																</div>
+															<div class="coins-name">
+XRP															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/xmr/overview" class="popular-item " title="Monero">
+																<div class="thumb-coin">
+																	<img src="/media/37746883/xmr.png?anchor=center&mode=crop&width=32&height=32" title="XMR">
+																</div>
+															<div class="coins-name">
+Monero															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/ada/overview" class="popular-item " title="Cardano">
+																<div class="thumb-coin">
+																	<img src="/media/37746235/ada.png?anchor=center&mode=crop&width=32&height=32" title="ADA">
+																</div>
+															<div class="coins-name">
+Cardano															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/bnb/overview" class="popular-item " title="BNB">
+																<div class="thumb-coin">
+																	<img src="/media/40485170/bnb.png?anchor=center&mode=crop&width=32&height=32" title="BNB">
+																</div>
+															<div class="coins-name">
+BNB															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/bch/overview" class="popular-item " title="BCH">
+																<div class="thumb-coin">
+																	<img src="/media/37746245/bch.png?anchor=center&mode=crop&width=32&height=32" title="BCH">
+																</div>
+															<div class="coins-name">
+BCH															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/xlm/overview" class="popular-item " title="Stellar">
+																<div class="thumb-coin">
+																	<img src="/media/37746346/xlm.png?anchor=center&mode=crop&width=32&height=32" title="XLM">
+																</div>
+															<div class="coins-name">
+Stellar															</div>
+														</a>
+													</li>
+													<li class="">
+														<a href="/coins/dot/overview" class="popular-item " title="Polkadot">
+																<div class="thumb-coin">
+																	<img src="/media/39334571/dot.png?anchor=center&mode=crop&width=32&height=32" title="DOT">
+																</div>
+															<div class="coins-name">
+Polkadot															</div>
+														</a>
+													</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown" >
+							<a href="https://data.coindesk.com/reports" target="_blank" class="uib-dropdown-toggle nav-link">Research</a>
+						</li>
+						<li class="dropdown ">
+							<a href="/news/list/latest/" class="uib-dropdown-toggle nav-link">News</a>
+						</li>
+					</ul>
+						<div class="search-top pull-left hidden-xs" ng-controller="AutosuggestCtrl">
+		<form class="navbar-form navbar-form-secondary">
+			<div class="form-group">
+				<i class="glyphicon glyphicon-search"></i>
+				<input class="form-control searchbar-input" type="text"
+					placeholder="Search"
+					autocomplete="off"
+					ng-model="asyncDataResult"
+					ng-click="openTrending($event)"
+					uib-typeahead="result as result.nodeName for result in getAutosuggest($viewValue)"
+					active-idx="{{activeIdx}}"
+					typeahead-template-url="general/auto-suggest-result.html"
+					typeahead-wait-ms=200
+					typeahead-focus-first="true"
+					typeahead-min-length=0
+					typeahead-show-hint="true"
+					typeahead-loading="loadingData"
+					typeahead-on-select='onSelect($item, $model, $label)'>
+				<i ng-show="loadingData" class="glyphicon glyphicon-refresh glyphicon-spin ng-hide"></i>
+			</div>
+		</form>
+	</div>
+
+						<ul class="nav navbar-nav navbar-right navbar-login-main" ng-controller="DropdownMenuUserSectionCtrl">
+		<li class="navbar-portfolio">
+			<a href="/portfolio/">
+				Portfolio
+			</a>
+		</li>
+		<li class="navbar-portfolio-mobile">
+			<a href="/portfolio/">
+				<span class="fa fa-bar-chart"></span>
+			</a>
+		</li>			
+		<li class="login-button" ng-show = "!userManager.isLoggedIn()">
+<!-- 			<a href="" ng-click="showLogin()"> -->
+<!-- 				Log In / Sign Up -->
+<!-- 			</a> -->
+			<a href="" aria-controls="login" class="activate-login" ng-click="showLogin()">Login</a>
+		</li>
+		<li class="login-button" ng-show = "!userManager.isLoggedIn()">
+			<a href="" aria-controls="signup" class="activate-signup" ng-click="showSignup()">Signup</a>
+		</li>
+		<li id="notification-dropdown" class="dropdown ng-hide" uib-dropdown on-toggle="toggled(open,'notifications')" ng-show = "userManager.isLoggedIn()">
+			<a href class="dropdown-toggle nav-notifications notices" uib-dropdown-toggle >
+				<span class="fa fa-bell"></span>
+				<span class="badge badge-on" ng-show="notificationsManager.getNewNotificaticationsCount()>0" ng-bind="notificationsManager.getNewNotificaticationsCount()"></span>
+			</a>
+			<div class="uib-dropdown-menu with-arrow dropdown-menu-md" ng-click="$event.stopPropagation()" role="menu">
+				<div class="nano">
+					<div ng-show="notificationsManager.getNotifications().length > 0" notifications-list class="notifications-list nano-content" >
+						<ul class="head-list">
+							<notification-action ng-repeat="(key,notification) in notificationsManager.getNotifications()" notification="notification"></notification-action>
+						</ul>						
+					</div>
+					<div ng-show="notificationsManager.getNotifications().length === 0" class="notifications-list empty nano-content" >
+						<ul class="head-list">
+							<li>
+								<div class="notifications-empty-wrapper">
+									<i class="fa fa-inbox"></i>
+								</div>
+								<div>
+									<b>No notifications...yet!</b>
+								</div>
+							</li>
+						</ul>
+						<div class="notifications-footer">
+							<div>
+								When someone replies or reacts to one of your posts, you'll see it here. Until then, head over to
+								the forums and join the conversation!
+							</div>
+							<div class="forum-cta-wrapper">
+								<a class="btn btn-success" href="/forum#/coin">Go to the Forums</a>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>    
+		<li class="dropdown navbar-profile ng-hide" uib-dropdown on-toggle="toggled(open,'profile')" ng-show = "userManager.isLoggedIn()">
+			<a href id="nav-username" class="dropdown-toggle nav-profile" uib-dropdown-toggle>
+				<img ng-src="{{userManager.getAvatarUrl()}}" class="navbar-profile-avatar" alt=""/>
+				<span class="navbar-profile-label" ng-bind="userManager.getUsername()"></span>
+				<i class="fa fa-caret-down"></i>
+			</a>
+			<ul class="uib-dropdown-menu" role="menu">
+				<li>
+					<a href="/quiz/">
+						<i class="fa fa-question"></i> Quiz
+					</a>
+				</li>
+				<li>
+					<a ng-href="/profile/{{userManager.getUsername()}}/">
+						<i class="fa fa-user"></i> View My Profile
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/general">
+						<i class="fa fa-cogs"></i> Account
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/api-keys">
+						<i class="fa fa-code"></i> API Keys
+					</a>
+				</li>
+				<li>
+					<a href="/cryptopian/billing">
+						<i class="fa fa-credit-card"></i> Billing
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="" ng-click="switchLights()">
+						<i class="fa fa-lightbulb-o"></i>Turn {{LightsStatus}}
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href ng-click='userManager.logout()'>
+						<i class="fa fa-sign-out"></i> Logout
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+
+				</div>
+			</div>
+	</div>
+</div>
+		<big-info-section page="Webpagestaticsimple"></big-info-section>
+
+		<div class="main-wrapper">
+			<div class="container">
+				
+	<div class='row'>
+		
+<div class="col-md-12">
+	<h1 class="page-title">Website Terms of Use</h1>
+	<p><strong>Please read these Terms of Use carefully before using this Site.</strong></p>
+<h2 class="cms-plugin cms-plugin-10">1. About our Terms of Use (the<strong> “Terms</strong>”)</h2>
+<p>1.1 Reference in these <span>Terms</span> to the <span>Site</span> is intended to our website, <span style="text-decoration: underline;"><a style="color: #337ab7;" data-id="1083" href="/" title="WebPage.Home">www.cryptocompare.com</a></span>, and all associated web pages (together, the “<strong>Site</strong>”).</p>
+<p>1.2 These <span>Terms</span> explain how <span>you</span> may use this <span> You</span> should read these <span>Terms</span> carefully before using the <span>Site.</span></p>
+<p>1.3 By accessing or using the <span>Site</span> or otherwise indicating your consent, <span>you</span> agree to be bound by these <span>Terms</span> and the documents referred to in them and you agree to comply with them. If <span>you</span> do not agree with or accept any of these <span>Terms</span>, <span>you</span> should stop using the <span>Site</span></p>
+<p>1.4 We recommend that you print a copy of these Terms for future reference.</p>
+<h2 class="cms-plugin cms-plugin-10">2. Who we are and how to contact us</h2>
+<p>2.1 Our Site is operated by Crypto Coin Comparison Limited (<strong>“We”</strong>). We are registered in England and Wales under company number 08846969 and have Our registered office at 162 Main Road, Danbury, Chelmsford, England CM3 4DT. Our VAT number is 202220093.</p>
+<p>2.2 To contact us, please email <span style="text-decoration: underline;"><a style="color: #337ab7;" href="mailto:info@cryptocompare.com">info@cryptocompare.com</a></span>.</p>
+<p>2.3 Crypto Coin Comparison Limited is the parent company of CC Data Limited. It is part of the same group of companies as CoinDesk, Inc.. Subject to applicable privacy laws and terms and conditions we may share information with our group entities.</p>
+<h2 class="cms-plugin cms-plugin-10">3. Definitions</h2>
+<p><span>"</span><strong>Content</strong><span>"</span><strong> </strong><span>means any data information, software or other material on or submitted to the Site or included in any communication that we send to You, in each case whether that is text, images, video, audio or other multimedia content or otherwise;</span><br /><span>"</span><strong>Privacy and Cookie Policy</strong><span>" means the<span> </span></span><span style="text-decoration: underline;"><a style="color: #337ab7;" data-id="5493" href="/privacy-policy/" title="Privacy Policy" class=" ">policy</a></span><span> which governs how We process any personal data we collect and process about you;</span><br /><span>"</span><strong>Site</strong><span>" has the meaning given to it in clause 1.2;</span><br /><span>"</span><strong>Terms</strong><span>" means these terms and conditions of use as updated from time to time under clause 13;</span><br /><span>"</span><strong>User Content</strong><span>" has the meaning given to it in clause 8.1;</span><br /><span>"</span><strong>We</strong><span>", "</span><strong>Us</strong><span>"</span><strong><span> </span></strong><span>or "</span><strong>Our</strong><span>" has the meaning given in clause 2.1; and</span><br /><span>"</span><strong>You</strong><span>" or "</span><strong>Your</strong><span>" means the person accessing or using the Site and the Content.</span></p>
+<h2 class="cms-plugin cms-plugin-10">4. Other Terms</h2>
+<p><span>Our</span> <span><span style="text-decoration: underline;"><a style="color: #337ab7;" data-id="5493" href="/privacy-policy/" title="Privacy Policy">Privacy and Cookies Policy</a></span> also applies to your use of this Site</span>.</p>
+<h2 class="cms-plugin cms-plugin-10">5. Important information about Our the Site and the Content and Your use of it</h2>
+<p class="cms-plugin cms-plugin-10">5.1 The Site and the Content is for Your personal and non-commercial use only.</p>
+<p class="cms-plugin cms-plugin-10">5.2 We are not authorised by the Financial Conduct Authority of England. The Site and the Content is provided by Us and Our third party providers for Your general information only and is not intended for trading or investment purposes or to address Your particular financial or other requirements. In particular, the Content:</p>
+<p style="padding-left: 30px;" class="cms-plugin cms-plugin-10">5.2.1 does not constitute any form of advice (financial, investment, tax, legal or otherwise) and should not be relied on for any purposes;</p>
+<p style="padding-left: 30px;" class="cms-plugin cms-plugin-10">5.2.2 does not constitute any inducement, invitation or recommendation relating to any of the products or services listed or referred to; and</p>
+<p style="padding-left: 30px;" class="cms-plugin cms-plugin-10">5.2.3 is not intended to be relied upon by You in making (or deciding not to make) any specific investment or other decisions.</p>
+<p style="padding-left: 30px;" class="cms-plugin cms-plugin-10">YOU SHOULD OBTAIN APPROPRIATE EXPERT INDEPENDENT FINANCIAL ADVICE BEFORE MAKING ANY INVESTMENT OR OTHER DECISIONS.</p>
+<p class="cms-plugin cms-plugin-10">5.3 The Site and the Content may include information and materials uploaded by other users of the Site, including to user forums, product and service reviews, bulletin boards and chat rooms. This information and these materials have not been verified or approved by Us. The views expressed by other users on Our Site do not represent Our views or values.</p>
+<p class="cms-plugin cms-plugin-10">5.4 The Site and the Content may include advertisements or other promotional materials from third parties (including other suppliers of goods and services). Such advertisements and promotional materials have not been verified or approved by Us, do not constitute any advice from Us, and are not any endorsement by Us of the advertiser or of their products or services.</p>
+<p class="cms-plugin cms-plugin-10">5.5 Where We list or describe different products and services, We try to give You the information You need to help You compare them and choose the right product or service for You. We may also have tips and more information to help You compare providers. Some providers pay Us for advertisements or promotions on Our Site or in emails We may send You. Any commercial agreement We have in place with a provider does not affect how We describe or rank them or their products and services.</p>
+<p class="cms-plugin cms-plugin-10">5.6 Any use You make of this Site and any Content must at all times comply with all applicable laws and regulations and You must not use the Site or any Content in connection with a criminal offence under any applicable laws or regulations or for any unlawful purpose whatsoever or which promotes any unlawful act.</p>
+<p class="cms-plugin cms-plugin-10">5.7 You also must not use this Site or any Content in any way which is abusive, harmful, threatening or defamatory or any other way that may cause offence or in any way which causes or is intended to cause annoyance or inconvenience, or which may otherwise damage Our reputation.</p>
+<p class="cms-plugin cms-plugin-10">5.8 You agree that You are solely responsible for all costs and expenses You may incur in relation to Your use of the Site and the Content.</p>
+<p class="cms-plugin cms-plugin-10">5.9 The Site and the Content is intended for use only by those who can access it from within the UK. If You choose to access the Site from locations outside the UK, You are responsible for compliance with local laws where they are applicable.</p>
+<p class="cms-plugin cms-plugin-10">5.10 We seek to make the Site as accessible as possible. If You have any difficulties using the Site, please contact Us on the contact details provided at clause 2.2.</p>
+<p class="cms-plugin cms-plugin-10">5.11 We may prevent or suspend Your access to the Site if You do not comply with any part of these Terms, any terms or policies to which they refer or any applicable law.</p>
+<h2 class="cms-plugin cms-plugin-10">6. Registered users</h2>
+<p class="cms-plugin cms-plugin-10">6.1 You are solely responsible for keeping any password, user identification code or other log in details confidential.</p>
+<p class="cms-plugin cms-plugin-10">6.2 You will also be responsible for any use made of this Site or the Content by anyone using your password, user identification code or other log in details.</p>
+<p class="cms-plugin cms-plugin-10">6.3 If You know or suspect that anyone other than You knows Your password, user identification code or other log in details, You must promptly notify Us.</p>
+<p class="cms-plugin cms-plugin-10">6.4 You are not permitted to impersonate any other person and We reserve the right in Our absolute discretion to restrict the use of any particular password, user identification code or other log in details.</p>
+<h2 class="cms-plugin cms-plugin-10">7. Ownership, use, and intellectual property rights</h2>
+<p class="cms-plugin cms-plugin-10">7.1 This Site, the Content (other than Your User Content) and all intellectual property rights in it are owned by Us or Our licensors. Intellectual property rights mean rights such as copyright, trademarks, domain names, design rights, database rights, patents and all other intellectual property rights of any kind whether or not they are registered or unregistered (anywhere in the world). We reserve all of Our rights in any intellectual property in connection with these Terms. This means, for example, that We remain owners of them and free to use them as We see fit.</p>
+<p class="cms-plugin cms-plugin-10">7.2 Nothing in these Terms grants You any legal rights in the Site and the Content other than as necessary to enable You to access the Site and the Content. You agree not to adjust, to try to circumvent or delete any notices contained on the Site or on any emails We send to You (including any intellectual property notices) and in particular in any digital rights or other security technology embedded or contained within the Site.</p>
+<p class="cms-plugin cms-plugin-10">7.3 You may only make a copy of any part of Our Site or the Content as is reasonably necessary for Your own personal use or as You otherwise agree with Us in writing. You must not modify any Content You copy from Our Site or any email we send You in any way. Our status (and that of any identified contributors) as the authors of Content must always be acknowledged. If You print off, copy or download any part of Our Site or the Content, in breach of these Terms, Your right to use Our Site and the Content will cease immediately and You must return or destroy any copies of the materials You have made.</p>
+<p class="cms-plugin cms-plugin-10">7.4 Where you submit any User Content to the Site you grant Us a perpetual, royalty-free, worldwide license to use, display, copy, amend and create derivate works from that User Content for any purpose, including commercial purposes.</p>
+<h2 class="cms-plugin cms-plugin-10">8. Submitting information to the Site</h2>
+<p class="cms-plugin cms-plugin-10">8.1 We may from time to time enable features, such as user forums, reviews, bulletin boards, and chat rooms, that allow you to upload comments, messages, photos, videos or other content (the "<strong>User Content</strong>"). If you use any such feature you must comply with the provisions of this clause 8.</p>
+<p class="cms-plugin cms-plugin-10">8.2 By uploading any User Content you acknowledge and agree that you are the author and owner of that User Content and all rights in it and that it complies with all applicable laws, does not infringe any rights of any third party, and is not obscene, defamatory or likely to be offensive to any other person and will not cause any damage to Our reputation. You also must not upload any User Content that could be deemed to be junk or spam or, unless we agree in writing otherwise, to advertise any goods or services.</p>
+<p class="cms-plugin cms-plugin-10">8.3 You also agree that we have the right to delete any of the User Content that you may upload from time to time and to edit it and use it as we see fit on our Site and in connection with any of our products or services as may exist from time to time, and in connection with any promotion, publicity or marketing of our Site, products or services as may exist from time to time.</p>
+<p class="cms-plugin cms-plugin-10">8.4 We have the right to disclose Your identity to any third party who is claiming that any User Content posted or uploaded by You to Our Site constitutes a violation of their intellectual property rights or their right to privacy. We have the right to remove any User Content You post on Our Site.</p>
+<p class="cms-plugin cms-plugin-10">8.5 You must not misuse Our Site by knowingly introducing viruses, trojans, worms, logic bombs or other material that is malicious or technologically harmful. You must not attempt to gain unauthorised access to Our Site, the server on which Our Site is stored or any server, computer or database connected to Our Site. You must not attack Our Site via a denial-of-service attack or a distributed denial-of-service attack. By breaching this provision, You would commit a criminal offence under the Computer Misuse Act 1990. We will report any such breach to the relevant law enforcement authorities and We will co-operate with those authorities by disclosing Your identity to them. In the event of such a breach, Your right to use Our Site will cease immediately.</p>
+<h2 class="cms-plugin cms-plugin-10">9. Accuracy and availability of the Site</h2>
+<p class="cms-plugin cms-plugin-10">9.1 While We try to make sure that the Site and the Content is accurate, up-to-date and free from bugs and viruses, neither We nor any of the third party providers of data or information on our Site make any representations, warranties or guarantees, whether express or implied, that the Content on Our Site and that we sent to You is accurate, complete or up to date. You should use Your own virus protection software. Furthermore, We cannot promise that the Site or any of the Content will be fit or suitable for any purpose.</p>
+<p class="cms-plugin cms-plugin-10">9.2 While We try to make sure that the Site is available for Your use, We do not promise that the Site is available at all times nor do We promise the uninterrupted use by You of the Site or that any Content is up-to-date or not delayed. We may suspend or terminate operation of the Site at any time as We see fit.</p>
+<h2 class="cms-plugin cms-plugin-10">10. Links and third party sites</h2>
+<p class="cms-plugin cms-plugin-10">10.1 The Site and the Content (including information we send to You) may contain links or references to third-party websites. Any such links or references are provided for Your convenience only. We have no control over third party websites and accept no legal responsibility for any content, material or information contained in them. The display of any hyperlink and reference to any third party website does not mean that We endorse that third party's website, products or services. Your use of a third party website may be governed by the terms and conditions of that third party website.</p>
+<p class="cms-plugin cms-plugin-10">10.2 You may link to Our home page, provided You do so in a way that is fair and legal and does not damage Our reputation or take advantage of it. You must not establish a link in such a way as to suggest any form of association, approval or endorsement on Our part where none exists. You must not establish a link to Our Site in any website that is not owned by You. We reserve the right to withdraw linking permission without notice. If You wish to link to or make any use of Content on Our Site other than that set out above, please contact Us.</p>
+<h2 class="cms-plugin cms-plugin-10">11. Our responsibility for loss or damage suffered by You</h2>
+<p class="cms-plugin cms-plugin-10">11.1 We do not exclude or limit in any way Our liability to You where it would be unlawful to do so. This includes liability for death or personal injury caused by Our negligence or the negligence of Our employees, agents or subcontractors and for fraud or fraudulent misrepresentation.</p>
+<p class="cms-plugin cms-plugin-10">11.2 To the maximum extent permitted by law We exclude all implied conditions, warranties, representations or other terms that may apply to Our Site or any Content on it or that we send to You.</p>
+<p class="cms-plugin cms-plugin-10">11.3 We will not be liable to You for any loss or damage, whether in contract, tort (including negligence), breach of statutory duty, or otherwise, even if foreseeable, arising under or in connection with use of, or inability to use, Our Site; or use of or reliance on any Content displayed on Our Site or that we send to You.</p>
+<p class="cms-plugin cms-plugin-10">11.4 In particular, We will not be liable for:</p>
+<p class="cms-plugin cms-plugin-10">11.4.1 loss of profits, sales, business, revenue, anticipated savings, business opportunity, goodwill or reputation or any business interruption; or</p>
+<p class="cms-plugin cms-plugin-10">11.4.2 any indirect or consequential loss or damage.</p>
+<h2 class="cms-plugin cms-plugin-10">12. Rights of third parties</h2>
+<p class="cms-plugin cms-plugin-10">No one other than a party to these Terms has any right to enforce any of these Terms.</p>
+<h2 class="cms-plugin cms-plugin-10">13. Variation</h2>
+<p class="cms-plugin cms-plugin-10">No changes to these Terms are valid or have any effect unless agreed by Us in writing. We reserve the right to vary these Terms from time to time. Our updated terms will be displayed on the Site and by continuing to use and access the Site following such changes, You agree to be bound by any variation made by Us. It is Your responsibility to check these Terms from time to time to verify such variations.</p>
+<h2 class="cms-plugin cms-plugin-10">14. Disputes</h2>
+<p class="cms-plugin cms-plugin-10">These Terms, their subject matter and their formation (and any non-contractual disputes or claims) are governed by the laws of England and Wales. Parties to these Terms agree to the exclusive jurisdiction of the courts of England and Wales.</p>
+</div>
+
+	</div>
+
+			</div>
+		</div>
+		<div class="footer" ng-controller="ContactUsFooterCtrl">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-2 col-sm-3 col-xs-6 col-footer">
+				<div style="display:none;" id="stripe-container">
+				</div>
+				<div class="nav-panel">
+					<div class="nav-header"><h4>Our company</h4></div>
+					<ul class="nav nav-pills">
+						<li role="presentation" class=""><a href="/about-us/">About us</a></li>
+						<li role="presentation" class=""><a href="/press-release/">Press Releases</a></li>
+						<li role="presentation" class=""><a href="https://blog.cryptocompare.com/" target="_blank">Research</a></li>
+						<li role="presentation"><a href="/privacy-policy/">Privacy policy</a></li>
+						<li role="presentation"><a href="/terms-conditions/">Terms &amp; Conditions</a></li>					  
+						<li role="presentation"><a href="/website-disclaimer/">Website disclaimer</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-6 col-footer panel-min-height">
+				<div class="nav-panel">
+					<div class="nav-header"><h4>Marketing</h4></div>
+					<ul class="nav nav-pills">
+						<li role="presentation"><a href="https://www.cryptocompare.com/media/35280519/cc-public-guidelines.pdf">Branding guidelines</a></li>	
+						<li role="presentation"><a href="/advertise/">Advertise with us</a></li>							
+						<li role="presentation" class=""><a href="/email-updates/daily/2025/dec/19/" >Latest Newsletter</a></li>
+						<li role="presentation" class=""><a href="/api/external/newsletter/" >Newsletter RSS</a></li>
+						<li role="presentation" class=""><a href="https://drive.google.com/drive/folders/1PYIAtNdDxUUpjr8BNd825n9InM8c35ck" target="_blank">Submit Content</a></li>
+					</ul>
+				</div>
+			</div>				
+			<div class="col-md-2 col-sm-3 col-xs-6 col-footer">
+				<div class="nav-panel">
+					<div class="nav-header"><h4>Developers</h4></div>
+					<ul class="nav nav-pills">
+						<li role="presentation"><a href="/dev/widget/wizard/"><i class="fa fa-space-shuttle"></i> Widgets</a></li>
+						<li role="presentation"><a href="https://min-api.cryptocompare.com"><i class="fa fa-code"></i> API</a></li>
+						<li role="presentation"><a href="" ng-click="switchLights()"><i class="fa fa-lightbulb-o"></i> Turn Lights {{LightsStatus}}</a></li>
+						<li role="presentation"><a target="_blank" href="https://www.cryptocompare.com/full-screen/conference?fsyms=BTC,ETH,BCH&tsym=USD&eventLogo=https://www.cryptocompare.com/media/30001628/your-logo.png"><i class="fa fa-desktop"></i> Conference Screen</a></li>
+						<li role="presentation"><a target="_blank" href="https://www.cryptocompare.com/media/25792605/topcoinsticker-v3.html"><i class="fa fa-ticket"></i> Conference Ticker</a></li>
+					</ul>
+				</div>
+			</div>											
+			<div class="col-md-2 col-sm-3 col-xs-6 col-footer">
+				<div class="nav-panel">
+					<div class="nav-header"><h4>Get in touch</h4></div>
+					<ul class="nav nav-pills ng-scope">
+						<li role="presentation" class=""><a href="/careers/">Careers</a></li>						
+						<li role="presentation"><a href="https://cryptocompare.zendesk.com/hc/en-gb/requests/new" target="_blank">Contact Us</a></li>
+						<li role="presentation"><a href="https://cryptocompare.zendesk.com/hc/en-gb" target="_blank">FAQs</a></li>
+					</ul>
+				</div>				
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12" style="margin-top: 0px;">	
+				<div class="nav-panel">
+					<div class="nav-header text-center"><h4>Get the CryptoCompare App</h4></div>
+					<div class="row row-app" style="margin-top: 15px; margin-bottom: 30px;">
+						<div class="col-md-6 text-right">
+							<a href="https://play.google.com/store/apps/details?id=com.cryptocompare.mainapp" target="_blank">
+							 <img
+								src="https://www.cryptocompare.com/media/34835915/playstore.png"
+								style="width: 140px;"
+							 />
+							</a>
+						</div>
+						<div class="col-md-6">
+							<a href="https://itunes.apple.com/us/app/cryptocompare/id1248404900?ls=1&mt=8" target="_blank">
+							 <img
+								src="https://www.cryptocompare.com/media/34835914/appstore.png"
+								style="height: 50px;"
+							 />
+							</a>
+						</div>						
+					</div>
+				</div>					
+				<ul class="soc">
+					<li><a class="fa fa-twitter" href="https://twitter.com/CryptoCompare" target="_blank"></a></li>
+					<li><a class="fa fa-facebook" href="https://www.facebook.com/cryptocompare" target="_blank"></a></li>
+					<li><a class="fa fa-medium" href="https://blog.cryptocompare.com/" target="_blank"></a></li>
+				</ul>
+				<div class="nav-panel clearfix">
+					<ul class="nav nav-pills nav-centered nav-made">
+						<li role="presentation">
+							<a href="https://www.cryptocompare.com/media/35280519/cc-public-guidelines.pdf"> 
+								© 2014 - 2026 Crypto Coin Comparison Ltd
+							</a>
+						</li>					  					
+						<li role="presentation"><a href="/about-us/">Made with <i class="fa fa-heart love"></i> in London</a></li>					  					
+					</ul>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+<script type="text/ng-template" id="gModalService/showMessage.html">
+	<div class="modal-header">
+		<h3 class="modal-title">
+			{{message.Title}}
+			<button type="button" class="close" aria-label="Close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		</h3>
+	</div>
+	<div class="modal-body" ng-class="{'with-icon': message.Type }">
+		<div class="modal-icon-{{message.Type}} modal-icon-big" ng-show="message.Type"><span class="fa fa-warning"></span></div>
+		<p class="modal-info-text" ng-bind-html="message.Body | parseUrlFilter:'_blank'"></p>
+	</div>
+    <div class="modal-footer">
+		<button class="btn btn-default" ng-click="cancel()">Close</button>
+		<button ng-show="message.ShowOk" class="btn btn-success" ng-click="doOkAction()">Ok</button>
+	</div>
+</script>
+<script type="text/ng-template" id="gModalService/showTipMessage.html">
+	<div class="modal-header">
+		<h3 class="modal-title">
+			If you are enjoying our free service
+			<button type="button" class="close" aria-label="Close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+		</h3>
+	</div>
+	<div class="modal-body with-icon">
+		<div class="modal-icon-big modal-smile-icon-big"><span class="fa fa-smile-o"></span></div>
+		<div class="modal-info-text">
+			<div class="modal-subheading">Put a smile on our faces and support us by donating :)</div>
+			<div class="donate-coin">
+				<div class="donate-coin-label"> Bitcoin (BTC)</div>
+				<div class="donate-wallet-address">
+					1DNigUiVNaMrzANuwC7KomBJHX8sdvnvkM
+					<a href="" ng-click="message.show('btcQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="!message.btcQr">Show QR Code</a>
+					<a href="" ng-click="message.hide('btcQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="message.btcQr">Hide QR Code</a>
+				</div>
+				<div class="text-center qr-code-coin" ng-show="message.btcQr">
+					<img src="/media/30002130/1dniguivnamrzanuwc7kombjhx8sdvnvkm.png"/>
+				</div>
+			</div>
+			<div class="donate-coin">
+				<div class="donate-coin-label"> Litecoin (LTC)</div>
+				<div class="donate-wallet-address">
+					LN4TnhNotx3SGoES7FLJL3Psh3Uo6qdgKR
+					<a href="" ng-click="message.show('ltcQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="!message.ltcQr">Show QR Code</a>
+					<a href="" ng-click="message.hide('ltcQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="message.ltcQr">Hide QR Code</a>
+				</div>
+				<div class="text-center qr-code-coin" ng-show="message.ltcQr">
+					<img src="/media/20586/ln4tnhnotx3sgoes7-small.png"/>
+				</div>
+			</div>
+			<div class="donate-coin">
+				<div class="donate-coin-label"> Ethereum (ETH)</div>
+				<div class="donate-wallet-address">
+					0x154230ed91d1e711e56b9c0f88b5ba5fd2b0503f
+					<a href="" ng-click="message.show('ethTransaction')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="!message.ethTransaction">Show Transaction Code</a>
+					<a href="" ng-click="message.hide('ethTransaction')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="message.ethTransaction">Hide Transaction Code</a>
+				</div>
+				<div class="donate-wallet-address qr-code-coin" ng-show="message.ethTransaction">
+					eth.sendTransaction({from: eth.coinbase, to: "0x154230ed91d1e711e56b9c0f88b5ba5fd2b0503f", value: web3.toWei(1, "ether"),data: web3.toHex('Love the website, good luck!')})
+				</div>
+			</div>
+			<div class="donate-coin">
+				<div class="donate-coin-label"> DigitalCash (DASH)</div>
+				<div class="donate-wallet-address">
+					XmUswXDP4rrCkoi84iPAZ5F2i49grTQGP5
+					<a href="" ng-click="message.show('dashQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="!message.dashQr">Show QR Code</a>
+					<a href="" ng-click="message.hide('dashQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="message.dashQr">Hide QR Code</a>
+				</div>
+				<div class="text-center qr-code-coin" ng-show="message.dashQr">
+					<img src="/media/350769/xmuswxdp4rrckoi84ipaz5f2i49grtqgp5-small.jpg"/>
+				</div>
+			</div>
+			<div class="donate-coin">
+				<div class="donate-coin-label"> ZCash (ZEC)</div>
+				<div class="donate-wallet-address">
+					t1SB3Pr4Gi6Y7ctzd23kCT5qfLxvfAo8E4A
+					<a href="" ng-click="message.show('zecQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="!message.zecQr">Show QR Code</a>
+					<a href="" ng-click="message.hide('zecQr')" class="pull-right btn btn-xs btn-default hidden-xs" ng-show="message.zecQr">Hide QR Code</a>
+				</div>
+				<div class="text-center qr-code-coin" ng-show="message.zecQr">
+					<img src="https://www.cryptocompare.com/media/1382055/t1sb3pr4gi6y7ctzd23kct5qflxvfao8e4a-small.jpg"/>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="modal-footer">
+		<button class="btn btn-default" ng-click="cancel()">Close</button>
+	</div>
+</script>
+		<script type="text/ng-template" id="general/cookie-notification-popup.html">
+	<div class="cookies-notification" ng-hide="cookiePopupSeen">
+		<div class="cookies-wrapper">
+			We’ve migrated our accounts and authentication to CoinDesk. If you experience any problems, our support team is ready to help — just submit a request
+			<div class="cookies-actions">
+				<a href="https://support.ccdata.io/hc/en-gb/requests/new" target="_blank" class="btn btn-blue btn-xs btn-speech-right cookies-learn">Contact Us</a>
+				<div class="cookie-notification-icon"></div>
+				<a href="" ng-click="hideCookieNotification()" class="btn btn-green btn-xs btn-speech-left cookies-gotit">Dismiss</a>
+			</div>
+		</div>
+	</div>
+</script>
+		<cookie-notification-popup></cookie-notification-popup>
+		<script type="text/ng-template" id="general/toast-notifications.html">
+	<div class="toast-notifications">
+		<div class="toast-notification-wrapper animate-slide-left toast-{{notification.Type}}" 
+		ng-repeat="(index,notification) in toastNotifications.getNotifications()">
+			<div class="toast-notification-actions">
+				<a href="" ng-click="toastNotifications.deleteNotification(notification.Timestamp)" class="toast-close"><span class="fa fa-times"></span></a>
+			</div>
+			<div class="toast-title" ng-bind-html="notification.Title"></div>	
+			<div class="toast-body" ng-bind-html="notification.Message"></div>
+		</div>
+	</div>
+</script>
+		<toast-notifications></toast-notifications>
+		<script type="text/ng-template" id="general/username-options.html">
+	<div class="dropdown widget-user" uib-dropdown is-open="status.isopen" ng-click="toggleDropdown($event)" aria-haspopup="true" aria-expanded="false">
+		<div class="avatar-container">
+			<div class="avatar" ng-show="avatar">
+				<img ng-src="{{cryptopian.Avatar}}" class="user-avatar">
+			</div>
+			<span itemprop="name" class="username"><i class="fa fa-user" ng-show="icon"></i>{{cryptopian.Name}}</span>
+			<span class="fa fa-caret-down" ng-show="caret"></span>
+		</div>
+
+		<ul ng-if="cryptopian.Name === '[removed]'" class="uib-dropdown-menu with-arrow dropdown-right dropdown-small dropdown-widget-user">
+			<li ng-if="userManager.isLoggedIn() && userManager.canBan()">
+				<a href="" class="btn btn-ban" ng-click="restoreCryptopian()" >
+					<span>Restore User</span>
+				</a>
+			</li>
+		</ul>
+		<ul ng-if="cryptopian.Name !== '[removed]'"class="uib-dropdown-menu with-arrow dropdown-right dropdown-small dropdown-widget-user">
+			<li>
+				<a itemprop="url" ng-href="{{profileUrl}}" ng-click="goToProfile()">
+					<i class="fa fa-user-secret"></i> View <span ng-show="itIsMe">My </span>Profile
+				</a>	
+			</li>
+			<li ng-if="userManager.isLoggedIn() && userManager.canBan()">
+				<a href="" class="btn btn-ban" ng-click="banOrUnbanCryptopian()" >
+					<span ng-if="!alreadyBanned"><i class="fa fa-lock"></i> Ban</span>
+					<span ng-if="alreadyBanned" ><i class="fa fa-unlock"></i> Un-Ban</span>
+				</a>
+			</li>
+			<li ng-if="userManager.isLoggedIn() && userManager.canDeleteAllForumActivity()">
+				<a href="" class="btn btn-ban" ng-click="deleteAllForumActivityCryptopian()" >
+					<span><i class="fa fa-trash-o"></i>Delete all Posts & Comments</span>
+				</a>
+			</li>			
+			<li class="inmenu-follow-action" ng-show="!itIsMe">
+				<a href="" class="btn" ng-click="changeFollowingStatus()" 
+					ng-class="{'user-follow':!alreadyFollowing||(!followingHover&&alreadyFollowing),'user-unfollow':followingHover&&alreadyFollowing}"
+					ng-mouseover="followingHover=true" 
+					ng-mouseleave="followingHover=false">
+						<span ng-show="!alreadyFollowing"><i class="fa fa-plus"></i> Follow</span>
+						<span ng-show="alreadyFollowing" >
+							<span ng-show="!followingHover"><i class="fa fa-check"></i> Following</span>
+							<span ng-show="followingHover"><i class="fa fa-minus"></i> Unfollow</span>
+						</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</script>
+
+		<style>
+	.header-time-downcounter {
+		display: inline-block;
+		margin-left: -15px;
+		margin-top: 20px;
+	}
+	.header-time-downcounter .timer-counter-value {
+		font-size: 45px;
+		font-weight: bold;
+		line-height: 50px;
+	}
+	.header-time-downcounter .timer-counter-separator {
+		color: #999;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.header-time-downcounter .counter-item {
+		float: left;
+		text-align: center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.lights-off .timer-counter-value {
+		color: #FFF;
+	}
+	.select-currencies-fixed .header-time-downcounter {
+		margin-top: 10px;
+	}
+	.select-currencies-fixed .header-time-downcounter .counter-item {
+		padding-left: 7px;
+		padding-right: 7px;
+	}
+	.select-currencies-fixed .header-time-downcounter .timer-counter-separator {
+		font-size: 8px;
+	}
+	.select-currencies-fixed .header-time-downcounter .timer-counter-value {
+		font-size: 16px;
+		line-height: 16px;
+	}
+	@media only screen and (max-width:992px) {
+		.header-time-downcounter {
+			margin-left: 0;
+			margin-top: 0;
+		}
+	}
+	@media only screen and (max-width:350px) {
+		.header-time-downcounter .timer-counter-value {
+			font-size: 35px;
+		}
+		.header-time-downcounter .timer-counter-separator {
+			font-size: 11px;
+		}		
+	}
+</style>
+<script type="text/ng-template" id="general/countdown-timer.html">
+	<div class="header-time-downcounter">
+		<div class="counter-item icocounter-text" ng-if="textBeforeCounter !== undefined">
+			<div class="timer-counter-value ">{{textBeforeCounter}}</div>
+			<div class="timer-counter-separator"></div>
+		</div>
+		<div class="counter-item icocounter-days" ng-if="daysRemaining>0">
+			<div class="timer-counter-value ">{{daysRemaining}}</div>
+			<div class="timer-counter-separator">{{daysRemainingText}}</div>
+		</div>
+		<div class="counter-item icocounter-hours" ng-if="daysRemaining>0 || (hoursRemaining>0 && daysRemaining==0)">
+			<div class="timer-counter-value ">{{hoursRemaining}}</div>
+			<div class="timer-counter-separator">{{hoursRemainingText}}</div>
+		</div>
+		<div class="counter-item icocounter-minutes" ng-if="daysRemaining>0 || hoursRemaining>0 || (minutesRemaining>0 && hoursRemaining==0 && daysRemaining==0)">
+			<div class="timer-counter-value ">{{minutesRemaining}}</div>
+			<div class="timer-counter-separator">{{minutesRemainingText}}</div>
+		</div>
+		<div class="counter-item icocounter-seconds" ng-if="daysRemaining>0 || hoursRemaining>0 || minutesRemaining>0 || (secondsRemaining>0 && minutesRemaining==0 && hoursRemaining==0 && daysRemaining==0)">
+			<div class="timer-counter-value ">{{secondsRemaining}}</div>
+			<div class="timer-counter-separator">{{secondsRemainingText}}</div>
+		</div>
+	</div>		
+</script>
+<script>		
+	angular.module('ccc-app').directive('countdownTimer', [
+		function() {
+			return {
+				restrict: 'E',
+				templateUrl: 'general/countdown-timer.html',
+				controller: ['$scope','$timeout',function($scope,$timeout){
+					$scope.currentDate =  new Date();
+					$scope.day = 24 * 60 * 60 * 1000;
+					$scope.hour = 60 * 60 * 1000;
+					$scope.minute = 60 * 1000;
+					$scope.second = 1000;
+					$scope.daysRemainingTextSingular = 'day';
+					$scope.hoursRemainingSingular = 'hour';
+					$scope.minutesRemainingSingular = 'minute';
+					$scope.secondsRemainingSingular = 'second';
+					$scope.startCountdownUpdate = function(){
+						$scope.currentDate =  new Date();
+						$scope.currentTime = $scope.currentDate.getTime();
+						if($scope.timerEndJsTs>0){
+							if($scope.currentTime<$scope.timerEndJsTs-1000){
+								var milliscondsRemaining = $scope.timerEndJsTs - $scope.currentTime;
+								$scope.daysRemaining = Math.floor(milliscondsRemaining / $scope.day);
+								if($scope.daysRemaining==1){
+									$scope.daysRemainingText=$scope.daysRemainingTextSingular;
+								}else{
+									$scope.daysRemainingText=$scope.daysRemainingTextSingular+'s';
+								}
+
+								$scope.hoursRemaining = Math.floor(milliscondsRemaining % $scope.day / $scope.hour);
+								if($scope.hoursRemaining==1){
+									$scope.hoursRemainingText=$scope.hoursRemainingSingular;
+								}else{
+									$scope.hoursRemainingText=$scope.hoursRemainingSingular+'s';
+								}
+
+								$scope.minutesRemaining = Math.floor(milliscondsRemaining % $scope.day % $scope.hour / $scope.minute);
+								if($scope.minutesRemaining==1){
+									$scope.minutesRemainingText=$scope.minutesRemainingSingular;
+								}else{
+									$scope.minutesRemainingText=$scope.minutesRemainingSingular+'s';
+								}
+
+								$scope.secondsRemaining = Math.floor(milliscondsRemaining % $scope.day % $scope.hour % $scope.minute / $scope.second);
+								if($scope.secondsRemaining==1){
+									$scope.secondsRemainingText=$scope.secondsRemainingSingular;
+								}else{
+									$scope.secondsRemainingText=$scope.secondsRemainingSingular+'s';
+								}
+								$timeout($scope.startCountdownUpdate, 1000, false);
+							}else {
+								if ($scope.objPassedToFunction) {
+									$scope.functionToCall($scope.objPassedToFunction);
+								} else {
+									$scope.functionToCall();
+								}
+							}
+						}
+					}
+					$scope.startCountdownUpdate();
+				}],
+				scope:{
+					timerEndJsTs : "=",
+					functionToCall : "=",
+					objPassedToFunction : "=",
+					textBeforeCounter : "@"
+				},
+				link:function(scope,element,attrs){
+				}
+			};
+		}
+	]);
+</script>
+	
+	</div>
+	<style>
+
+	.container-ie {
+		margin: 0 auto;
+		width: 820px;
+	}
+	.ie-error {
+		overflow: hidden;
+		background: #FFF;
+		padding: 30px;
+		margin-top: 30px;
+		border: 1px solid #DDD;
+	}
+	.wrong-browser {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.list-browsers {
+		list-style: none;
+		list-position: outside;
+		margin: 0;
+		padding: 0;
+	}
+	.list-browsers li {
+		background: #EEE;
+		display: inline-block;
+		float: left;
+		margin-right: 15px;
+		height: 145px;
+		width: 120px;
+		padding: 10px;
+		text-align: center;
+	}
+	.list-browsers li a {
+		font-weight: bold;
+	}
+	.list-browsers li img {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+</style>
+<div class="container-ie">
+	<div id="ieError" class="ie-error">
+		<div class="wrong-browser">
+			<b>CryptoCompare</b> needs a newer browser in order to work.<br> 
+			Please use one of the browsers below:
+		</div>
+		<div class="browser-selection">
+			<ul class="list-browsers">
+				<li>
+					<a href="http://www.firefox.com">
+					<img src="/media/20512/firefox.png"><br>Firefox</a>
+				</li>
+				<li>
+					<a href="https://www.google.com/chrome/browser">
+						<img src="/media/20510/google_chrome_icon.png">
+						Chrome
+					</a>
+				</li>
+				<li>
+					<a href="http://www.opera.com">
+						<img src="/media/20511/opera.png">
+						Opera
+					</a>
+				</li>	
+				<li>
+					<a href="http://windows.microsoft.com/en-us/internet-explorer/ie-9-worldwide-languages">
+						<img src="/media/20514/ieicon.png">
+						Internet Explorer
+					</a>
+				</li>						
+				<li>
+					<a href="http://filehippo.com/download_safari">
+						<img src="/media/20513/safari-logo.png">
+						Safari
+					</a>
+				</li>				
+			</ul>
+		</div>
+	</div>
+</div>
+	<div id="fb-root"></div>
+	<script>
+	</script>
+</body>
+</html>

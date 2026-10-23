@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-22",
+  "scope": "MySQL-backed market directory cursor persistence",
+  "migration": "V7__market_query_snapshots.sql",
+  "database": "MySQL 8.4.13 at 127.0.0.1:3307, observatory_test",
+  "tests": {
+    "marketQuerySnapshotIntegration": 3,
+    "fullJavaSuite": 63,
+    "javaFailures": 0,
+    "javaErrors": 0,
+    "optInLiveProbeSkipped": 1,
+    "frontendUnit": 16,
+    "playwright": 14,
+    "playwrightFailures": 0
+  },
+  "assertions": [
+    "A second ResearchService instance continues a cursor from MySQL with identical snapshotAt, rows and source reason.",
+    "Changing q rejects the cursor; a snapshot older than 120 seconds is deleted and rejects continuation.",
+    "Concurrent continuation returns the same page and creation cleanup retains at most 32 snapshots.",
+    "The local HTTP endpoint returns q=JCT with completeness=complete, total=1 and missing source measurements as null."
+  ],
+  "limitations": [
+    "This does not prove database crash recovery, backup restore, source usage rights, complete provider coverage or production availability.",
+    "Runtime sources remain disabled."
+  ]
+}

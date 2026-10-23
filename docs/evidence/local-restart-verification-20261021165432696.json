@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-21T16:54:45.2785901Z",
+  "database": "observatory_test",
+  "url": "http://127.0.0.1:8081",
+  "previousProcessId": 33692,
+  "restartedProcessId": 34628,
+  "before": {
+    "sha256": "B21949CBD34700695A429D83E7B652993543B82FB59AE525B264EC37FCF282EB",
+    "watchCount": 1,
+    "noteCount": 3,
+    "projectRecordCount": 2,
+    "noteVersions": [
+      2,
+      10,
+      6
+    ],
+    "layoutVersion": 14
+  },
+  "after": {
+    "sha256": "B21949CBD34700695A429D83E7B652993543B82FB59AE525B264EC37FCF282EB",
+    "watchCount": 1,
+    "noteCount": 3,
+    "projectRecordCount": 2,
+    "noteVersions": [
+      2,
+      10,
+      6
+    ],
+    "layoutVersion": 14
+  },
+  "equal": true,
+  "coverage": "Application process termination/restart with MySQL kept running; not database crash or production recovery."
+}

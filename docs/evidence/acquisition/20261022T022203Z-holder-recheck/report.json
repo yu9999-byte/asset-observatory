@@ -1,0 +1,53 @@
+{
+  "startedAt" : "2026-10-22T02:22:03.312931400Z",
+  "javaVersion" : "21.0.12.1",
+  "os" : "Windows 11",
+  "transport" : "direct",
+  "scope" : "core",
+  "localVerificationOnly" : true,
+  "productionApproved" : false,
+  "perRequestBudgetSeconds" : 10,
+  "rightsStatus" : "unresolved; no external display/storage approval inferred",
+  "historicalProbeBlock" : 25108012,
+  "sampleAddress" : "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+  "requests" : [ {
+    "id" : "blockscout-holders",
+    "url" : "https://eth.blockscout.com/api/v2/tokens/0xc477b6dfd26ec2460b3b92de18837fd476ea7549/holders",
+    "startedAt" : "2026-10-22T02:22:03.336946600Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-22T02:22:08.402781600Z",
+    "elapsedMs" : 5065
+  }, {
+    "id" : "ethplorer-token",
+    "url" : "https://api.ethplorer.io/getTokenInfo/0xc477b6dfd26ec2460b3b92de18837fd476ea7549?apiKey=freekey",
+    "startedAt" : "2026-10-22T02:22:09.629061300Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-22T02:22:14.638985100Z",
+    "elapsedMs" : 5010
+  }, {
+    "id" : "ethplorer-holders",
+    "url" : "https://api.ethplorer.io/getTopTokenHolders/0xc477b6dfd26ec2460b3b92de18837fd476ea7549?apiKey=freekey&limit=30",
+    "startedAt" : "2026-10-22T02:22:15.849841100Z",
+    "method" : "GET",
+    "permissionStatus" : "not-approved-for-production",
+    "fetchStatus" : "transport_error",
+    "errorType" : "ExecutionException",
+    "rootErrorType" : "ConnectException",
+    "endedAt" : "2026-10-22T02:22:20.860541900Z",
+    "elapsedMs" : 5011
+  } ],
+  "selectedTargetIds" : [ "blockscout-holders", "ethplorer-holders", "ethplorer-token" ],
+  "sameProviderReconciliation" : [ ],
+  "endedAt" : "2026-10-22T02:22:22.062581700Z",
+  "continuousCoverageVerified" : false,
+  "independentSourceReconciliation" : false,
+  "externalReleaseApproved" : false
+}

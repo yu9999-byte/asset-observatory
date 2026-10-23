@@ -1,0 +1,322 @@
+{
+  "checkedAt": "2026-10-21T11:32:53.4378601Z",
+  "asset": "Janction",
+  "symbol": "JCT",
+  "chain": "ethereum",
+  "contract": "0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+  "decision": "Ethereum identity/18 decimals and selected real holder/transfer fields verified; runtime source permission remains disabled",
+  "probes": [
+    {
+      "name": "jct-blockscout-info",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:23:24.3067027Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "5348a318d0f0e6f5696d3c547602eeed14712c8315f22c6d9c48a2212f3e7559",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    },
+    {
+      "name": "jct-ethplorer-info",
+      "url": "https://api.ethplorer.io/getTokenInfo/0xc477b6dfd26ec2460b3b92de18837fd476ea7549?apiKey=freekey",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:23:23.4976976Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "3f912ca8bebdb5aeebd56641119f69c1ff3caadb953f026fc1ccb269bce593a1",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    },
+    {
+      "name": "jct-blockscout-holders",
+      "url": "https://eth.blockscout.com/api/v2/tokens/0xc477b6dfd26ec2460b3b92de18837fd476ea7549/holders",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:26:33.9600501Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "fc2c7e0c9298ed6efbe1527324df358a9d8f5d35726958576beb41ab4877c89c",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    },
+    {
+      "name": "jct-ethplorer-holders",
+      "url": "https://api.ethplorer.io/getTopTokenHolders/0xc477b6dfd26ec2460b3b92de18837fd476ea7549?apiKey=freekey&limit=30",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:26:50.3331682Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "3f239afff21e597b9babaf984746e962394685c246e8488864c7e832158624cf",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    },
+    {
+      "name": "jct-blockscout-transfers",
+      "url": "https://eth.blockscout.com/api/v2/addresses/0xA68f0255C0EEB35E3CF558d58cfBbfA8811b9B84/token-transfers?type=ERC-20&token=0xc477b6dfd26ec2460b3b92de18837fd476ea7549",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:27:12.7130306Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "c5d0fe9648716dd66967f6951f0db559f098d1ea64ff37226a1cab6273ed1ed9",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    },
+    {
+      "name": "jct-routescan-transfers",
+      "url": "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=account&action=tokentx&address=0xA68f0255C0EEB35E3CF558d58cfBbfA8811b9B84&contractaddress=0xc477b6dfd26ec2460b3b92de18837fd476ea7549&page=1&offset=10&sort=desc",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-21T11:28:23.6816563Z",
+      "fetchedAtBasis": "Local response file modification time immediately after curl completed",
+      "bodySha256": "44ac20003773766ffaf23e8130bf96280112a3fa8897e5926b40dcae06b99cc0",
+      "transport": "HTTPS curl through pre-existing local Windows network proxy 127.0.0.1:7897; TLS verification enabled"
+    }
+  ],
+  "metadata": {
+    "decimals": 18,
+    "deploymentRawSupply": "39685177488465018509308769880",
+    "supplyExactAcrossTwoIndexers": true,
+    "sourceAt": null,
+    "holderCounts": {
+      "ethplorer": 690,
+      "blockscout": "687"
+    },
+    "caveat": "Asynchronous unpinned indexers. Official global genesis allocation is not current single-deployment supply; no global supply, FDV or circulating denominator inferred."
+  },
+  "holders": {
+    "blockscoutRows": 50,
+    "ethplorerRows": 30,
+    "exactMatches": 29,
+    "checked": [
+      {
+        "address": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "ethplorerRaw": "13145625000000000000000000000",
+        "blockscoutRaw": "13145625000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0x246d024c6816efaae060235d5695a8af31e3d562",
+        "ethplorerRaw": "10670000000000000000000000000",
+        "blockscoutRaw": "10670000000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0x250371ff899cbac4ef5156e6a3f4982a6cf10e2e",
+        "ethplorerRaw": "9000000000000000000000000000",
+        "blockscoutRaw": "9000000000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0xe906efef04fae94d784eaf702278657ef924a050",
+        "ethplorerRaw": "5000000000000000000000000000",
+        "blockscoutRaw": "5000000000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0xa13918f90296072fc15409fced346c8a423ddf86",
+        "ethplorerRaw": "1834375000000000000000000000",
+        "blockscoutRaw": "1834375000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0xe0b5ed3197078b04b0c0001fbdf865c985bf7975",
+        "ethplorerRaw": "10000000000000000000000000",
+        "blockscoutRaw": "10000000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0x4308052838ec897ff6a88f7edcc0cc661fdac29b",
+        "ethplorerRaw": "3716357705652779015181382",
+        "blockscoutRaw": "3716357705652779015181382",
+        "exact": true
+      },
+      {
+        "address": "0x3e1d63e1bc058e96c9cf4ffff03172e427a10f40",
+        "ethplorerRaw": "1509764671746513026126806",
+        "blockscoutRaw": "1509764671746513026126806",
+        "exact": true
+      },
+      {
+        "address": "0xf6f6aaf53cb8d0ed45408c2a8bf280aa15966da9",
+        "ethplorerRaw": "1300000000000000000000000",
+        "blockscoutRaw": "1300000000000000000000000",
+        "exact": true
+      },
+      {
+        "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+        "ethplorerRaw": "1220807200858034932256847",
+        "blockscoutRaw": "1275693154225152005648531",
+        "exact": false
+      },
+      {
+        "address": "0x542ef9b8c59515982a53627405f426bccdc9842d",
+        "ethplorerRaw": "1085544419187093890140848",
+        "blockscoutRaw": "1085544419187093890140848",
+        "exact": true
+      },
+      {
+        "address": "0x731fd5771fd9dc0466fcc9cb72c2a4ef43e0de0d",
+        "ethplorerRaw": "1011100540102298926184629",
+        "blockscoutRaw": "1011100540102298926184629",
+        "exact": true
+      },
+      {
+        "address": "0x576b33357555b6da2960195f5557fe68495c046e",
+        "ethplorerRaw": "1002225059053574739749744",
+        "blockscoutRaw": "1002225059053574739749744",
+        "exact": true
+      },
+      {
+        "address": "0xa71007d8d76147f6b4b0f5964ff82e081d1f7feb",
+        "ethplorerRaw": "928698134111946963950282",
+        "blockscoutRaw": "928698134111946963950282",
+        "exact": true
+      },
+      {
+        "address": "0xaad37f5b35c1965dbd6a588913c96b8421b3bbf1",
+        "ethplorerRaw": "753702876378931905182544",
+        "blockscoutRaw": "753702876378931905182544",
+        "exact": true
+      },
+      {
+        "address": "0xde5e3cec26203bb7ced84b83304a136f092a7290",
+        "ethplorerRaw": "620113776307524013760448",
+        "blockscoutRaw": "620113776307524013760448",
+        "exact": true
+      },
+      {
+        "address": "0xf632a3bf5e6738baa64322bc3966930eb18b5143",
+        "ethplorerRaw": "530368640724584062033967",
+        "blockscoutRaw": "530368640724584062033967",
+        "exact": true
+      },
+      {
+        "address": "0x9ca7acc9ca3d4e030b10cc85691168f53696456e",
+        "ethplorerRaw": "529521112133978222808520",
+        "blockscoutRaw": "529521112133978222808520",
+        "exact": true
+      },
+      {
+        "address": "0x206a9df2e94746c9c3c3bb45ad4489a6efeed28a",
+        "ethplorerRaw": "500633702339302997330490",
+        "blockscoutRaw": "500633702339302997330490",
+        "exact": true
+      },
+      {
+        "address": "0xa244f6d73e44b0a57612174f2a213f193f496a63",
+        "ethplorerRaw": "405742964641102193131370",
+        "blockscoutRaw": "405742964641102193131370",
+        "exact": true
+      },
+      {
+        "address": "0x726d54495e3f67ab2ef9e1e8efe85f6fe6d5fbab",
+        "ethplorerRaw": "400234464012815670324602",
+        "blockscoutRaw": "400234464012815670324602",
+        "exact": true
+      },
+      {
+        "address": "0x78e84a33aafd8a7dc61f34804f10fc18145a3235",
+        "ethplorerRaw": "372390394808120056503699",
+        "blockscoutRaw": "372390394808120056503699",
+        "exact": true
+      },
+      {
+        "address": "0x4ec8f34fefad027cf6b7993b5aaff1f42b719b87",
+        "ethplorerRaw": "360421227498854034367639",
+        "blockscoutRaw": "360421227498854034367639",
+        "exact": true
+      },
+      {
+        "address": "0x7e3a5a410db4aa782c742d00c8c46558cafe7992",
+        "ethplorerRaw": "344559576532642054875027",
+        "blockscoutRaw": "344559576532642054875027",
+        "exact": true
+      },
+      {
+        "address": "0x4962d81738e6f74b60ac45ad55f42254a6c96eda",
+        "ethplorerRaw": "313130329994164289328246",
+        "blockscoutRaw": "313130329994164289328246",
+        "exact": true
+      },
+      {
+        "address": "0xb0d8be8a11c2129cc71767113179d1b693d044f7",
+        "ethplorerRaw": "311056287363824674879493",
+        "blockscoutRaw": "311056287363824674879493",
+        "exact": true
+      },
+      {
+        "address": "0x7b44559d4d6b76733a86625bdabee52b6d079149",
+        "ethplorerRaw": "308762795290296246925870",
+        "blockscoutRaw": "308762795290296246925870",
+        "exact": true
+      },
+      {
+        "address": "0x82b89dfb0f5cfef81037661384823808bacdabea",
+        "ethplorerRaw": "291911147393644340991225",
+        "blockscoutRaw": "291911147393644340991225",
+        "exact": true
+      },
+      {
+        "address": "0xf47a121246538883de0ffdf4975d2cd0744b23a7",
+        "ethplorerRaw": "280777525565715921784111",
+        "blockscoutRaw": "280777525565715921784111",
+        "exact": true
+      },
+      {
+        "address": "0x96c0f9593215a4b70113fc45d7932945be9f60e6",
+        "ethplorerRaw": "265769279253844585550087",
+        "blockscoutRaw": "265769279253844585550087",
+        "exact": true
+      }
+    ],
+    "sourceAt": null,
+    "caveat": "Sample agreement is not a block-consistent complete Top30, historical coverage, multisig ownership or finality claim. Only raw integer strings compared."
+  },
+  "transfers": {
+    "monitoredAddress": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+    "checked": [
+      {
+        "hash": "0x7e9f4eb514aef90813a335efa771381ba062abec6f59432a47531668dacbcc0b",
+        "logIndex": 411,
+        "blockNumber": 25108012,
+        "blockHash": "0x7686195d82ab5dbdaea47e7557b03c4beaa12085d6533b1823d4f0aacc61f275",
+        "from": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "to": "0x58e53cad56180743ace00349ef3e1bfe4eff5732",
+        "rawQuantity": "3999980000000000000000000000",
+        "eventTime": "2026-05-16T13:25:11.000000Z",
+        "exactFieldsMatched": true,
+        "independentlyVerifiedLogIndex": false
+      },
+      {
+        "hash": "0xc41376ce85eb13002652d7caed96b14be944d6455d7fd949699283c278d1b0c1",
+        "logIndex": 274,
+        "blockNumber": 25105755,
+        "blockHash": "0x0006cd7fadd62b72f5380f917dc31acb62b5b62fdc7ad249e697dadccd1cefb4",
+        "from": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "to": "0x58e53cad56180743ace00349ef3e1bfe4eff5732",
+        "rawQuantity": "10000000000000000000000",
+        "eventTime": "2026-05-16T05:52:11.000000Z",
+        "exactFieldsMatched": true,
+        "independentlyVerifiedLogIndex": false
+      },
+      {
+        "hash": "0x04b66edffba34abf4baa62cd855699eed66b2c83d495183751baaa4fde79ea6d",
+        "logIndex": 571,
+        "blockNumber": 25105747,
+        "blockHash": "0x6829ef6ba0ba9e95db7f13e6496dc64f97fd5e1bafcf467b437cae679d631d6c",
+        "from": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "to": "0x58e53cad56180743ace00349ef3e1bfe4eff5732",
+        "rawQuantity": "10000000000000000000000",
+        "eventTime": "2026-05-16T05:50:35.000000Z",
+        "exactFieldsMatched": true,
+        "independentlyVerifiedLogIndex": false
+      },
+      {
+        "hash": "0x2d51d283739f8aabe9fe278473bb33f4f6da080a156424a7531be301a1fda689",
+        "logIndex": 535,
+        "blockNumber": 23747417,
+        "blockHash": "0x5b8d98ad8806af8190774e40f498bb57fb5cf39ab6742506739e9af9efa292e9",
+        "from": "0x65f8e5583166ff101d9a84265a1103f45c1ca0a6",
+        "to": "0xa68f0255c0eeb35e3cf558d58cfbbfa8811b9b84",
+        "rawQuantity": "17145625000000000000000000000",
+        "eventTime": "2025-11-07T12:33:47.000000Z",
+        "exactFieldsMatched": true,
+        "independentlyVerifiedLogIndex": false
+      }
+    ],
+    "blockscoutRows": 4,
+    "routescanRows": 4,
+    "caveat": "Routescan does not supply log_index in this response. Hash/from/to/value/time/block agreement cannot independently prove log identity, continuous monitoring, finality or historical USD prices."
+  },
+  "runtimeAcceptance": "Catalog and missing-source navigation only; no live Java-to-MySQL-to-UI acceptance, JCT market/OI/liquidation acceptance or production source approval",
+  "rights": "Development verification only. Ethplorer freekey development limits apply. Blockscout legacy migration and Routescan production storage/display terms remain unresolved. No enabled collection policy created."
+}

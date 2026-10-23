@@ -1,0 +1,20 @@
+export type Status='ok'|'partial'|'stale'|'unavailable'|'unsupported';
+export interface Envelope<T>{data:T;status:Status;source:string;sourceUrl:string;fetchedAt:string|null;sourceAt:string|null;coverage:string;reason:string|null;nextCursor:string|null}
+export interface Asset{id:string;symbol:string;name:string;contract:string|null;chain:string|null;spotInstrument:string|null;swapInstrument:string|null;decimals:number}
+export interface Market{assetId:string;instrument:string;lastPrice:string|null;open24h:string|null;change24hPct:string|null;volume24hBase:string|null;turnover24hQuote:string|null;quote:string;sourceAt:string|null}
+export interface Derivative{assetId:string;instrument:string;openInterestContracts:string|null;openInterestUsd:string|null;openInterestRaw:string|null;openInterestUnit:string;sourceAt:string|null}
+export interface Liquidation{id:string;sequenceId:string;instrument:string;side:string;eventType:string;sizeRaw:string;sizeUnit:string;price:string;sourceAt:string|null}
+export interface Markets{assets:Asset[];market:Envelope<Market[]>;derivatives:Envelope<Derivative[]>}
+export interface MarketQueryPage{data:Market[];nextCursor:string|null;total:number;completeness:'complete'|'partial'|'unknown';snapshotAt:string;source:string;sourceUrl:string;fetchedAt:string|null;sourceAt:string|null;coverage:string;reason:string}
+export interface Holder{address:string;balance:string;rawBalance:string;decimals:number;isContract:boolean}
+export interface Transfer{id:string;hash:string;logIndex:number;blockNumber:number;from:string;to:string;direction:'IN'|'OUT'|'SELF';amount:string;rawAmount:string;decimals:number;sourceAt:string|null}
+export interface Watch{kind:'asset'|'address';key:string;createdAt:string}
+export interface Note{kind:'asset'|'address';key:string;projectName:string;projectInfo:string;text:string;visible:boolean;version:number;updatedAt:string}
+export type NoteDraft=Pick<Note,'projectName'|'projectInfo'|'text'>;
+export interface Workspace{watches:Watch[];notes:Note[]}
+export type TableId='markets'|'holders'|'transfers'|'liquidations'|'watches';
+export interface TableSettings{hidden:string[];order:string[];sortKey:string|null;desc:boolean;pageSize:number}
+export interface TablePreference extends TableSettings{tableId:TableId;version:number;updatedAt:string|null}
+export interface SourceVerification{checkedAt:string;transportStatus:'reachable'|'unreachable'|'not_verified';scope:string;rightsStatus:string;evidenceId:string}
+export interface Source{name:string;documentation:string;terms:string|null;enabled:boolean;productionApproved:boolean;gap:string;verification?:SourceVerification}
+export type Entity={kind:'asset'|'address';key:string};
